@@ -157,7 +157,7 @@ class CaptchaProcessor:
     def __init__(self, metadata_path: str = None, vocab: List[str] = None):
         self.height = 70
         self.width_multiple = 35
-        self.max_seq_len = 56
+        self.max_seq_len = 128
         
         # Build vocabulary
         if vocab is not None:

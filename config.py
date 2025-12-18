@@ -28,7 +28,7 @@ class CaptchaConfig(HookedTransformerConfig):
     d_head: int = 16            # d_model / n_heads = 64 / 4 = 16
     d_mlp: int = 256            # 4 * d_model = 256
     
-    n_ctx: int = 56             # Corresponds to seq_len in README (longest word)
+    n_ctx: int = 128             # Corresponds to seq_len in README (longest word + buffer)
     d_vocab: int = 62           # Placeholder: letters + <PAD>. Update based on actual vocab size.
     
     act_fn: str = "gelu"        # README specifies GeGELU; gelu is the standard approximation

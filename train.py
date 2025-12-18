@@ -15,6 +15,26 @@ from config import CaptchaConfig
 from modelling import CaptchaModel
 from utils import CaptchaProcessor, calculate_metrics
 
+def get_vocab_from_metadata(metadata_path: str) -> Tuple[List[str], int]:
+    """
+    Parses metadata to find the unique characters and vocabulary size.
+    Returns:
+        vocab: List of unique characters
+        vocab_size: Length of vocab + 1 (for PAD token)
+    """
+    with open(metadata_path, 'r') as f:
+        metadata = json.load(f)
+        
+    unique_chars = set()
+    for item in metadata:
+        if 'word_rendered' in item:
+            unique_chars.update(list(item['word_rendered']))
+            
+    vocab = sorted(list(unique_chars))
+    # +1 for PAD token (index 0)
+    vocab_size = len(vocab) + 1
+    return vocab, vocab_size
+
 class CaptchaDataset(Dataset):
     def __init__(self, metadata_path: str, processor: CaptchaProcessor, base_dir: str):
         self.processor = processor
@@ -116,6 +136,10 @@ def train(
     
     # Model Setup
     model_config = CaptchaConfig()
+
+    vocab, vocab_size = get_vocab_from_metadata(metadata_path)
+    print(f"Detected Vocab Size: {vocab_size} (including PAD)")
+    
     model_config.d_vocab = processor.vocab_size
     model_config.d_vocab_out = processor.vocab_size
     
