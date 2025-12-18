@@ -49,9 +49,16 @@ class CaptchaDataset(Dataset):
     def __getitem__(self, idx):
         item = self.metadata[idx]
         image_path = self.base_dir / item['image_path']
+        
+        if not image_path.exists():
+             filename = Path(item['image_path']).name
+             alt_path = self.base_dir / filename
+             if alt_path.exists():
+                 image_path = alt_path
+        
         text = item['word_rendered']
         
-        if not os.path.exists(image_path):
+        if not image_path.exists():
              if idx == 0:
                  raise FileNotFoundError(f"Image not found at {image_path} (Fallback failed)")
              print(f"Warning: Image not found at {image_path}, using fallback.")
@@ -139,9 +146,11 @@ def train(
 
     vocab, vocab_size = get_vocab_from_metadata(metadata_path)
     print(f"Detected Vocab Size: {vocab_size} (including PAD)")
-    
+
     model_config.d_vocab = processor.vocab_size
     model_config.d_vocab_out = processor.vocab_size
+
+    model_config.n_ctx = 128
     
     model = CaptchaModel(model_config)
     model.to(device)
