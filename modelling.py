@@ -71,6 +71,8 @@ class DecoderBlock(nn.Module):
         self.cfg = cfg
         
         self.ln1 = RMSNorm(cfg)
+        self_attn_cfg = copy.deepcopy(cfg)
+        self_attn_cfg.attention_dir = 'bidirectional'
         self.self_attn = Attention(cfg, "global", block_index)
         
         self.ln2 = RMSNorm(cfg)
@@ -78,6 +80,7 @@ class DecoderBlock(nn.Module):
         # We create a copy of config to force bidirectional attention for this layer component
         cross_cfg = copy.deepcopy(cfg)
         cross_cfg.attention_dir = "bidirectional"
+        cross_cfg.positional_embedding_type = 'standard'
         self.cross_attn = Attention(cross_cfg, "global", block_index)
         
         self.ln3 = RMSNorm(cfg)
@@ -138,6 +141,9 @@ class CaptchaModel(HookedRootModule):
         self.proj2 = nn.Linear(392, 128)
         self.proj3 = nn.Linear(128, 64)
         self.act = nn.SiLU()
+        
+        encoder_cfg = copy.deepcopy(cfg)
+        encoder_cfg.attention_dir = 'bidirectional'
         
         # Transformer Encoder
         # Using standard TransformerBlock (self-attention only)

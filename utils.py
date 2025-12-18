@@ -1,7 +1,7 @@
 import json
 import os
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Optional, Union
 import time
 
 import pytesseract
@@ -199,7 +199,7 @@ class CaptchaProcessor:
 
     def process_image(self, image: Image.Image) -> torch.Tensor:
         """
-        Resize image to height 70 and width nearest multiple of 35.
+        Resize image to height 70 and width nearest multiple of 35 that is greater than 70.
         Convert to tensor [C, H, W] where C=3 (RGB).
         """
         # Resize maintaining aspect ratio to height 70
@@ -210,7 +210,9 @@ class CaptchaProcessor:
         
         # Round width to nearest multiple of 35
         target_w = round(new_w / self.width_multiple) * self.width_multiple
-        if target_w == 0: target_w = self.width_multiple
+        min_width = 70
+        if target_w < min_width:
+            target_w = min_width
         
         image = image.resize((target_w, self.height), resample=Image.Resampling.LANCZOS)
         
