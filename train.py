@@ -59,10 +59,7 @@ class CaptchaDataset(Dataset):
         text = item['word_rendered']
         
         if not image_path.exists():
-             if idx == 0:
-                 raise FileNotFoundError(f"Image not found at {image_path} (Fallback failed)")
-             print(f"Warning: Image not found at {image_path}, using fallback.")
-             return self.__getitem__(0)
+            raise FileNotFoundError(f"Image not found at {image_path} (Fallback failed)")
 
         processed = self.processor(str(image_path), text)
         if processed is None:
@@ -189,9 +186,9 @@ def train(
             if batch is None: continue
             
             images = batch["pixel_values"].to(device)
-            targets = batch["input_ids"].to(device) # [B, 56]
+            targets = batch["input_ids"].to(device) 
             
-            logits = model(images) # [B, 56, Vocab]
+            logits = model(images) 
             
             loss = loss_fn(logits.reshape(-1, processor.vocab_size), targets.reshape(-1))
             
