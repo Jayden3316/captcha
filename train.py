@@ -11,9 +11,9 @@ from torch.utils.data import Dataset, DataLoader
 import wandb
 from tqdm import tqdm
 
-from captcha.config import CaptchaConfig
-from captcha.modelling import CaptchaModel
-from captcha.utils import CaptchaProcessor, calculate_metrics
+from config import CaptchaConfig
+from modelling import CaptchaModel
+from utils import CaptchaProcessor, calculate_metrics
 
 class CaptchaDataset(Dataset):
     def __init__(self, metadata_path: str, processor: CaptchaProcessor, base_dir: str):

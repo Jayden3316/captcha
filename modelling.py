@@ -16,7 +16,7 @@ from transformer_lens.components import (
     MLP
 )
 from transformer_lens.hook_points import HookedRootModule, HookPoint
-from captcha.config import CaptchaConfig
+from config import CaptchaConfig
 
 class CNNEncoder(nn.Module):
     def __init__(self, cfg: CaptchaConfig):
@@ -144,7 +144,7 @@ class CaptchaModel(HookedRootModule):
         
         encoder_cfg = copy.deepcopy(cfg)
         encoder_cfg.attention_dir = 'bidirectional'
-        
+
         # Transformer Encoder
         # Using standard TransformerBlock (self-attention only)
         self.encoder_blocks = nn.ModuleList([
