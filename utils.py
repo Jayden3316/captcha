@@ -156,7 +156,6 @@ class CaptchaProcessor:
     """
     def __init__(self, metadata_path: str = None, vocab: List[str] = None):
         self.height = 70
-        self.width_multiple = 35
         self.max_seq_len = 128
         
         # Build vocabulary
@@ -208,15 +207,15 @@ class CaptchaProcessor:
         new_w = int(w * scale)
         image = image.resize((new_w, self.height), resample=Image.Resampling.LANCZOS)
         
-        # Round width to nearest multiple of 35
-        target_w = round(new_w / self.width_multiple) * self.width_multiple
-        min_width = 70
-        if target_w < min_width:
-            target_w = min_width
+        k = round((new_w - 14) / 28)
+        k = max(1, k) # Ensure at least 1 token (width 42)
         
-        image = image.resize((target_w, self.height), resample=Image.Resampling.LANCZOS)
+        target_w = 28 * k + 14
         
-        # Convert to RGB (3 channels) as per modelling.py update
+        if target_w != new_w:
+            image = image.resize((target_w, self.height), resample=Image.Resampling.LANCZOS)
+        
+        # Convert to RGB (3 channels)
         if image.mode != 'RGB':
             image = image.convert('RGB')
             

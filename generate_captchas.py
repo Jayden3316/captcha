@@ -112,8 +112,8 @@ class CaptchaGenerator:
         noise_bg_density: int = 5000,
         extra_spacing: int = -5,
         spacing_jitter: int = 6,
-        bg_color: Optional[str] = None,
-        fg_color: Optional[str] = None,
+        bg_color: Optional[tuple[int, int, int]] = None,
+        fg_color: Optional[tuple[int, int, int, int]] = None,
         image_ext: str = "png",
         word_transform: Optional[Callable[[str], str]] = None,
     ):
