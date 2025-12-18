@@ -1,0 +1,12 @@
+torch
+torchvision
+transformer_lens
+wandb
+tqdm
+pandas
+captcha
+Pillow
+pytesseract
+numpy
+einops
+jaxtyping
