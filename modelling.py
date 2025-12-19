@@ -18,6 +18,115 @@ from transformer_lens.components import (
 from transformer_lens.hook_points import HookedRootModule, HookPoint
 from config import CaptchaConfig
 
+class DropPath(nn.Module):
+    """Drop paths (Stochastic Depth) per sample (when applied in main path of residual blocks)."""
+    def __init__(self, drop_prob: float = 0., scale_by_keep: bool = True):
+        super(DropPath, self).__init__()
+        self.drop_prob = drop_prob
+        self.scale_by_keep = scale_by_keep
+
+    def forward(self, x):
+        if self.drop_prob == 0. or not self.training:
+            return x
+        keep_prob = 1 - self.drop_prob
+        shape = (x.shape[0],) + (1,) * (x.ndim - 1)
+        random_tensor = x.new_empty(shape).bernoulli_(keep_prob)
+        if self.keep_prob > 0.0 and self.scale_by_keep:
+            random_tensor.div_(keep_prob)
+        return x * random_tensor
+
+class ConvNextBlock(nn.Module):
+    def __init__(self, dim, drop_path=0., layer_scale_init_value=1e-6):
+        super().__init__()
+        # Depthwise conv: groups=dim, padding=3 to preserve size with kernel 7
+        self.dwconv = nn.Conv2d(dim, dim, kernel_size=7, padding=3, groups=dim)
+        self.norm = nn.LayerNorm(dim, eps=1e-6)
+        # Pointwise convs implemented as Linear layers
+        self.pwconv1 = nn.Linear(dim, 4 * dim)
+        self.act = nn.GELU()
+        self.pwconv2 = nn.Linear(4 * dim, dim)
+        
+        self.gamma = nn.Parameter(layer_scale_init_value * torch.ones((dim)), requires_grad=True) if layer_scale_init_value > 0 else None
+        self.drop_path = DropPath(drop_path) if drop_path > 0 else nn.Identity()
+
+    def forward(self, x):
+        input = x
+        x = self.dwconv(x)
+        x = x.permute(0, 2, 3, 1) # (N, C, H, W) -> (N, H, W, C)
+        x = self.norm(x)
+        x = self.pwconv1(x)
+        x = self.act(x)
+        x = self.pwconv2(x)
+        if self.gamma is not None:
+            x = self.gamma * x
+        x = x.permute(0, 3, 1, 2) # (N, H, W, C) -> (N, C, H, W)
+
+        x = input + self.drop_path(x)
+        return x
+
+# Architecture 2:
+class CNNEncoder(nn.Module):
+    def __init__(self, cfg: CaptchaConfig):
+        super().__init__()
+        self.cfg = cfg
+        
+        # Conv2D 1: [7, 1, 16] (Height 70 -> 64)
+        # Standard convolution for channel expansion (3 -> 16)
+        self.conv1 = nn.Conv2d(3, 16, kernel_size=(7, 7), stride=1)
+        
+        # ConvNext Stage 1
+        self.cnxt1 = nn.Sequential(
+            ConvNextBlock(dim=16),
+            ConvNextBlock(dim=16),
+            ConvNextBlock(dim=16)
+        )
+        
+        self.pool1 = nn.MaxPool2d(kernel_size=2, stride=2)
+        
+        # Conv2D 2: [5, 1, 32] (Height 32 -> 28)
+        self.conv2 = nn.Conv2d(16, 32, kernel_size=(5, 5), stride=1)
+        
+        # ConvNext Stage 2
+        self.cnxt2 = nn.Sequential(
+            ConvNextBlock(dim=32),
+            ConvNextBlock(dim=32),
+            ConvNextBlock(dim=32)
+        )
+        
+        self.pool2 = nn.MaxPool2d(kernel_size=2, stride=2)
+        
+        self.act = nn.GELU() 
+
+    def forward(self, x: Float[torch.Tensor, "batch channel height width"]) -> Float[torch.Tensor, "batch tokens dim"]:
+        # Expected input height: 70
+        # x: [b, 1, 70, w]
+        
+        x = self.act(self.conv1(x)) # [b, 16, 64, w-6]
+        x = self.cnxt1(x)           # [b, 16, 64, w-6]
+        x = self.pool1(x)           # [b, 16, 32, (w-6)//2]
+        
+        x = self.act(self.conv2(x)) # [b, 32, 28, ...]
+        x = self.cnxt2(x)           # [b, 32, 28, ...]
+        x = self.pool2(x)           # [b, 32, 14, w_final]
+        
+        # Flatten pooling: extract 14x7 patches
+        # token_height=14, token_width=7
+        # num_tokens = width // 7
+        
+        # Unfold width to get patches of width 7
+        # x shape: [b, 32, 14, w_feat]
+        patches = x.unfold(3, 7, 7) # [b, 32, 14, num_tokens, 7]
+        
+        # Rearrange to [b, num_tokens, 32*14*7]
+        # 32 channels * 14 height * 7 width = 3136
+        patches = patches.permute(0, 3, 1, 2, 4).contiguous() 
+        b, num_tokens, c, h, w_patch = patches.shape
+        out = patches.view(b, num_tokens, c * h * w_patch)
+        
+        return out
+
+'''
+Architecture 1
 class CNNEncoder(nn.Module):
     def __init__(self, cfg: CaptchaConfig):
         super().__init__()
@@ -60,6 +169,7 @@ class CNNEncoder(nn.Module):
         out = patches.view(b, num_tokens, c * h * w_patch)
         
         return out
+'''
 
 class DecoderBlock(nn.Module):
     """

@@ -13,6 +13,7 @@ import pandas as pd
 from captcha.image import ImageCaptcha
 from PIL.Image import new as createImage
 from PIL.ImageDraw import Draw
+from PIL.ImageFilter import SMOOTH
 
 
 def sanitize_alnum(text: str) -> str:
@@ -40,6 +41,13 @@ def get_words(
                 words.add(clean)
     return sorted(words)
 
+def random_color(start: int, end: int, opacity: Optional[int] = None) -> tuple:
+    red = secrets.randbelow(end - start + 1) + start
+    green = secrets.randbelow(end - start + 1) + start
+    blue = secrets.randbelow(end - start + 1) + start
+    if opacity is None:
+        return red, green, blue
+    return red, green, blue, opacity
 
 class NoisySpacedImageCaptcha(ImageCaptcha):
     def __init__(
@@ -51,11 +59,15 @@ class NoisySpacedImageCaptcha(ImageCaptcha):
         noise_bg_density: int = 5000,
         extra_spacing: int = -5,
         spacing_jitter: int = 6,
+        add_noise_dots: bool = True,
+        add_noise_curve: bool = True,
     ):
         super().__init__(width=width, height=height, fonts=fonts, font_sizes=font_sizes)
         self.noise_bg_density = noise_bg_density
         self.extra_spacing = extra_spacing
         self.spacing_jitter = spacing_jitter
+        self.add_noise_dots = add_noise_dots
+        self.add_noise_curve = add_noise_curve
 
     def _add_background_noise(self, image):
         draw = Draw(image)
@@ -90,7 +102,10 @@ class NoisySpacedImageCaptcha(ImageCaptcha):
         offset = pad // 2
         for im in images:
             w, h = im.size
-            mask = im.convert("L").point(self.lookup_table)
+            if im.mode == "RGBA":
+                mask = im.split()[3]
+            else:
+                mask = im.convert("L").point(self.lookup_table)
             image.paste(im, (offset, int((self._height - h) / 2)), mask)
             jitter = random.randint(-self.spacing_jitter, self.spacing_jitter)
             step = w + self.extra_spacing + max(jitter, 0) + rand
@@ -99,6 +114,24 @@ class NoisySpacedImageCaptcha(ImageCaptcha):
         self._add_background_noise(image)
         return image
 
+    def generate_image(self, chars: str, bg_color=None, fg_color=None):
+        """
+        Override to conditionally add noise dots and curves.
+        """
+        background = bg_color if bg_color else random_color(238, 255)
+        random_fg_color = random_color(10, 200, secrets.randbelow(36) + 220)
+        color = fg_color if fg_color else random_fg_color
+
+        im = self.create_captcha_image(chars, color, background)
+
+        if self.add_noise_dots:
+            self.create_noise_dots(im, color)
+        
+        if self.add_noise_curve:
+            self.create_noise_curve(im, color)
+
+        im = im.filter(SMOOTH)
+        return im
 
 class CaptchaGenerator:
     def __init__(
@@ -112,6 +145,8 @@ class CaptchaGenerator:
         noise_bg_density: int = 5000,
         extra_spacing: int = -5,
         spacing_jitter: int = 6,
+        add_noise_dots: bool = True,
+        add_noise_curve: bool = True,
         bg_color: Optional[tuple[int, int, int]] = None,
         fg_color: Optional[tuple[int, int, int, int]] = None,
         image_ext: str = "png",
@@ -132,6 +167,8 @@ class CaptchaGenerator:
             noise_bg_density=noise_bg_density,
             extra_spacing=extra_spacing,
             spacing_jitter=spacing_jitter,
+            add_noise_dots=add_noise_dots,
+            add_noise_curve=add_noise_curve,
         )
         self.records: list[dict] = []
 
