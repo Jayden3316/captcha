@@ -12,28 +12,9 @@ import wandb
 from tqdm import tqdm
 
 from config import CaptchaConfig
-from modelling import CaptchaModel
-from utils import CaptchaProcessor, calculate_metrics
-
-def get_vocab_from_metadata(metadata_path: str) -> Tuple[List[str], int]:
-    """
-    Parses metadata to find the unique characters and vocabulary size.
-    Returns:
-        vocab: List of unique characters
-        vocab_size: Length of vocab + 1 (for PAD token)
-    """
-    with open(metadata_path, 'r') as f:
-        metadata = json.load(f)
-        
-    unique_chars = set()
-    for item in metadata:
-        if 'word_rendered' in item:
-            unique_chars.update(list(item['word_rendered']))
-            
-    vocab = sorted(list(unique_chars))
-    # +1 for PAD token (index 0)
-    vocab_size = len(vocab) + 1
-    return vocab, vocab_size
+from modelling import CaptchaModel, CTCCaptchaModel
+from utils import calculate_metrics
+from processor import CaptchaProcessor
 
 class CaptchaDataset(Dataset):
     def __init__(self, metadata_path: str, processor: CaptchaProcessor, base_dir: str):
@@ -41,35 +22,46 @@ class CaptchaDataset(Dataset):
         self.base_dir = Path(base_dir)
         
         with open(metadata_path, 'r') as f:
-            self.metadata = json.load(f)
+            raw_metadata = json.load(f)
+            
+        # --- Pre-Filter Step ---
+        self.metadata = []
+        print(f"Scanning dataset at {base_dir}...")
+        
+        for item in raw_metadata:
+            image_path = self.base_dir / item['image_path']
+            
+            # Check existence immediately
+            if image_path.exists():
+                self.metadata.append(item)
+            else:
+                # Try fallback name check
+                filename = Path(item['image_path']).name
+                alt_path = self.base_dir / filename
+                if alt_path.exists():
+                    item['image_path'] = filename # Update path to correct one
+                    self.metadata.append(item)
+                else:
+                    # Just skip it
+                    print(f"Skipping missing file: {item['image_path']}")
+                    
+        print(f"Dataset loaded. Found {len(self.metadata)} valid samples out of {len(raw_metadata)}.")
             
     def __len__(self):
         return len(self.metadata)
     
     def __getitem__(self, idx):
+        # We know this exists because we checked in __init__
         item = self.metadata[idx]
         image_path = self.base_dir / item['image_path']
-        
-        if not image_path.exists():
-             filename = Path(item['image_path']).name
-             alt_path = self.base_dir / filename
-             if alt_path.exists():
-                 image_path = alt_path
-        
         text = item['word_rendered']
         
-        if not image_path.exists():
-             if idx == 0:
-                 raise FileNotFoundError(f"Image not found at {image_path} (Fallback failed)")
-             print(f"Warning: Image not found at {image_path}, using fallback.")
-             return self.__getitem__(0)
-
         processed = self.processor(str(image_path), text)
+        
+        # Only crash if the image is corrupt (exists but can't be opened)
         if processed is None:
-            if idx == 0:
-                raise ValueError(f"Failed to process image at {image_path} (Fallback failed)")
-            return self.__getitem__(0)
-            
+             raise ValueError(f"Corrupt image file at {image_path}")
+             
         return processed
 
 def collate_fn(batch):
@@ -90,9 +82,16 @@ def collate_fn(batch):
         
     input_ids = torch.stack([item['input_ids'] for item in batch])
     
+    if 'target_length' in batch[0]:
+        target_lengths = torch.tensor([item['target_length'] for item in batch], dtype=torch.long)
+    else:
+        # Fallback if not provided (assume full padded length, though suboptimal for CTC)
+        target_lengths = torch.tensor([len(item['input_ids']) for item in batch], dtype=torch.long)
+
     return {
         "pixel_values": padded_images,
-        "input_ids": input_ids
+        "input_ids": input_ids,
+        "target_lengths": target_lengths
     }
 
 # --- Training Loop ---
@@ -105,13 +104,22 @@ def train(
     epochs: int = 10,
     lr: float = 1e-4,
     checkpoint_dir: str = "checkpoints",
-    wandb_project: str = "captcha-ocr"
+    wandb_project: str = "captcha-ocr",
+    model_type: str = 'asymmetric-convnext-transformer' # toggle to switch between architectures
 ):
+    
+    config = CaptchaConfig(model_type=model_type)
+    processor = CaptchaProcessor(config=config, metadata_path=metadata_path)
+
+    config.d_vocab = processor.vocab_size -1 # the processor adds an additional token
+
     # Initialize WandB
     wandb.init(project=wandb_project, config={
         "batch_size": batch_size,
         "epochs": epochs,
-        "lr": lr
+        "lr": lr,
+        'model_type': model_type,
+        'd_model': config.d_model
     })
     
     os.makedirs(checkpoint_dir, exist_ok=True)
@@ -119,9 +127,7 @@ def train(
     
     # Data Setup
     if train_dataset is None or val_dataset is None:
-        processor = CaptchaProcessor(metadata_path=metadata_path)
         full_dataset = CaptchaDataset(metadata_path, processor, image_base_dir)
-        
         train_size = int(0.9 * len(full_dataset))
         val_size = len(full_dataset) - train_size
         train_ds, val_ds = torch.utils.data.random_split(full_dataset, [train_size, val_size])
@@ -138,25 +144,26 @@ def train(
         else:
             processor = CaptchaProcessor(metadata_path=metadata_path)
 
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, collate_fn=collate_fn, num_workers=0)
-    val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, collate_fn=collate_fn, num_workers=0)
-    
-    # Model Setup
-    model_config = CaptchaConfig()
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, collate_fn=collate_fn, num_workers=4)
+    val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, collate_fn=collate_fn, num_workers=4)
 
-    vocab, vocab_size = get_vocab_from_metadata(metadata_path)
-    print(f"Detected Vocab Size: {vocab_size} (including PAD)")
-
-    model_config.d_vocab = processor.vocab_size
-    model_config.d_vocab_out = processor.vocab_size
-
-    model_config.n_ctx = 128
-    
-    model = CaptchaModel(model_config)
+    print(f"Initializing {model_type}...")
+    if model_type == 'asymmetric-convnext-transformer':
+        model = CTCCaptchaModel(config)
+    else:
+        model = CaptchaModel(config) # Legacy
+        
     model.to(device)
     
     optimizer = optim.AdamW(model.parameters(), lr=lr)
-    loss_fn = nn.CrossEntropyLoss(ignore_index=0) # Ignore PAD
+
+    if model_type == 'asymmetric-convnext-transformer':
+        # CTC Loss: Expects [Input Seq Len, Batch, Classes]
+        # blank=0 is our standard from processor
+        loss_fn = nn.CTCLoss(blank=0, zero_infinity=True)
+    else:
+        # Cross Entropy (Legacy)
+        loss_fn = nn.CrossEntropyLoss(ignore_index=0)
     
     best_val_acc = 0.0
 
@@ -190,13 +197,24 @@ def train(
             
             images = batch["pixel_values"].to(device)
             targets = batch["input_ids"].to(device) 
+            target_lengths = batch['target_lengths'].to(device)
             
             logits = model(images) 
             
-            loss = loss_fn(logits.reshape(-1, processor.vocab_size), targets.reshape(-1))
+            if model_type == 'asymmetric-convnext-transformer':
+                logits_time_major = logits.permute(1, 0, 2) # 1. Permute to [Seq_Len, Batch, Vocab] for PyTorch CTCLoss
+                log_probs = logits_time_major.log_softmax(dim=2)
+                T, N, _ = log_probs.shape # CTC is robust to padded images TODO: check if this is true. logits shape: [Seq, Batch, Dim]
+                input_lengths = torch.full(size=(N,), fill_value=T, dtype=torch.long, device=device)
+                
+                loss = loss_fn(log_probs, targets, input_lengths, target_lengths)
+            else:
+                loss = loss_fn(logits.reshape(-1, logits.size(-1)), targets.reshape(-1))
             
             optimizer.zero_grad()
             loss.backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+
             optimizer.step()
             
             train_loss += loss.item()
@@ -222,20 +240,31 @@ def train(
                 
                 images = batch["pixel_values"].to(device)
                 targets = batch["input_ids"].to(device)
+                target_lengths = batch["target_lengths"].to(device)
                 
                 logits = model(images)
                 
-                loss = loss_fn(logits.reshape(-1, processor.vocab_size), targets.reshape(-1))
+                if model_type == 'asymmetric-convnext-transformer':
+                    log_probs = logits.permute(1, 0, 2).log_softmax(dim=2)
+                    T, N, _ = log_probs.shape
+                    input_lengths = torch.full((N,), T, dtype=torch.long, device=device)
+                    loss = loss_fn(log_probs, targets, input_lengths, target_lengths)
+                else:
+                    loss = loss_fn(logits.reshape(-1, logits.size(-1)), targets.reshape(-1))
+                    
                 val_loss += loss.item()
                 
-                preds = logits.argmax(dim=-1) # [B, 56]
+                preds = logits.argmax(dim=-1) # [B, Seq_len]
                 
                 # Calculate metrics using utils.py
-                for p_ids, t_ids in zip(preds, targets):
-                    p_text = processor.decode_text(p_ids)
-                    t_text = processor.decode_text(t_ids)
+                for i in range(len(targets)):
+
+                    pred_str = processor.decode(preds[i])
+
+                    target_ids = targets[i][:target_lengths[i]].tolist()
+                    target_str = processor._decode_simple(target_ids)
                     
-                    metrics = calculate_metrics(t_text, p_text)
+                    metrics = calculate_metrics(target_str, pred_str)
                     
                     total_edit_distance += metrics['edit_distance']
                     total_char_accuracy += metrics['character_accuracy']
@@ -262,15 +291,16 @@ def train(
         # Checkpointing
         if exact_match_acc >= best_val_acc:
             best_val_acc = exact_match_acc
-            torch.save(model.state_dict(), os.path.join(checkpoint_dir, "best_model.pth"))
+            torch.save(model.state_dict(), os.path.join(checkpoint_dir, f"best_{model_type}_model.pth"))
             print(f"New best model saved with Exact Match: {best_val_acc:.4f}")
             
-        torch.save(model.state_dict(), os.path.join(checkpoint_dir, f"checkpoint_epoch_{epoch+1}.pth"))
+        torch.save(model.state_dict(), os.path.join(checkpoint_dir, f"checkpoint_{model_type}_epoch_{epoch+1}.pth"))
 
 if __name__ == "__main__":
     train(
         metadata_path="validation_set/metadata.json",
         image_base_dir=".", 
         batch_size=32,
-        epochs=50
+        epochs=50,
+        model_type='asymmetric-convnext-transformer'
     )

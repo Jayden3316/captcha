@@ -1,20 +1,13 @@
 from __future__ import annotations
 
 import argparse
-import json
-import random
-import re
-import secrets
-import sys
+
 from collections import defaultdict
 from pathlib import Path
 from typing import Callable, Iterable, List, Optional
 
-import torch
 from generate_captchas import (
     get_ttf_files, 
-    sanitize_alnum, 
-    NoisySpacedImageCaptcha, 
     CaptchaGenerator,
     random_capitalize,
     get_words
@@ -43,8 +36,8 @@ def build_arg_parser() -> argparse.ArgumentParser:
     gen_parser.add_argument("--noise-bg-density", type=int, default=5000)
     gen_parser.add_argument("--extra-spacing", type=int, default=-5)
     gen_parser.add_argument("--spacing-jitter", type=int, default=6)
-    gen_parser.add_argument("--bg-color", type=str, default=None)
-    gen_parser.add_argument("--fg-color", type=str, default=None)
+    gen_parser.add_argument("--bg-color", nargs=3, type=int, default=None, help='Background color in RGB')
+    gen_parser.add_argument("--fg-color", nargs=4, type=int, default=None, help='Foreground color in RGBA')
     gen_parser.add_argument("--image-ext", type=str, default="png")
     gen_parser.add_argument("--max-fonts-per-family", type=int, default=2)
     gen_parser.add_argument("--no-random-capitalize", action="store_true")
@@ -58,6 +51,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     train_parser.add_argument("--lr", type=float, default=1e-4)
     train_parser.add_argument("--checkpoint-dir", type=str, default="checkpoints")
     train_parser.add_argument("--wandb-project", type=str, default="captcha-ocr")
+    train_parser.add_argument("--model-type", type=str, default='asymmetric-convnext-transformer', choices=['asymmetric-convnext-transformer', 'cnn-transformer-detr'], help='Model architecture to use')
 
     return parser
 

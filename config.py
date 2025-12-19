@@ -1,43 +1,56 @@
 from dataclasses import dataclass, field
-from typing import List
+from typing import List, Optional
 from transformer_lens.HookedTransformerConfig import HookedTransformerConfig
 
 @dataclass
 class CaptchaConfig(HookedTransformerConfig):
     """
-    Configuration class for the Captcha architecture described in README.md.
+    Configuration class for the Captcha architecture.
     
     Inherits from HookedTransformerConfig to ensure compatibility with transformer_lens.
     """
-    # --- CNN Encoder Parameters ---
-    # Layer 1: Conv2D [7, 1, 16], MaxPool stride 2
-    # Layer 2: Conv2D [5, 1, 32], MaxPool stride 2
+    model_type: str = 'asymmetric-convnext-transformer'
+    
+    # --- CNN Encoder Parameters (Legacy / Configurable) ---
     cnn_filter_sizes: List[int] = field(default_factory=lambda: [7, 5])
     cnn_strides: List[int] = field(default_factory=lambda: [1, 1])
     cnn_channels: List[int] = field(default_factory=lambda: [16, 32])
     
-    # --- Projection Parameters ---
-    # Maps flattened CNN features to Transformer d_model
-    # Input: 3136 (14 * 7 * 32) -> 392 -> 128 -> 64
+    # --- Projection Parameters (Legacy) ---
     projection_dims: List[int] = field(default_factory=lambda: [3136, 392, 128, 64])
 
-    # --- Transformer Defaults (overriding HookedTransformerConfig) ---
-    n_layers: int = 4           # 4 layers for Encoder, 4 for Decoder
-    d_model: int = 64
-    n_heads: int = 4
-    d_head: int = 16            # d_model / n_heads = 64 / 4 = 16
-    d_mlp: int = 256            # 4 * d_model = 256
+    # --- Transformer Defaults (Updated for Asymmetric CTC) ---
+    n_layers: int = 4           # 4 layers for Encoder
     
-    n_ctx: int = 128             # Corresponds to seq_len in README (longest word + buffer)
-    d_vocab: int = 62           # Placeholder: letters + <PAD>. Update based on actual vocab size.
+    # Updated to match AsymmetricCNNEncoder final stage output (512)
+    # If you change this, the model will add a Linear projection layer to bridge dimensions.
+    d_model: int = 256          
     
-    act_fn: str = "gelu"        # README specifies GeGELU; gelu is the standard approximation
+    n_heads: int = 8
+    d_head: int = 32            
+    d_mlp: int = 1024           
+    
+    n_ctx: int = 384            
+    
+    d_vocab: int = 62           # Actual CharSet size (e.g. 0-9, a-z, A-Z). Model adds +1 for CTC Blank.
+    
+    act_fn: str = "gelu"        
     normalization_type: str = "RMS"
-    positional_embedding_type: str = "rotary"
     
-    # Standard HookedTransformerConfig defaults that match our needs
-    # attention_dir="causal" (default) is correct for the Decoder
-    # seed=None (default)
+    # --- RoPE Configuration ---
+    positional_embedding_type: str = "rotary" # Explicitly use RoPE
+    rotary_dim: Optional[int] = d_head            # Apply RoPE to the full head dimension (match d_head)
+    
+    # Standard HookedTransformerConfig defaults
+    attention_dir: str = "bidirectional"      # Encoder needs to see whole sequence
+    seed: Optional[int] = None
 
     def __post_init__(self):
+        # Calculate derived attributes if they are missing
+        if self.d_head is None and self.d_model is not None and self.n_heads is not None:
+            self.d_head = self.d_model // self.n_heads
+            
+        if self.rotary_dim is None and self.positional_embedding_type == "rotary":
+            self.rotary_dim = self.d_head
+
         super().__post_init__()
