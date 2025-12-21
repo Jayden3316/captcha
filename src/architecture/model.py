@@ -3,16 +3,16 @@ import torch.nn as nn
 from typing import Optional, Any
 from jaxtyping import Float
 
-from captcha_ocr.config.config import ModelConfig
-from captcha_ocr.architecture.registry import REGISTRY
+from src.config.config import ModelConfig
+from src.architecture.registry import REGISTRY
 
 # We need to ensure that the register calls in components are executed.
 # Importing them here triggers registration.
-import captcha_ocr.architecture.components.encoders
-import captcha_ocr.architecture.components.projectors
-import captcha_ocr.architecture.components.sequence_models
-import captcha_ocr.architecture.components.heads
-from captcha_ocr.architecture.components.projectors import LinearProjector
+import src.architecture.components.encoders
+import src.architecture.components.projectors
+import src.architecture.components.sequence_models
+import src.architecture.components.heads
+from src.architecture.components.projectors import LinearProjector
 
 class CaptchaModel(nn.Module):
     """

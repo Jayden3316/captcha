@@ -310,7 +310,7 @@ class ConfigurableImageCaptcha:
         im = im.filter(SMOOTH)
         return im
 
-from captcha_ocr.config.config import DatasetConfig
+from src.config.config import DatasetConfig
 
 class CaptchaGenerator:
     def __init__(

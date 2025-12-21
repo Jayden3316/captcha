@@ -11,12 +11,12 @@ from torch.utils.data import Dataset, DataLoader
 import wandb
 from tqdm import tqdm
 
-from captcha_ocr.config.config import ExperimentConfig
-from captcha_ocr.architecture.model import CaptchaModel
-from captcha_ocr.utils import calculate_metrics
-from captcha_ocr.processor import CaptchaProcessor
-from captcha_ocr.losses import get_loss_function
-from captcha_ocr.decoding import decode_simple
+from src.config.config import ExperimentConfig
+from src.architecture.model import CaptchaModel
+from src.utils import calculate_metrics
+from src.processor import CaptchaProcessor
+from src.losses import get_loss_function
+from src.decoding import decode_simple
 
 class CaptchaDataset(Dataset):
     def __init__(self, metadata_path: str, processor: CaptchaProcessor, base_dir: str):

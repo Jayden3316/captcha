@@ -4,8 +4,8 @@ import torch
 from torchvision import transforms
 from PIL import Image
 from typing import List, Union, Optional
-from captcha_ocr.config.config import ExperimentConfig
-from captcha_ocr.decoding import decode_ctc, decode_simple
+from src.config.config import ExperimentConfig
+from src.decoding import decode_ctc, decode_simple
 
 class CaptchaProcessor:
     """

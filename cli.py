@@ -4,16 +4,16 @@ import yaml
 from pathlib import Path
 from typing import Optional
 
-from captcha_ocr.config.config import (
+from src.config.config import (
     ExperimentConfig, DatasetConfig, TrainingConfig, ModelConfig,
     AsymmetricConvNextEncoderConfig, LegacyCNNEncoderConfig,
     LinearProjectorConfig, MLPProjectorConfig, IdentityProjectorConfig, BottleneckProjectorConfig, ResidualProjectorConfig,
     TransformerEncoderConfig, TransformerDecoderConfig, RNNConfig, BiLSTMConfig,
     LinearHeadConfig, MLPHeadConfig, ClassificationHeadConfig
 )
-from captcha_ocr.train import train
+from src.train import train
 
-from captcha_ocr.generate_captchas import get_ttf_files, get_words, CaptchaGenerator, random_capitalize
+from generate_captchas import get_ttf_files, get_words, CaptchaGenerator, random_capitalize
 
 def hydrate_config(data: dict) -> ExperimentConfig:
     """Manually hydrate dictionary into ExperimentConfig hierarchy."""
