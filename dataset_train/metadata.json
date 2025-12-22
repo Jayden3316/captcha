@@ -1,0 +1,42 @@
+[
+  {
+    "image_path": "dataset_train/WORd1.png",
+    "word_input": "word1",
+    "word_rendered": "WORd1",
+    "word_length": 5,
+    "width": 515,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_train/WOrD2.png",
+    "word_input": "word2",
+    "word_rendered": "WOrD2",
+    "word_length": 5,
+    "width": 315,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_train/Word3.png",
+    "word_input": "word3",
+    "word_rendered": "Word3",
+    "word_length": 5,
+    "width": 403,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_train/worD4.png",
+    "word_input": "word4",
+    "word_rendered": "worD4",
+    "word_length": 5,
+    "width": 214,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_train/woRD5.png",
+    "word_input": "word5",
+    "word_rendered": "woRD5",
+    "word_length": 5,
+    "width": 369,
+    "height": 80
+  }
+]
