@@ -1,12 +1,12 @@
 """
 Encoder implementations with clean interfaces and registration.
-All encoders inherit from BaseEncoder and register themselves.
+All encoders inherit from BaseImageEncoder and register themselves.
 """
 import torch
 import torch.nn as nn
 from jaxtyping import Float
 
-from .base import BaseEncoder
+from .base import BaseImageEncoder
 from ..registry import REGISTRY
 
 Tensor = torch.Tensor
@@ -86,10 +86,39 @@ class AsymmetricDownsample(nn.Module):
     def forward(self, x):
         return self.conv(self.norm(x))
 
+class SymmetricDownsample(nn.Module):
+    """
+    Downsamples height and width by 2.
+    """
+    def __init__(self, dim_in, dim_out):
+        super().__init__()
+        self.norm = LayerNorm2d(dim_in, eps=1e-6)
+        self.conv = nn.Conv2d(dim_in, dim_out, kernel_size=2, stride=2)
+    
+    def forward(self, x):
+        return self.conv(self.norm(x))
+
+class ResNetBlock(nn.Module):
+    def __init__(self, dim_in, dim_out):
+        super().__init__()
+        self.conv1 = nn.Conv2d(dim_in, dim_out, kernel_size=3, padding=1)
+        self.conv2 = nn.Conv2d(dim_out, dim_out, kernel_size=3, padding=1)
+        self.norm = LayerNorm2d(dim_out, eps=1e-6)
+        self.act = nn.GELU()
+
+    def forward(self, x):
+        input = x
+        x = self.conv1(x)
+        x = self.act(x)
+        x = self.conv2(x)
+        x = self.norm(x)
+        x = input + x
+        return x
+
 
 # ========== ENCODER IMPLEMENTATIONS ==========
 
-class AsymmetricConvNextEncoder(BaseEncoder):
+class AsymmetricConvNextEncoder(BaseImageEncoder):
     """
     ConvNeXt-style encoder with asymmetric downsampling.
     
@@ -98,49 +127,52 @@ class AsymmetricConvNextEncoder(BaseEncoder):
     
     Architecture:
         Input: [B, 3, 80, W]
-        Stem (4x4 stride 4): [B, 64, 20, W/4]
-        Stage 1 (2 blocks): [B, 64, 20, W/4]
-        Downsample H: [B, 128, 10, W/4]
-        Stage 2 (2 blocks): [B, 128, 10, W/4]
-        Downsample H: [B, 256, 5, W/4]
-        Stage 3 (6 blocks): [B, 256, 5, W/4]
-        Downsample H: [B, 512, 2, W/4]
-        Stage 4 (2 blocks): [B, 512, 2, W/4]
-        Mean pool H: [B, 512, W/4]
-        Transpose: [B, W/4, 512]
+        ...
+        Output: [B, 512, 2, W/4]
     """
     
     def __init__(self, cfg):
         super().__init__()
         self.cfg = cfg
-        dims = [64, 128, 256, 512]
+        dims = cfg.dims
+        counts = cfg.stage_block_counts
         
         # Stem: 4x4 patches with stride 4
         self.stem = nn.Sequential(
-            nn.Conv2d(3, dims[0], kernel_size=4, stride=4),
+            nn.Conv2d(3, dims[0], kernel_size=cfg.stem_kernel_size, stride=cfg.stem_stride),
             LayerNorm2d(dims[0], eps=1e-6)
         )
-        self.stage1 = nn.Sequential(*[ConvNextBlock(dims[0]) for _ in range(2)])
+        self.stage1 = nn.Sequential(*[ConvNextBlock(dims[0], 
+                                                    drop_path=cfg.convnext_drop_path_rate,
+                                                    layer_scale_init_value=cfg.convnext_layer_scale_init_value) 
+                                      for _ in range(counts[0])])
         
         # Asymmetric downsampling stages
         self.down2 = AsymmetricDownsample(dims[0], dims[1])
-        self.stage2 = nn.Sequential(*[ConvNextBlock(dims[1]) for _ in range(2)])
+        self.stage2 = nn.Sequential(*[ConvNextBlock(dims[1],
+                                                    drop_path=cfg.convnext_drop_path_rate,
+                                                    layer_scale_init_value=cfg.convnext_layer_scale_init_value) 
+                                      for _ in range(counts[1])])
         
         self.down3 = AsymmetricDownsample(dims[1], dims[2])
-        self.stage3 = nn.Sequential(*[ConvNextBlock(dims[2]) for _ in range(6)])
+        self.stage3 = nn.Sequential(*[ConvNextBlock(dims[2],
+                                                    drop_path=cfg.convnext_drop_path_rate,
+                                                    layer_scale_init_value=cfg.convnext_layer_scale_init_value) 
+                                      for _ in range(counts[2])])
         
         self.down4 = AsymmetricDownsample(dims[2], dims[3])
-        self.stage4 = nn.Sequential(*[ConvNextBlock(dims[3]) for _ in range(2)])
-
-        self.proj = nn.Linear(2, 1) # [B, W/4, 512, 2] -> [B, W/4, 512]
+        self.stage4 = nn.Sequential(*[ConvNextBlock(dims[3],
+                                                    drop_path=cfg.convnext_drop_path_rate,
+                                                    layer_scale_init_value=cfg.convnext_layer_scale_init_value) 
+                                      for _ in range(counts[3])])
         
-        self._output_dim = dims[3]
+        self._output_channels = dims[3]
 
     @property
-    def output_dim(self) -> int:
-        return self._output_dim
+    def output_channels(self) -> int:
+        return self._output_channels
 
-    def forward(self, x: Float[Tensor, "batch 3 80 width"]) -> Float[Tensor, "batch seq 512"]:
+    def forward(self, x: Float[Tensor, "batch 3 80 width"]) -> Float[Tensor, "batch 512 2 width_sub"]:
         # Encoding stages
         x = self.stem(x)        # [B, 64, 20, W/4]
         x = self.stage1(x)
@@ -154,78 +186,60 @@ class AsymmetricConvNextEncoder(BaseEncoder):
         x = self.down4(x)       # [B, 512, 2, W/4]
         x = self.stage4(x)
         
-        # Collapse vertical dimension
-        # nn.linear applies on the last dimension
-        # permute to [B, W/4, 512, 2]
-        x = x.permute(0, 3, 1, 2)
-        x = self.proj(x)       
-        x = x.squeeze(-1)       # [B, W/4, 512]
-        
         return x
     
-    def get_sequence_length(self, image_width: int) -> int:
-        """Sequence length after stem stride of 4."""
-        return image_width // 4
+    def get_downsample_factor(self) -> int:
+        """Returns the total width downsample factor."""
+        return 4
 
-class LegacyCNNEncoder(BaseEncoder):
+class ResNetEncoder(BaseImageEncoder):
     """
-    Legacy CNN encoder with unfold-based patch extraction.
-    
-    Uses traditional conv-pool structure and extracts 14x7 patches.
-    Width must be 28k + 14 for clean patch extraction.
-    
+    A ResNet type encoder.
+
+    Uses symmetric downsample blocks.
+
     Architecture:
-        Input: [B, 3, 70, W]
-        Conv1 (7x7): [B, 16, 64, W-6]
-        Pool (2x2): [B, 16, 32, (W-6)/2]
-        Conv2 (5x5): [B, 32, 28, ...]
-        Pool (2x2): [B, 32, 14, W_final]
-        Unfold patches (7 wide): [B, num_patches, 32*14*7=3136]
+        Input: [B, 3, 80, 200]
+        ...
+        Output: [B, 512, 2, 6] (assuming H=80, W=200)
     """
-    
+
     def __init__(self, cfg):
         super().__init__()
         self.cfg = cfg
-        
-        self.conv1 = nn.Conv2d(3, 16, kernel_size=7, stride=1)
-        self.pool1 = nn.MaxPool2d(kernel_size=2, stride=2)
-        
-        self.conv2 = nn.Conv2d(16, 32, kernel_size=5, stride=1)
-        self.pool2 = nn.MaxPool2d(kernel_size=2, stride=2)
-        
-        self.act = nn.SiLU()
-        
-        self._output_dim = 3136  # 32 * 14 * 7
+        dims = cfg.dims
+        counts = cfg.stage_block_counts
+
+        self.stem = nn.Sequential(
+            nn.Conv2d(3, dims[0], kernel_size=4, stride=4),
+            LayerNorm2d(dims[0], eps=1e-6)
+        )
+        self.stage1 = nn.Sequential(*[ResNetBlock(dims[0], dims[0]) for _ in range(counts[0])])
+        self.down2 = SymmetricDownsample(dims[0], dims[1])
+        self.stage2 = nn.Sequential(*[ResNetBlock(dims[1], dims[1]) for _ in range(counts[1])])
+        self.down3 = SymmetricDownsample(dims[1], dims[2])
+        self.stage3 = nn.Sequential(*[ResNetBlock(dims[2], dims[2]) for _ in range(counts[2])])
+        self.down4 = SymmetricDownsample(dims[2], dims[3])
+        self.stage4 = nn.Sequential(*[ResNetBlock(dims[3], dims[3]) for _ in range(counts[3])])
+        self._output_channels = dims[3]
 
     @property
-    def output_dim(self) -> int:
-        return self._output_dim
+    def output_channels(self) -> int:
+        return self._output_channels
 
-    def forward(self, x: Float[Tensor, "batch 3 70 width"]) -> Float[Tensor, "batch seq 3136"]:
-        x = self.act(self.conv1(x))
-        x = self.pool1(x)
+    def forward(self, x: Float[Tensor, "batch 3 80 width"]) -> Float[Tensor, "batch 512 h w"]:
+        #print(f"DEBUG: ResNet Input: {x.shape}")
+        x = self.stem(x)
+        x = self.stage1(x)
+        x = self.down2(x)
+        x = self.stage2(x)
+        x = self.down3(x)
+        x = self.stage3(x)
+        x = self.down4(x)
+        x = self.stage4(x)
+        #print(f"DEBUG: ResNet Output: {x.shape}")
+        return x
         
-        x = self.act(self.conv2(x))
-        x = self.pool2(x)
-        
-        # Extract 14x7 patches from [B, 32, 14, W_final]
-        patches = x.unfold(3, 7, 7)  # [B, 32, 14, num_patches, 7]
-        
-        # Rearrange to [B, num_patches, 3136]
-        patches = patches.permute(0, 3, 1, 2, 4).contiguous()
-        b, num_patches, c, h, w = patches.shape
-        out = patches.view(b, num_patches, c * h * w)
-        
-        return out
-    
-    def get_sequence_length(self, image_width: int) -> int:
-        """Calculate sequence length from width formula."""
-        # After conv1 and pool1: (width - 6) / 2
-        # After conv2 and pool2: further reductions
-        # Then unfold with stride 7
-        # This is approximate - exact formula depends on all convolution parameters
-        return ((image_width - 6) // 2 - 4) // 2 // 7
-
 
 # ========== REGISTRATION ==========
 
@@ -235,16 +249,12 @@ REGISTRY.register_encoder(
     description='ConvNeXt with asymmetric downsampling for CTC',
     compatible_heights=[80],
     width_divisor=4,
-    sequence_formula='W/4'
 )
 
 REGISTRY.register_encoder(
-    name='legacy_cnn',
-    cls=LegacyCNNEncoder,
-    description='Legacy CNN with 14x7 patch extraction',
-    compatible_heights=[70],
-    width_divisor=28,
-    width_bias=14,
-    sequence_formula='(((W-6)/2-4)/2)/7',
-    note='Width should be 28k + 14'
+    name='resnet',
+    cls=ResNetEncoder,
+    description='ResNet encoder for image based classification',
+    compatible_heights=[80],
+    width_divisor=4,
 )

@@ -1,10 +1,11 @@
 from typing import Dict, Any
 from src.config.config import (
     ExperimentConfig, DatasetConfig, TrainingConfig, ModelConfig,
-    AsymmetricConvNextEncoderConfig, LegacyCNNEncoderConfig,
+    AsymmetricConvNextEncoderConfig, ResNetEncoderConfig,
     LinearProjectorConfig, MLPProjectorConfig, IdentityProjectorConfig, BottleneckProjectorConfig, ResidualProjectorConfig,
     TransformerEncoderConfig, TransformerDecoderConfig, RNNConfig, BiLSTMConfig,
-    LinearHeadConfig, MLPHeadConfig, ClassificationHeadConfig
+    LinearHeadConfig, MLPHeadConfig, ClassificationHeadConfig,
+    FlattenAdapterConfig, VerticalFeatureAdapterConfig, GlobalPoolingAdapterConfig, SequencePoolingAdapterConfig
 )
 
 def hydrate_config(data: Dict[str, Any]) -> ExperimentConfig:
@@ -24,13 +25,15 @@ def hydrate_config(data: Dict[str, Any]) -> ExperimentConfig:
     mc_data = data.get('model_config', data.get('model', {}))
     
     # Helper to selecting config class based on type name
-    def get_config_obj(type_name, config_dict, mapping, default_cls):
-        # If type_name is missing, we revert to default class
+    def get_config_obj(type_name, config_dict, mapping):
+        # If type_name is missing, return None (no implicit default)
         if not type_name:
-             return default_cls()
+             return None
         
-        # If type_name is present, we must use that class
-        cls = mapping.get(type_name, default_cls)
+        # If type_name is present but unknown, raise Error (no implicit default)
+        cls = mapping.get(type_name)
+        if cls is None:
+            raise ValueError(f"Unknown config type: '{type_name}'. Available: {list(mapping.keys())}")
         
         # If config_dict is None, treat as empty dict
         if config_dict is None:
@@ -45,9 +48,24 @@ def hydrate_config(data: Dict[str, Any]) -> ExperimentConfig:
     encoder_type = mc_data.get('encoder_type')
     encoder_cls_map = {
         'asymmetric_convnext': AsymmetricConvNextEncoderConfig,
-        'legacy_cnn': LegacyCNNEncoderConfig
+        'resnet': ResNetEncoderConfig
     }
-    encoder_config = get_config_obj(encoder_type, mc_data.get('encoder_config'), encoder_cls_map, AsymmetricConvNextEncoderConfig)
+    encoder_config = get_config_obj(encoder_type, mc_data.get('encoder_config'), encoder_cls_map)
+
+    # Adapters
+    adapter_type = mc_data.get('adapter_type')
+    adapter_cls_map = {
+        'flatten': FlattenAdapterConfig,        
+        'vertical_feature': VerticalFeatureAdapterConfig,
+        'global_pool': GlobalPoolingAdapterConfig
+    }
+
+    if adapter_type:
+        adapter_config = get_config_obj(adapter_type, mc_data.get('adapter_config'), adapter_cls_map)
+    else:
+        # If adapter_type is missing, let ModelConfig handle defaults entirely
+        # UNLESS the user provided adapter_config block without type? Rare.
+        adapter_config = None
 
     # Projectors
     proj_type = mc_data.get('projector_type')
@@ -58,7 +76,7 @@ def hydrate_config(data: Dict[str, Any]) -> ExperimentConfig:
         'bottleneck': BottleneckProjectorConfig,
         'residual': ResidualProjectorConfig
     }
-    projector_config = get_config_obj(proj_type, mc_data.get('projector_config'), proj_cls_map, LinearProjectorConfig)
+    projector_config = get_config_obj(proj_type, mc_data.get('projector_config'), proj_cls_map)
     
     # Sequence Models
     seq_type = mc_data.get('sequence_model_type')
@@ -69,7 +87,7 @@ def hydrate_config(data: Dict[str, Any]) -> ExperimentConfig:
         'rnn': RNNConfig,
         'bilstm': BiLSTMConfig
     }
-    sequence_model_config = get_config_obj(seq_type, mc_data.get('sequence_model_config'), seq_cls_map, TransformerEncoderConfig)
+    sequence_model_config = get_config_obj(seq_type, mc_data.get('sequence_model_config'), seq_cls_map)
 
     # Heads
     head_type = mc_data.get('head_type')
@@ -79,20 +97,57 @@ def hydrate_config(data: Dict[str, Any]) -> ExperimentConfig:
         'mlp': MLPHeadConfig,
         'classification': ClassificationHeadConfig
     }
-    head_config = get_config_obj(head_type, mc_data.get('head_config'), head_cls_map, LinearHeadConfig)
+    head_config = get_config_obj(head_type, mc_data.get('head_config'), head_cls_map)
     
     # Model Config Args
     # We construct args map to pass only what's in YAML, avoiding Loader-level defaults
     # defaulting is handled by ModelConfig.__post_init__ or field defaults
+    # Adapters
+    adapter_type = mc_data.get('adapter_type')
+    encoder_adapter_type = mc_data.get('encoder_adapter_type')
+    sequence_adapter_type = mc_data.get('sequence_adapter_type')
+    
+    adapter_cls_map = {
+        'flatten': FlattenAdapterConfig,
+        'vertical_feature': VerticalFeatureAdapterConfig,
+        'global_pool': GlobalPoolingAdapterConfig,
+        'sequence_pool': SequencePoolingAdapterConfig
+    }
+    
+    if adapter_type:
+        adapter_config = get_config_obj(adapter_type, mc_data.get('adapter_config'), adapter_cls_map)
+    else:
+        adapter_config = None
+        
+    if encoder_adapter_type:
+        encoder_adapter_config = get_config_obj(encoder_adapter_type, mc_data.get('encoder_adapter_config'), adapter_cls_map)
+    else:
+         encoder_adapter_config = None
+         
+    if sequence_adapter_type:
+        sequence_adapter_config = get_config_obj(sequence_adapter_type, mc_data.get('sequence_adapter_config'), adapter_cls_map)
+    else:
+         sequence_adapter_config = None
+
+    # ... (Projectors, Sequence Models, Heads logic remains)
+
+    # Model Config Args
     mc_args = {
         'encoder_type': encoder_type,
         'encoder_config': encoder_config,
+        'adapter_type': adapter_type,
+        'adapter_config': adapter_config,
+        'encoder_adapter_type': encoder_adapter_type,
+        'encoder_adapter_config': encoder_adapter_config,
+        'sequence_adapter_type': sequence_adapter_type,
+        'sequence_adapter_config': sequence_adapter_config,
         'projector_type': proj_type,
         'projector_config': projector_config,
         'sequence_model_type': seq_type,
         'sequence_model_config': sequence_model_config,
         'head_type': head_type,
         'head_config': head_config,
+        'pipeline_type': mc_data.get('pipeline_type'),
     }
     
     # Optional scalar fields

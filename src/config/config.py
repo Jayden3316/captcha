@@ -71,6 +71,12 @@ class TaskType(str, Enum):
     CLASSIFICATION = "classification"
 
 
+class PipelineType(str, Enum):
+    STANDARD_GENERATION = "standard_generation" # Encoder -> Adapter -> Seq -> Head
+    STANDARD_CLASSIFICATION = "standard_classification" # Encoder -> Adapter -> Head
+    SEQUENCE_CLASSIFICATION = "sequence_classification" # Encoder -> Adapter -> Seq -> Pool -> Head
+
+
 # ============================================================================
 # DATASET CONFIG
 # ============================================================================
@@ -124,6 +130,7 @@ class DatasetConfig:
     target_height: int = 80  # For resizing
     width_divisor: int = 4   # Width must be divisible by this
     width_bias: int = 0      # Bias for width formula (width = divisor * k + bias)
+    resize_mode: str = "variable" # "variable" (aspect-ratio preserving) or "fixed" (stretch to width)
     
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -137,6 +144,7 @@ class DatasetConfig:
             'target_height': self.target_height,
             'width_divisor': self.width_divisor,
             'width_bias': self.width_bias,
+            'resize_mode': self.resize_mode,
         }
 
 
@@ -173,50 +181,68 @@ class AsymmetricConvNextEncoderConfig:
     # Normalization
     norm_eps: float = 1e-6
     
-    # Output dimension (auto-computed from dims[-1] if not specified)
-    output_dim: Optional[int] = None
-    
     def __post_init__(self):
-        if self.output_dim is None:
-            self.output_dim = self.dims[-1]
         if len(self.stage_block_counts) != len(self.dims):
             raise ValueError(f"stage_block_counts length ({len(self.stage_block_counts)}) must match dims length ({len(self.dims)})")
 
 
 @dataclass
-class LegacyCNNEncoderConfig:
-    """Configuration for LegacyCNNEncoder."""
+class ResNetEncoderConfig:
+    """Configuration for ResNetEncoder."""
     
-    # Convolution layers configuration
-    filter_sizes: List[int] = field(default_factory=lambda: [7, 5])
-    strides: List[int] = field(default_factory=lambda: [1, 1])
-    channels: List[int] = field(default_factory=lambda: [16, 32])
-    in_channels: int = 3
+    # Checkpoints or specific ResNet types could be added here
+    # For now, we assume standard custom ResNet from src/architecture/components/encoders.py
     
-    # Pooling configuration
-    pool_kernel_size: int = 2
-    pool_stride: int = 2
-    
-    # Patch extraction configuration
-    patch_height: int = 14
-    patch_width: int = 7
-    patch_stride: int = 7
-    
-    # Activation
-    activation: ActivationType = ActivationType.SILU
-    
-    # Output dimension (auto-computed as channels[-1] * patch_height * patch_width)
-    output_dim: Optional[int] = None
-    
-    def __post_init__(self):
-        if self.output_dim is None:
-            self.output_dim = self.channels[-1] * self.patch_height * self.patch_width
-        if len(set([len(self.filter_sizes), len(self.strides), len(self.channels)])) != 1:
-            raise ValueError("filter_sizes, strides, and channels must have same length")
+    # Internal dimensions
+    dims: List[int] = field(default_factory=lambda: [64, 128, 256, 512])
+    stage_block_counts: List[int] = field(default_factory=lambda: [2, 2, 6, 2])
 
+    def __post_init__(self):
+        if len(self.stage_block_counts) != len(self.dims):
+            raise ValueError(f"stage_block_counts length ({len(self.stage_block_counts)}) must match dims length ({len(self.dims)})")
 
 # Union type for encoder configs
-EncoderConfig = Union[AsymmetricConvNextEncoderConfig, LegacyCNNEncoderConfig]
+EncoderConfig = Union[AsymmetricConvNextEncoderConfig, ResNetEncoderConfig]
+
+
+# ============================================================================
+# ADAPTER CONFIGS
+# ============================================================================
+
+@dataclass
+class VerticalFeatureAdapterConfig:
+    """
+    Configuration for VerticalFeatureAdapter.
+    Requires explicit output_dim (should match d_model of sequence model).
+    """
+    output_dim: Optional[int] = None
+
+@dataclass
+class FlattenAdapterConfig:
+    """
+    Configuration for FlattenAdapter.
+    
+    User must specify the expected output dimension (C * H * W)
+    to ensure the following Head is initialized correctly.
+    """
+    output_dim: Optional[int] = None
+
+@dataclass
+class GlobalPoolingAdapterConfig:
+    """Configuration for GlobalPoolingAdapter."""
+    pool_type: str = "avg"
+
+@dataclass
+class SequencePoolingAdapterConfig:
+    """Configuration for SequencePoolingAdapter."""
+    pool_type: str = "mean" # mean, max, last, first
+
+AdapterConfig = Union[
+    VerticalFeatureAdapterConfig,
+    FlattenAdapterConfig,
+    GlobalPoolingAdapterConfig,
+    SequencePoolingAdapterConfig
+]
 
 
 # ============================================================================
@@ -263,7 +289,8 @@ ProjectorConfig = Union[
     LinearProjectorConfig,
     MLPProjectorConfig,
     BottleneckProjectorConfig,
-    ResidualProjectorConfig
+    ResidualProjectorConfig,
+    IdentityProjectorConfig
 ]
 
 
@@ -412,13 +439,25 @@ class ModelConfig:
     
     # Component type selection
     encoder_type: str = 'asymmetric_convnext'
+    adapter_type: Optional[str] = None # Existing field, for simple pipelines
+    
+    # Advanced Pipeline Fields (Encoder -> Adapter -> Sequence -> Adapter -> Head)
+    encoder_adapter_type: Optional[str] = None # e.g. 'vertical_feature'
+    sequence_adapter_type: Optional[str] = None # e.g. 'sequence_pooling'
+    
     projector_type: str = 'linear'
     sequence_model_type: str = 'transformer_encoder'
     head_type: str = 'ctc'
     task_type: TaskType = TaskType.GENERATION
+    pipeline_type: Optional[PipelineType] = None
     
     # Component-specific configs
     encoder_config: Optional[EncoderConfig] = None
+    adapter_config: Optional[AdapterConfig] = None
+    
+    encoder_adapter_config: Optional[AdapterConfig] = None
+    sequence_adapter_config: Optional[AdapterConfig] = None
+    
     projector_config: Optional[ProjectorConfig] = None
     sequence_model_config: Optional[SequenceModelConfig] = None
     head_config: Optional[HeadConfig] = None
@@ -433,14 +472,40 @@ class ModelConfig:
     d_model: Optional[int] = None  # If None, inherited from sequence_model_config or default 256
     
     def __post_init__(self):
+        # Infer pipeline type if not set
+        if self.pipeline_type is None:
+            if self.task_type == TaskType.GENERATION:
+                self.pipeline_type = PipelineType.STANDARD_GENERATION
+            elif self.task_type == TaskType.CLASSIFICATION:
+                self.pipeline_type = PipelineType.STANDARD_CLASSIFICATION
+        elif isinstance(self.pipeline_type, str):
+            self.pipeline_type = PipelineType(self.pipeline_type)
+
         # Auto-create configs if not provided, using defaults
         if self.encoder_config is None:
             if self.encoder_type == 'asymmetric_convnext':
                 self.encoder_config = AsymmetricConvNextEncoderConfig()
-            elif self.encoder_type == 'legacy_cnn':
-                self.encoder_config = LegacyCNNEncoderConfig()
+            elif self.encoder_type == 'resnet':
+                self.encoder_config = ResNetEncoderConfig()
+            # If a strict registry check is desired, we can add it, 
+            # but usually encoders are registered externally.
+        
+        # Set default adapter type based on task if not provided
+        if self.adapter_type is None:
+            # Check if we are in a pipeline that allows separate adapters and one is provided
+            if (self.pipeline_type == PipelineType.SEQUENCE_CLASSIFICATION or self.encoder_adapter_type is not None):
+                 # Allow skipping standard adapter if using advanced pipeline adapters
+                 pass 
             else:
-                raise ValueError(f"Unknown encoder_type: {self.encoder_type}")
+                 raise ValueError("Adapter type must be specified for this task type.")
+        
+        if self.adapter_config is None and self.adapter_type is not None:
+            if self.adapter_type == 'vertical_feature':
+                self.adapter_config = VerticalFeatureAdapterConfig()
+            elif self.adapter_type == 'flatten':
+                self.adapter_config = FlattenAdapterConfig()
+            elif self.adapter_type == 'global_pool':
+                self.adapter_config = GlobalPoolingAdapterConfig()
         
         if self.projector_config is None:
             if self.projector_type == 'linear':
@@ -452,9 +517,10 @@ class ModelConfig:
             elif self.projector_type == 'residual':
                 self.projector_config = ResidualProjectorConfig()
             elif self.projector_type == 'identity':
-                self.projector_config = LinearProjectorConfig()  # Identity handled separately
+                self.projector_config = IdentityProjectorConfig() 
             else:
-                raise ValueError(f"Unknown projector_type: {self.projector_type}")
+                # Default fallback
+                self.projector_config = LinearProjectorConfig()
         
         if self.sequence_model_config is None:
             if self.sequence_model_type == 'transformer_encoder':
@@ -465,8 +531,6 @@ class ModelConfig:
                 self.sequence_model_config = RNNConfig()
             elif self.sequence_model_type == 'bilstm':
                 self.sequence_model_config = BiLSTMConfig()
-            else:
-                raise ValueError(f"Unknown sequence_model_type: {self.sequence_model_type}")
         
         if self.head_config is None:
             if self.head_type == 'linear' or self.head_type == 'ctc':
@@ -475,8 +539,6 @@ class ModelConfig:
                 self.head_config = MLPHeadConfig()
             elif self.head_type == 'classification':
                 self.head_config = ClassificationHeadConfig()
-            else:
-                raise ValueError(f"Unknown head_type: {self.head_type}")
         
         # Resolve d_model: use from sequence_model_config if available, else default
         if self.d_model is None:
@@ -487,7 +549,7 @@ class ModelConfig:
             elif isinstance(self.sequence_model_config, BiLSTMConfig):
                 self.d_model = self.sequence_model_config.hidden_size * 2  # Bidirectional
             else:
-                self.d_model = 256  # Default
+                raise ValueError("d_model must be specified for this sequence model type.")
         
         # Sync d_model to sequence model config if needed
         if isinstance(self.sequence_model_config, RNNConfig):
@@ -503,7 +565,8 @@ class ModelConfig:
     def validate_consistency(self):
         """Validate consistency of configurations."""
         # 1. Check d_model consistency
-        if self.sequence_model_config and hasattr(self.sequence_model_config, 'd_model'):
+        # Only validate sequence config if we are actually using a sequence model
+        if self.sequence_model_type and self.sequence_model_config and hasattr(self.sequence_model_config, 'd_model'):
             if self.sequence_model_config.d_model != self.d_model:
                 raise ValueError(
                     f"Mismatch in d_model: ModelConfig has {self.d_model}, "
@@ -518,7 +581,7 @@ class ModelConfig:
                 )
 
         # 2. Check d_vocab consistency
-        if self.sequence_model_config and hasattr(self.sequence_model_config, 'd_vocab'):
+        if self.sequence_model_type and self.sequence_model_config and hasattr(self.sequence_model_config, 'd_vocab'):
              if self.sequence_model_config.d_vocab != self.d_vocab:
                  # Note: TransformerLens config usually requires d_vocab
                 raise ValueError(
@@ -535,17 +598,46 @@ class ModelConfig:
 
     
     def get_encoder_output_dim(self) -> int:
-        """Get encoder output dimension."""
-        if isinstance(self.encoder_config, AsymmetricConvNextEncoderConfig):
-            return self.encoder_config.output_dim
-        elif isinstance(self.encoder_config, LegacyCNNEncoderConfig):
-            return self.encoder_config.output_dim
-        else:
-            raise ValueError(f"Unknown encoder_config type: {type(self.encoder_config)}")
+        """Get output dimension of the encoder (number of channels)."""
+        if self.encoder_config:
+            if hasattr(self.encoder_config, 'dims') and self.encoder_config.dims:
+                return self.encoder_config.dims[-1]
+        # Fallback default if config is missing or has no dims (shouldn't happen with current encoders)
+        return 512
+
+    def get_encoder_output_channels(self) -> int:
+        """Alias for get_encoder_output_dim."""
+        return self.get_encoder_output_dim()
+
+    def get_adapter_output_dim(self) -> int:
+        """Get output dimension after adapter."""
+        if self.adapter_type == 'vertical_feature':
+             if hasattr(self.adapter_config, 'output_dim') and self.adapter_config.output_dim is not None:
+                 return self.adapter_config.output_dim
+             # Fallback if not specified? 
+             # VerticalFeature requires explicit dim.
+             # If mapped to old collapse, maybe C?
+             # For now return C if undefined, but VerticalFeature logic strongly prefers explicit.
+             # But if validation runs before init, user might not have set it?
+             # Let's trust explicit or returning C for compatibility if logic matched.
+             return self.get_encoder_output_dim()
+        elif self.adapter_type == 'global_pool':
+             return self.get_encoder_output_dim()
+        elif self.adapter_type == 'flatten':
+             if hasattr(self.adapter_config, 'output_dim') and self.adapter_config.output_dim is not None:
+                 return self.adapter_config.output_dim
+             # If explicit dimension is missing, we cannot infer it easily without input shape knowledge.
+             # User is expected to provide it as per error message logic in Model.
+             return -1 # Should trigger validation error downstream if used
+        return self.get_encoder_output_dim()
     
     def get_projector_input_dim(self) -> int:
-        """Get projector input dimension (encoder output)."""
-        return self.get_encoder_output_dim()
+        """Get projector input dimension (adapter output)."""
+        dim = self.get_adapter_output_dim()
+        if dim == -1:
+             # If dynamic/unknown, we might need to rely on runtime inference or user spec.
+             pass
+        return dim
     
     def get_projector_output_dim(self) -> int:
         """Get projector output dimension (sequence model input)."""
@@ -555,6 +647,7 @@ class ModelConfig:
         """Convert to dictionary for logging."""
         return {
             'encoder_type': self.encoder_type,
+            'adapter_type': self.adapter_type,
             'projector_type': self.projector_type,
             'sequence_model_type': self.sequence_model_type,
             'head_type': self.head_type,
@@ -564,6 +657,7 @@ class ModelConfig:
             'task_type': self.task_type.value if isinstance(self.task_type, TaskType) else self.task_type,
             # Sub-configs (as dicts)
             'encoder_config': vars(self.encoder_config) if self.encoder_config else None,
+            'adapter_config': vars(self.adapter_config) if self.adapter_config else None,
             'projector_config': vars(self.projector_config) if self.projector_config else None,
             'sequence_model_config': self.sequence_model_config.to_dict() if hasattr(self.sequence_model_config, 'to_dict') else (vars(self.sequence_model_config) if self.sequence_model_config else None),
             'head_config': vars(self.head_config) if self.head_config else None,
@@ -674,12 +768,6 @@ class ExperimentConfig:
                 self.dataset_config.height = 80
                 self.dataset_config.target_height = 80
                 self.dataset_config.width_divisor = 4
-        elif isinstance(self.model_config.encoder_config, LegacyCNNEncoderConfig):
-            # Legacy CNN expects height 70 and specific width formula
-            self.dataset_config.height = 70
-            self.dataset_config.target_height = 70
-            self.dataset_config.width_divisor = 28
-            self.dataset_config.width_bias = 14
         
         # Sync RNN/LSTM hidden sizes with d_model if needed
         if isinstance(self.model_config.sequence_model_config, RNNConfig):

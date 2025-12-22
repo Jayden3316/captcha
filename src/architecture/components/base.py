@@ -10,45 +10,79 @@ from jaxtyping import Float
 
 Tensor = torch.Tensor
 
-class BaseEncoder(nn.Module, ABC):
+class BaseImageEncoder(nn.Module, ABC):
     """
-    Base class for all image encoders.
+    Base class for all image backbones.
     
-    Encoders transform images into token sequences:
-    [B, C, H, W] -> [B, SeqLen, EncDim]
+    Encoders transform raw images into spatial feature maps:
+    [B, C_in, H, W] -> [B, C_out, H', W']
     """
     
     @property
     @abstractmethod
-    def output_dim(self) -> int:
-        """Dimension of encoder output features."""
+    def output_channels(self) -> int:
+        """Number of output channels (C_out)."""
         pass
     
     @abstractmethod
-    def forward(self, image: Float[Tensor, "batch channel height width"]) -> Float[Tensor, "batch seq dim"]:
+    def forward(self, image: Float[Tensor, "batch channel height width"]) -> Float[Tensor, "batch out_channel out_height out_width"]:
         """
-        Encode image to token sequence.
+        Encode image to spatial features.
         
         Args:
             image: Input image [B, C, H, W]
             
         Returns:
-            features: Token sequence [B, SeqLen, EncDim]
+            features: Spatial feature map [B, C_out, H', W']
         """
         pass
+
+
+class BaseAdapter(nn.Module, ABC):
+    """
+    Base class for adapters that bridge Encoders and Heads/Projectors.
     
-    def get_sequence_length(self, image_width: int) -> int:
-        """
-        Calculate output sequence length for given image width.
-        Useful for validation and planning.
+    Adapters transform spatial features into task-specific formats.
+    """
+    
+    def __init__(self, input_channels: int):
+        super().__init__()
+        self.input_channels = input_channels
+    
+    @property
+    @abstractmethod
+    def output_dim(self) -> int:
+        """Dimension of the output features (last dimension)."""
+        pass
+
+
+class BaseGenerationAdapter(BaseAdapter):
+    """
+    Adapter for generation tasks (Sequence output).
+    
+    [B, C, H, W] -> [B, Seq, Dim]
+    """
+    
+    @abstractmethod
+    def forward(self, x: Float[Tensor, "batch channel height width"]) -> Float[Tensor, "batch seq dim"]:
+        pass
         
-        Args:
-            image_width: Width of input image
-            
-        Returns:
-            Expected sequence length after encoding
-        """
-        raise NotImplementedError("Subclass should implement if known")
+    @abstractmethod
+    def get_sequence_length(self, input_width: int) -> int:
+        """Calculate expected sequence length given input width."""
+        pass
+
+
+class BaseClassificationAdapter(BaseAdapter):
+    """
+    Adapter for classification tasks (Fixed vector output).
+    
+    [B, C, H, W] -> [B, Dim]
+    """
+    
+    @abstractmethod
+    def forward(self, x: Float[Tensor, "batch channel height width"]) -> Float[Tensor, "batch dim"]:
+        pass
 
 
 class BaseProjector(nn.Module, ABC):

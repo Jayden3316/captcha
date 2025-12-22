@@ -1,158 +1,14 @@
 [
   {
-    "image_path": "dataset_val/dataset/emde3_2b42ec80.png",
-    "word_input": "EmDe3",
-    "word_rendered": "emde3",
+    "image_path": "dataset_val/dataset/Hgl0N_f417dcf2.png",
+    "word_input": "Hgl0N",
+    "word_rendered": "Hgl0N",
     "word_length": 5,
     "width": 160,
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/K4eYs_0d4926dd.png",
-    "word_input": "k4EYs",
-    "word_rendered": "K4eYs",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/0S637_dff7f4ab.png",
-    "word_input": "0s637",
-    "word_rendered": "0S637",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/jiOSi_6d5b712b.png",
-    "word_input": "JIoSi",
-    "word_rendered": "jiOSi",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/o0HaU_e9b2e671.png",
-    "word_input": "O0hau",
-    "word_rendered": "o0HaU",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/9T5UO_2ad34ebd.png",
-    "word_input": "9T5uo",
-    "word_rendered": "9T5UO",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/NWJbJ_3ec949fe.png",
-    "word_input": "nwjBj",
-    "word_rendered": "NWJbJ",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Zpx3W_69164ca9.png",
-    "word_input": "zPx3w",
-    "word_rendered": "Zpx3W",
-    "word_length": 5,
-    "width": 170,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ObPUs_b9e29068.png",
-    "word_input": "oBPUs",
-    "word_rendered": "ObPUs",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/XchkQ_d910fb7d.png",
-    "word_input": "xcHkq",
-    "word_rendered": "XchkQ",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/mEElu_c875946c.png",
-    "word_input": "meelU",
-    "word_rendered": "mEElu",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/M57hc_030b2d34.png",
-    "word_input": "M57Hc",
-    "word_rendered": "M57hc",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/r6TOL_597556c9.png",
-    "word_input": "R6TOl",
-    "word_rendered": "r6TOL",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/iBP2H_58f442be.png",
-    "word_input": "iBP2h",
-    "word_rendered": "iBP2H",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/rwnm4_fd0a3798.png",
-    "word_input": "RWnm4",
-    "word_rendered": "rwnm4",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/K4EyS_95f1ea4f.png",
-    "word_input": "k4EYs",
-    "word_rendered": "K4EyS",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/eMde3_7ad7622b.png",
-    "word_input": "EmDe3",
-    "word_rendered": "eMde3",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/p3SZD_c0aa9231.png",
-    "word_input": "P3SZd",
-    "word_rendered": "p3SZD",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/wANNR_80f7fe44.png",
-    "word_input": "waNNr",
-    "word_rendered": "wANNR",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/jfCWp_e8d702e9.png",
+    "image_path": "dataset_val/dataset/jfCWp_882100b0.png",
     "word_input": "jfCWp",
     "word_rendered": "jfCWp",
     "word_length": 5,
@@ -160,1375 +16,15 @@
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/M6p1Q_ebe058cf.png",
-    "word_input": "m6P1Q",
-    "word_rendered": "M6p1Q",
+    "image_path": "dataset_val/dataset/H7IfW_23508027.png",
+    "word_input": "H7IfW",
+    "word_rendered": "H7IfW",
     "word_length": 5,
     "width": 160,
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/9t5UO_9f12ef75.png",
-    "word_input": "9T5uo",
-    "word_rendered": "9t5UO",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/eRTxf_155a4814.png",
-    "word_input": "ERTXf",
-    "word_rendered": "eRTxf",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Y5HRr_66af96e1.png",
-    "word_input": "Y5hRR",
-    "word_rendered": "Y5HRr",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/3ibVr_98395dcf.png",
-    "word_input": "3iBvr",
-    "word_rendered": "3ibVr",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/8Imxp_d8a1c8cd.png",
-    "word_input": "8IMXp",
-    "word_rendered": "8Imxp",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ZpX3w_ea6b126b.png",
-    "word_input": "zPx3w",
-    "word_rendered": "ZpX3w",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/EMde3_66e84f88.png",
-    "word_input": "EmDe3",
-    "word_rendered": "EMde3",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/k0WdU_43d308da.png",
-    "word_input": "k0wDU",
-    "word_rendered": "k0WdU",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/PYkvN_c3114017.png",
-    "word_input": "PYKvN",
-    "word_rendered": "PYkvN",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/AaiT9_c30bd87c.png",
-    "word_input": "AaiT9",
-    "word_rendered": "AaiT9",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/M6p1q_56b20629.png",
-    "word_input": "m6P1Q",
-    "word_rendered": "M6p1q",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/k4RW6_50abf87d.png",
-    "word_input": "K4rW6",
-    "word_rendered": "k4RW6",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/PiWjL_682cb6ae.png",
-    "word_input": "pIWJl",
-    "word_rendered": "PiWjL",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/2tNwn_702d862a.png",
-    "word_input": "2tNwn",
-    "word_rendered": "2tNwn",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/qLK1J_4e09ed13.png",
-    "word_input": "qlk1J",
-    "word_rendered": "qLK1J",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Fk7jo_07e02e23.png",
-    "word_input": "fK7jO",
-    "word_rendered": "Fk7jo",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/JJ7rR_f86dcbd9.png",
-    "word_input": "Jj7rr",
-    "word_rendered": "JJ7rR",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/K4Eys_74d75c36.png",
-    "word_input": "k4EYs",
-    "word_rendered": "K4Eys",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/pK1d3_bcc93ca8.png",
-    "word_input": "Pk1D3",
-    "word_rendered": "pK1d3",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/hmOu8_5aa8a9fc.png",
-    "word_input": "hmOU8",
-    "word_rendered": "hmOu8",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/c3xKE_3c168091.png",
-    "word_input": "C3xkE",
-    "word_rendered": "c3xKE",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/kOLQ2_12f2238f.png",
-    "word_input": "KOLq2",
-    "word_rendered": "kOLQ2",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ykkIw_72987d29.png",
-    "word_input": "ykKIW",
-    "word_rendered": "ykkIw",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/17EMl_01fa02e3.png",
-    "word_input": "17EmL",
-    "word_rendered": "17EMl",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/u4GTV_951f714a.png",
-    "word_input": "U4gtv",
-    "word_rendered": "u4GTV",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/xjVei_efe34a81.png",
-    "word_input": "xJVeI",
-    "word_rendered": "xjVei",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/VCRSs_75e0677d.png",
-    "word_input": "vcRss",
-    "word_rendered": "VCRSs",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Xz5fv_e0b0dc85.png",
-    "word_input": "Xz5fv",
-    "word_rendered": "Xz5fv",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/6m42m_5fc5fd1e.png",
-    "word_input": "6m42m",
-    "word_rendered": "6m42m",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/6m42M_40d370f2.png",
-    "word_input": "6m42m",
-    "word_rendered": "6m42M",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/MXARF_20e464c0.png",
-    "word_input": "MXarf",
-    "word_rendered": "MXARF",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/K0wDU_4cd3582b.png",
-    "word_input": "k0wDU",
-    "word_rendered": "K0wDU",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/MeELu_3295050d.png",
-    "word_input": "meelU",
-    "word_rendered": "MeELu",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/pK1D3_6169ccfb.png",
-    "word_input": "Pk1D3",
-    "word_rendered": "pK1D3",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/PmwAD_feabe0ac.png",
-    "word_input": "pMwad",
-    "word_rendered": "PmwAD",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/2h5AU_2f8ae69e.png",
-    "word_input": "2H5au",
-    "word_rendered": "2h5AU",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/8IMXp_3946bf8e.png",
-    "word_input": "8IMXp",
-    "word_rendered": "8IMXp",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/C69dL_17458711.png",
-    "word_input": "c69DL",
-    "word_rendered": "C69dL",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/OBPuS_ff401913.png",
-    "word_input": "oBPUs",
-    "word_rendered": "OBPuS",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/thb2v_22e00ef5.png",
-    "word_input": "THb2v",
-    "word_rendered": "thb2v",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/yuCIE_23733fe3.png",
-    "word_input": "yuciE",
-    "word_rendered": "yuCIE",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/kbTcg_88e39699.png",
-    "word_input": "kBtcG",
-    "word_rendered": "kbTcg",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/r8QJF_a0a18c09.png",
-    "word_input": "R8qJf",
-    "word_rendered": "r8QJF",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Tiwap_f09ff449.png",
-    "word_input": "TiwAP",
-    "word_rendered": "Tiwap",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/zPx3w_f2ee97f6.png",
-    "word_input": "zPx3w",
-    "word_rendered": "zPx3w",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/P3szd_80a2f15e.png",
-    "word_input": "P3SZd",
-    "word_rendered": "P3szd",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/K0WdU_e7a46b83.png",
-    "word_input": "k0wDU",
-    "word_rendered": "K0WdU",
-    "word_length": 5,
-    "width": 165,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/emdE3_32801b42.png",
-    "word_input": "EmDe3",
-    "word_rendered": "emdE3",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/jZtlo_40fd1e6c.png",
-    "word_input": "jzTlO",
-    "word_rendered": "jZtlo",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/R6TOl_9d3f206e.png",
-    "word_input": "R6TOl",
-    "word_rendered": "R6TOl",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/vCRss_114c7de6.png",
-    "word_input": "vcRss",
-    "word_rendered": "vCRss",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/0S637_8482e157.png",
-    "word_input": "0s637",
-    "word_rendered": "0S637",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/MeELU_be917881.png",
-    "word_input": "meelU",
-    "word_rendered": "MeELU",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/MEelu_2fc14605.png",
-    "word_input": "meelU",
-    "word_rendered": "MEelu",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Kolq2_a7baf8f9.png",
-    "word_input": "KOLq2",
-    "word_rendered": "Kolq2",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/mfua7_ba05c882.png",
-    "word_input": "mfuA7",
-    "word_rendered": "mfua7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/pYpeg_a98afaf1.png",
-    "word_input": "PYPEg",
-    "word_rendered": "pYpeg",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/zvFrO_64a34265.png",
-    "word_input": "zvFro",
-    "word_rendered": "zvFrO",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Q8Kim_e3697bf7.png",
-    "word_input": "Q8Kim",
-    "word_rendered": "Q8Kim",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/xDanU_14d87396.png",
-    "word_input": "xDANu",
-    "word_rendered": "xDanU",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/p882r_fb7b5605.png",
-    "word_input": "P882r",
-    "word_rendered": "p882r",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/xJveI_7a0d6581.png",
-    "word_input": "xJVeI",
-    "word_rendered": "xJveI",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/UkdWm_bcb91e7f.png",
-    "word_input": "ukdWm",
-    "word_rendered": "UkdWm",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/kOlq2_82321e06.png",
-    "word_input": "KOLq2",
-    "word_rendered": "kOlq2",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ibp2h_7ede10a7.png",
-    "word_input": "iBP2h",
-    "word_rendered": "ibp2h",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/EIKiX_cabb01b2.png",
-    "word_input": "eIKIX",
-    "word_rendered": "EIKiX",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/XjVei_01dd13c6.png",
-    "word_input": "xJVeI",
-    "word_rendered": "XjVei",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/mFuA7_20b6d23c.png",
-    "word_input": "mfuA7",
-    "word_rendered": "mFuA7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/pGaGU_530ff0dd.png",
-    "word_input": "pgAgu",
-    "word_rendered": "pGaGU",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/tNu5J_f4760598.png",
-    "word_input": "tNu5j",
-    "word_rendered": "tNu5J",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/R6TOL_ae4f28dc.png",
-    "word_input": "R6TOl",
-    "word_rendered": "R6TOL",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/eikIX_839bfc8b.png",
-    "word_input": "eIKIX",
-    "word_rendered": "eikIX",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/4RQO0_537c35bd.png",
-    "word_input": "4rQo0",
-    "word_rendered": "4RQO0",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ygz3Y_87616c8c.png",
-    "word_input": "Ygz3Y",
-    "word_rendered": "ygz3Y",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/CVYRQ_87dfb753.png",
-    "word_input": "Cvyrq",
-    "word_rendered": "CVYRQ",
-    "word_length": 5,
-    "width": 164,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/xnyve_5d1d3a50.png",
-    "word_input": "xNyve",
-    "word_rendered": "xnyve",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/pK1d3_726dea8d.png",
-    "word_input": "Pk1D3",
-    "word_rendered": "pK1d3",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Q8kIM_22bc28a5.png",
-    "word_input": "Q8Kim",
-    "word_rendered": "Q8kIM",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/NWjBj_a8c06de5.png",
-    "word_input": "nwjBj",
-    "word_rendered": "NWjBj",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/kolQ2_84959f46.png",
-    "word_input": "KOLq2",
-    "word_rendered": "kolQ2",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/R6Tol_6e91aaae.png",
-    "word_input": "R6TOl",
-    "word_rendered": "R6Tol",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/R6tOl_aac06548.png",
-    "word_input": "R6TOl",
-    "word_rendered": "R6tOl",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/vcRsS_3cdadab3.png",
-    "word_input": "vcRss",
-    "word_rendered": "vcRsS",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/c3xkE_3c6cb566.png",
-    "word_input": "C3xkE",
-    "word_rendered": "c3xkE",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/pyKvn_2bcbccb0.png",
-    "word_input": "PYKvN",
-    "word_rendered": "pyKvn",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/K4EyS_5425c5ee.png",
-    "word_input": "k4EYs",
-    "word_rendered": "K4EyS",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/mFUa7_391a7b0c.png",
-    "word_input": "mfuA7",
-    "word_rendered": "mFUa7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/nDYIb_8a5acce6.png",
-    "word_input": "ndyIB",
-    "word_rendered": "nDYIb",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/U4gtV_d27a23a5.png",
-    "word_input": "U4gtv",
-    "word_rendered": "U4gtV",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/3H1gp_1028137e.png",
-    "word_input": "3H1gP",
-    "word_rendered": "3H1gp",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/k1WvY_e70a7e89.png",
-    "word_input": "k1wVY",
-    "word_rendered": "k1WvY",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/9t5UO_2cdbf567.png",
-    "word_input": "9T5uo",
-    "word_rendered": "9t5UO",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/in6Lu_d3f404dc.png",
-    "word_input": "in6Lu",
-    "word_rendered": "in6Lu",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/nwJBJ_344d039e.png",
-    "word_input": "nwjBj",
-    "word_rendered": "nwJBJ",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/QLK1j_0df9a67c.png",
-    "word_input": "qlk1J",
-    "word_rendered": "QLK1j",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/M6p1Q_0a120487.png",
-    "word_input": "m6P1Q",
-    "word_rendered": "M6p1Q",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/zPX3W_20434d75.png",
-    "word_input": "zPx3w",
-    "word_rendered": "zPX3W",
-    "word_length": 5,
-    "width": 164,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/CVYrq_5da8b306.png",
-    "word_input": "Cvyrq",
-    "word_rendered": "CVYrq",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/fJvij_8f729b01.png",
-    "word_input": "fJvIJ",
-    "word_rendered": "fJvij",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/hMOU8_09010c39.png",
-    "word_input": "hmOU8",
-    "word_rendered": "hMOU8",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/4RQo0_459b548d.png",
-    "word_input": "4rQo0",
-    "word_rendered": "4RQo0",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/xNyve_036b0f50.png",
-    "word_input": "xNyve",
-    "word_rendered": "xNyve",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/3IBVr_93801573.png",
-    "word_input": "3iBvr",
-    "word_rendered": "3IBVr",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/R8qjf_430c69c5.png",
-    "word_input": "R8qJf",
-    "word_rendered": "R8qjf",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/BSmFb_5cdcea90.png",
-    "word_input": "bSmFb",
-    "word_rendered": "BSmFb",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ukdWm_d2bb1ac0.png",
-    "word_input": "ukdWm",
-    "word_rendered": "ukdWm",
-    "word_length": 5,
-    "width": 186,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/PmWAd_978785b4.png",
-    "word_input": "pMwad",
-    "word_rendered": "PmWAd",
-    "word_length": 5,
-    "width": 166,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/R6toL_5a280db0.png",
-    "word_input": "R6TOl",
-    "word_rendered": "R6toL",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/pmwaD_cfa17c1e.png",
-    "word_input": "pMwad",
-    "word_rendered": "pmwaD",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/pO9Rh_beba744d.png",
-    "word_input": "po9rH",
-    "word_rendered": "pO9Rh",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/o0hau_6510940e.png",
-    "word_input": "O0hau",
-    "word_rendered": "o0hau",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/9sZ9K_867b5105.png",
-    "word_input": "9sZ9k",
-    "word_rendered": "9sZ9K",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Sag7o_d01a5f41.png",
-    "word_input": "saG7o",
-    "word_rendered": "Sag7o",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/QLK1J_2670461b.png",
-    "word_input": "qlk1J",
-    "word_rendered": "QLK1J",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/obpUs_6d1532e5.png",
-    "word_input": "oBPUs",
-    "word_rendered": "obpUs",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/NWjbJ_ffd7722d.png",
-    "word_input": "nwjBj",
-    "word_rendered": "NWjbJ",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/aAIt9_ab0997f1.png",
-    "word_input": "AaiT9",
-    "word_rendered": "aAIt9",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/au2fW_9797da07.png",
-    "word_input": "aU2fW",
-    "word_rendered": "au2fW",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/q2dV7_9667eaf0.png",
-    "word_input": "Q2dv7",
-    "word_rendered": "q2dV7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/JFCWP_27352091.png",
-    "word_input": "jfCWp",
-    "word_rendered": "JFCWP",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Sag7o_060cf5e7.png",
-    "word_input": "saG7o",
-    "word_rendered": "Sag7o",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/pMWAd_65b15b3e.png",
-    "word_input": "pMwad",
-    "word_rendered": "pMWAd",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/M6p1q_9813a978.png",
-    "word_input": "m6P1Q",
-    "word_rendered": "M6p1q",
-    "word_length": 5,
-    "width": 163,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ePGbd_63a796ef.png",
-    "word_input": "EpGbd",
-    "word_rendered": "ePGbd",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/3h1Gp_be572962.png",
-    "word_input": "3H1gP",
-    "word_rendered": "3h1Gp",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/6M42M_e8f3cc60.png",
-    "word_input": "6m42m",
-    "word_rendered": "6M42M",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/m6p1q_927ce7bd.png",
-    "word_input": "m6P1Q",
-    "word_rendered": "m6p1q",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/PMwAD_6b24da5f.png",
-    "word_input": "pMwad",
-    "word_rendered": "PMwAD",
-    "word_length": 5,
-    "width": 175,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/MfUa7_6bdfaca2.png",
-    "word_input": "mfuA7",
-    "word_rendered": "MfUa7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/tHb2V_7e2dc139.png",
-    "word_input": "THb2v",
-    "word_rendered": "tHb2V",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/8Imxp_ae515029.png",
-    "word_input": "8IMXp",
-    "word_rendered": "8Imxp",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/kBtcG_8e22a852.png",
-    "word_input": "kBtcG",
-    "word_rendered": "kBtcG",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/p882r_835bc714.png",
-    "word_input": "P882r",
-    "word_rendered": "p882r",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/MXArf_3ccd3aa9.png",
-    "word_input": "MXarf",
-    "word_rendered": "MXArf",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/HMoU8_f50adaeb.png",
-    "word_input": "hmOU8",
-    "word_rendered": "HMoU8",
-    "word_length": 5,
-    "width": 168,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/VcRsS_c8e30f7c.png",
-    "word_input": "vcRss",
-    "word_rendered": "VcRsS",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/sAg7O_e0440bba.png",
-    "word_input": "saG7o",
-    "word_rendered": "sAg7O",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/qLK1j_5e02d970.png",
-    "word_input": "qlk1J",
-    "word_rendered": "qLK1j",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/p3szd_b779f6d0.png",
-    "word_input": "P3SZd",
-    "word_rendered": "p3szd",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/8IMXp_0e6474a5.png",
-    "word_input": "8IMXp",
-    "word_rendered": "8IMXp",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/IrGPH_b967ddfc.png",
-    "word_input": "irGPh",
-    "word_rendered": "IrGPH",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/bzpqv_a49150d3.png",
-    "word_input": "bzpQV",
-    "word_rendered": "bzpqv",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/iRGph_78d23f78.png",
-    "word_input": "irGPh",
-    "word_rendered": "iRGph",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/waNnR_0c49abf2.png",
-    "word_input": "waNNr",
-    "word_rendered": "waNnR",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Mfua7_ce7f2a20.png",
-    "word_input": "mfuA7",
-    "word_rendered": "Mfua7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/2H5Au_471149cf.png",
-    "word_input": "2H5au",
-    "word_rendered": "2H5Au",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/RwNm4_9ebbe747.png",
-    "word_input": "RWnm4",
-    "word_rendered": "RwNm4",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/vcrSs_2fecb27b.png",
-    "word_input": "vcRss",
-    "word_rendered": "vcrSs",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Obpus_ecfc5760.png",
-    "word_input": "oBPUs",
-    "word_rendered": "Obpus",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/irGph_a87ebc1f.png",
-    "word_input": "irGPh",
-    "word_rendered": "irGph",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/p3sZD_fb07a2de.png",
-    "word_input": "P3SZd",
-    "word_rendered": "p3sZD",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ObPUS_1176215d.png",
-    "word_input": "oBPUs",
-    "word_rendered": "ObPUS",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/jJ7RR_0ed5223e.png",
-    "word_input": "Jj7rr",
-    "word_rendered": "jJ7RR",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/P3SZd_a0643008.png",
-    "word_input": "P3SZd",
-    "word_rendered": "P3SZd",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Q8Kim_64ad9583.png",
-    "word_input": "Q8Kim",
-    "word_rendered": "Q8Kim",
-    "word_length": 5,
-    "width": 164,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/tnU5J_b5d3b35b.png",
-    "word_input": "tNu5j",
-    "word_rendered": "tnU5J",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/A8BUH_e1c710ec.png",
-    "word_input": "a8BuH",
-    "word_rendered": "A8BUH",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/uKdwm_80a305ef.png",
-    "word_input": "ukdWm",
-    "word_rendered": "uKdwm",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/2tNWn_b09272d2.png",
-    "word_input": "2tNwn",
-    "word_rendered": "2tNWn",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Y2EU4_79053f4b.png",
-    "word_input": "y2eU4",
-    "word_rendered": "Y2EU4",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ZClPX_7b2171fa.png",
-    "word_input": "zclPx",
-    "word_rendered": "ZClPX",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/TiwAP_2e117915.png",
-    "word_input": "TiwAP",
-    "word_rendered": "TiwAP",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/q8KIM_e24282c4.png",
-    "word_input": "Q8Kim",
-    "word_rendered": "q8KIM",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/rUIAJ_675bb57a.png",
-    "word_input": "RUiAj",
-    "word_rendered": "rUIAJ",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/3H1Gp_fa8853a7.png",
-    "word_input": "3H1gP",
-    "word_rendered": "3H1Gp",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/A8buH_739cc8df.png",
-    "word_input": "a8BuH",
-    "word_rendered": "A8buH",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ePgBd_cf8d1224.png",
-    "word_input": "EpGbd",
-    "word_rendered": "ePgBd",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/jfcWP_014faeed.png",
-    "word_input": "jfCWp",
-    "word_rendered": "jfcWP",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/4v6P9_a7364369.png",
-    "word_input": "4V6p9",
-    "word_rendered": "4v6P9",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/IRGpH_5c3b6166.png",
-    "word_input": "irGPh",
-    "word_rendered": "IRGpH",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/4V6p9_5b50b3da.png",
+    "image_path": "dataset_val/dataset/4V6p9_91b2556b.png",
     "word_input": "4V6p9",
     "word_rendered": "4V6p9",
     "word_length": 5,
@@ -1536,191 +32,7 @@
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/EikIX_c3a666d2.png",
-    "word_input": "eIKIX",
-    "word_rendered": "EikIX",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/xJVEi_eab43c36.png",
-    "word_input": "xJVeI",
-    "word_rendered": "xJVEi",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/h7IfW_125bb91c.png",
-    "word_input": "H7IfW",
-    "word_rendered": "h7IfW",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/3IBvR_5eae88ec.png",
-    "word_input": "3iBvr",
-    "word_rendered": "3IBvR",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/VcrSS_85d99ed6.png",
-    "word_input": "vcRss",
-    "word_rendered": "VcrSS",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/PyKvn_019a7772.png",
-    "word_input": "PYKvN",
-    "word_rendered": "PyKvn",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/u4gTV_00976db8.png",
-    "word_input": "U4gtv",
-    "word_rendered": "u4gTV",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/2h5Au_b38ac54c.png",
-    "word_input": "2H5au",
-    "word_rendered": "2h5Au",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/2TnWn_2a62c1b4.png",
-    "word_input": "2tNwn",
-    "word_rendered": "2TnWn",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/p882R_57f16fae.png",
-    "word_input": "P882r",
-    "word_rendered": "p882R",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/KBTcG_2d13c00a.png",
-    "word_input": "kBtcG",
-    "word_rendered": "KBTcG",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/q8KIm_b7c5e126.png",
-    "word_input": "Q8Kim",
-    "word_rendered": "q8KIm",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Wannr_86565d8c.png",
-    "word_input": "waNNr",
-    "word_rendered": "Wannr",
-    "word_length": 5,
-    "width": 178,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ZclPx_a3e63c25.png",
-    "word_input": "zclPx",
-    "word_rendered": "ZclPx",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/O0HAU_88e68210.png",
-    "word_input": "O0hau",
-    "word_rendered": "O0HAU",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/k1wvY_42761cf6.png",
-    "word_input": "k1wVY",
-    "word_rendered": "k1wvY",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/zcLpX_543ce0df.png",
-    "word_input": "zclPx",
-    "word_rendered": "zcLpX",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/2h5aU_808fafe4.png",
-    "word_input": "2H5au",
-    "word_rendered": "2h5aU",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/6m42m_48bdf668.png",
-    "word_input": "6m42m",
-    "word_rendered": "6m42m",
-    "word_length": 5,
-    "width": 164,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/kbTcg_96017df1.png",
-    "word_input": "kBtcG",
-    "word_rendered": "kbTcg",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/uKDWm_cd954d26.png",
-    "word_input": "ukdWm",
-    "word_rendered": "uKDWm",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ygz3Y_ed294909.png",
-    "word_input": "Ygz3Y",
-    "word_rendered": "ygz3Y",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/TIwap_fc476b29.png",
-    "word_input": "TiwAP",
-    "word_rendered": "TIwap",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/jzTlO_4da2acb2.png",
+    "image_path": "dataset_val/dataset/jzTlO_dc851827.png",
     "word_input": "jzTlO",
     "word_rendered": "jzTlO",
     "word_length": 5,
@@ -1728,159 +40,87 @@
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/EMdE3_7493bd17.png",
-    "word_input": "EmDe3",
-    "word_rendered": "EMdE3",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/JJ7rR_8fa4c48f.png",
-    "word_input": "Jj7rr",
-    "word_rendered": "JJ7rR",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/q2dv7_d82a426f.png",
-    "word_input": "Q2dv7",
-    "word_rendered": "q2dv7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/O0HAU_71597c69.png",
-    "word_input": "O0hau",
-    "word_rendered": "O0HAU",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/jFCwp_41d0db8c.png",
-    "word_input": "jfCWp",
-    "word_rendered": "jFCwp",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/in6lu_3757b9f0.png",
-    "word_input": "in6Lu",
-    "word_rendered": "in6lu",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Q8KiM_9c3893e8.png",
-    "word_input": "Q8Kim",
-    "word_rendered": "Q8KiM",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/m6p1q_d09c0622.png",
-    "word_input": "m6P1Q",
-    "word_rendered": "m6p1q",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/KBTcg_057073f7.png",
-    "word_input": "kBtcG",
-    "word_rendered": "KBTcg",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/K4RW6_86126638.png",
-    "word_input": "K4rW6",
-    "word_rendered": "K4RW6",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/M6p1Q_759c70a7.png",
-    "word_input": "m6P1Q",
-    "word_rendered": "M6p1Q",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ObPUS_84b98aca.png",
-    "word_input": "oBPUs",
-    "word_rendered": "ObPUS",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/3H1gp_48a9ec03.png",
-    "word_input": "3H1gP",
-    "word_rendered": "3H1gp",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/R8Qjf_768ad4e8.png",
-    "word_input": "R8qJf",
-    "word_rendered": "R8Qjf",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/nDYiB_c3eed9a2.png",
-    "word_input": "ndyIB",
-    "word_rendered": "nDYiB",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Q2dv7_dcefb5ba.png",
-    "word_input": "Q2dv7",
-    "word_rendered": "Q2dv7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/PiWjL_f783422d.png",
+    "image_path": "dataset_val/dataset/pIWJl_22b99235.png",
     "word_input": "pIWJl",
-    "word_rendered": "PiWjL",
+    "word_rendered": "pIWJl",
     "word_length": 5,
     "width": 160,
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/kBtCG_02bcb788.png",
-    "word_input": "kBtcG",
-    "word_rendered": "kBtCG",
+    "image_path": "dataset_val/dataset/mfuA7_cd3cda3d.png",
+    "word_input": "mfuA7",
+    "word_rendered": "mfuA7",
     "word_length": 5,
     "width": 160,
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/Y5HrR_490963e8.png",
-    "word_input": "Y5hRR",
-    "word_rendered": "Y5HrR",
+    "image_path": "dataset_val/dataset/O0hau_b7ee5f72.png",
+    "word_input": "O0hau",
+    "word_rendered": "O0hau",
     "word_length": 5,
     "width": 160,
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/5q6ig_ceef406c.png",
+    "image_path": "dataset_val/dataset/in6Lu_c07535b8.png",
+    "word_input": "in6Lu",
+    "word_rendered": "in6Lu",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/THb2v_56dd8f7a.png",
+    "word_input": "THb2v",
+    "word_rendered": "THb2v",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xDANu_036c6c04.png",
+    "word_input": "xDANu",
+    "word_rendered": "xDANu",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/zclPx_e165231f.png",
+    "word_input": "zclPx",
+    "word_rendered": "zclPx",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/oBPUs_1713cbca.png",
+    "word_input": "oBPUs",
+    "word_rendered": "oBPUs",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/zvFro_a898b403.png",
+    "word_input": "zvFro",
+    "word_rendered": "zvFro",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k1wVY_9eb57615.png",
+    "word_input": "k1wVY",
+    "word_rendered": "k1wVY",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/5q6ig_7ef71e00.png",
     "word_input": "5q6ig",
     "word_rendered": "5q6ig",
     "word_length": 5,
@@ -1888,1295 +128,175 @@
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/ExfrS_da184f7c.png",
-    "word_input": "exfrs",
-    "word_rendered": "ExfrS",
+    "image_path": "dataset_val/dataset/Xz5fv_407d1d10.png",
+    "word_input": "Xz5fv",
+    "word_rendered": "Xz5fv",
     "word_length": 5,
     "width": 160,
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/KOlQ2_285a1be8.png",
-    "word_input": "KOLq2",
-    "word_rendered": "KOlQ2",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/cvYRQ_c637d492.png",
-    "word_input": "Cvyrq",
-    "word_rendered": "cvYRQ",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/2nRy4_b73ae8a3.png",
-    "word_input": "2NrY4",
-    "word_rendered": "2nRy4",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/eXFRs_e3a5bda4.png",
-    "word_input": "exfrs",
-    "word_rendered": "eXFRs",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/2TNWn_eb0cf605.png",
-    "word_input": "2tNwn",
-    "word_rendered": "2TNWn",
-    "word_length": 5,
-    "width": 161,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/hMoU8_8fcd6afa.png",
-    "word_input": "hmOU8",
-    "word_rendered": "hMoU8",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/r6toL_211f8aa5.png",
-    "word_input": "R6TOl",
-    "word_rendered": "r6toL",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/KbTcG_3ddf6f80.png",
-    "word_input": "kBtcG",
-    "word_rendered": "KbTcG",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/K1WvY_80220152.png",
-    "word_input": "k1wVY",
-    "word_rendered": "K1WvY",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/JIoSi_7c6b5154.png",
-    "word_input": "JIoSi",
-    "word_rendered": "JIoSi",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ndyIB_90f0680b.png",
-    "word_input": "ndyIB",
-    "word_rendered": "ndyIB",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/K459N_7f24b2b3.png",
-    "word_input": "k459N",
-    "word_rendered": "K459N",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Jztlo_d0243a81.png",
-    "word_input": "jzTlO",
-    "word_rendered": "Jztlo",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/4rQO0_15dee29a.png",
-    "word_input": "4rQo0",
-    "word_rendered": "4rQO0",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/PO9rH_46f20c84.png",
-    "word_input": "po9rH",
-    "word_rendered": "PO9rH",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/SaG7o_408a7540.png",
-    "word_input": "saG7o",
-    "word_rendered": "SaG7o",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/RuiaJ_90294a8b.png",
-    "word_input": "RUiAj",
-    "word_rendered": "RuiaJ",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/k4RW6_9f07287f.png",
-    "word_input": "K4rW6",
-    "word_rendered": "k4RW6",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/iN6lU_4c6a95a6.png",
-    "word_input": "in6Lu",
-    "word_rendered": "iN6lU",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/bsmfb_4f3a0fa5.png",
-    "word_input": "bSmFb",
-    "word_rendered": "bsmfb",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/kOlq2_bb47cd18.png",
-    "word_input": "KOLq2",
-    "word_rendered": "kOlq2",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/K0Wdu_b6d9dbd9.png",
-    "word_input": "k0wDU",
-    "word_rendered": "K0Wdu",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/AK6ld_38c20ec4.png",
-    "word_input": "aK6lD",
-    "word_rendered": "AK6ld",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/IbP2h_6ef99354.png",
+    "image_path": "dataset_val/dataset/iBP2h_e01736bf.png",
     "word_input": "iBP2h",
-    "word_rendered": "IbP2h",
+    "word_rendered": "iBP2h",
     "word_length": 5,
     "width": 160,
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/uKdWm_92561ecc.png",
-    "word_input": "ukdWm",
-    "word_rendered": "uKdWm",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/XDaNu_ad66450c.png",
-    "word_input": "xDANu",
-    "word_rendered": "XDaNu",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/a8BuH_aa481d0e.png",
-    "word_input": "a8BuH",
-    "word_rendered": "a8BuH",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/hGl0n_2fc62a33.png",
-    "word_input": "Hgl0N",
-    "word_rendered": "hGl0n",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/q2dV7_12cfd454.png",
-    "word_input": "Q2dv7",
-    "word_rendered": "q2dV7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/5Q6IG_326c8bfd.png",
-    "word_input": "5q6ig",
-    "word_rendered": "5Q6IG",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/4GE8a_4abb34b1.png",
-    "word_input": "4Ge8a",
-    "word_rendered": "4GE8a",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/pyKVn_cf069115.png",
-    "word_input": "PYKvN",
-    "word_rendered": "pyKVn",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/hGL0N_6ee37b0d.png",
-    "word_input": "Hgl0N",
-    "word_rendered": "hGL0N",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/iN6lU_c39dcf7a.png",
-    "word_input": "in6Lu",
-    "word_rendered": "iN6lU",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Ygz3Y_dd3aa26f.png",
-    "word_input": "Ygz3Y",
-    "word_rendered": "Ygz3Y",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/nwJbJ_371e5288.png",
-    "word_input": "nwjBj",
-    "word_rendered": "nwJbJ",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/C3XKe_ea0c22db.png",
-    "word_input": "C3xkE",
-    "word_rendered": "C3XKe",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ERtxF_2a43e2ec.png",
-    "word_input": "ERTXf",
-    "word_rendered": "ERtxF",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/4GE8a_d363382c.png",
-    "word_input": "4Ge8a",
-    "word_rendered": "4GE8a",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/TiWaP_582d92f9.png",
-    "word_input": "TiwAP",
-    "word_rendered": "TiWaP",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/P3szd_93006c10.png",
-    "word_input": "P3SZd",
-    "word_rendered": "P3szd",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/M6p1Q_0893dc04.png",
-    "word_input": "m6P1Q",
-    "word_rendered": "M6p1Q",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/3H1gp_ecbeaaec.png",
-    "word_input": "3H1gP",
-    "word_rendered": "3H1gp",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/On0GY_2a600d42.png",
-    "word_input": "oN0gy",
-    "word_rendered": "On0GY",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/K459N_3ffae850.png",
-    "word_input": "k459N",
-    "word_rendered": "K459N",
-    "word_length": 5,
-    "width": 172,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/VCrSs_bafa2d69.png",
-    "word_input": "vcRss",
-    "word_rendered": "VCrSs",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Zb8fZ_0e07bfcb.png",
-    "word_input": "Zb8fz",
-    "word_rendered": "Zb8fZ",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/u4Gtv_780c6970.png",
-    "word_input": "U4gtv",
-    "word_rendered": "u4Gtv",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Y2eu4_ca2ec6ac.png",
-    "word_input": "y2eU4",
-    "word_rendered": "Y2eu4",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ObPUs_3e448b80.png",
-    "word_input": "oBPUs",
-    "word_rendered": "ObPUs",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/WanNR_a60ca33d.png",
-    "word_input": "waNNr",
-    "word_rendered": "WanNR",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/U4gtv_6a5967e7.png",
-    "word_input": "U4gtv",
-    "word_rendered": "U4gtv",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/O0Hau_d655b22d.png",
-    "word_input": "O0hau",
-    "word_rendered": "O0Hau",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/KoLq2_397d6b10.png",
-    "word_input": "KOLq2",
-    "word_rendered": "KoLq2",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/R8QJf_64360dd8.png",
-    "word_input": "R8qJf",
-    "word_rendered": "R8QJf",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/rWnm4_6e39ef03.png",
-    "word_input": "RWnm4",
-    "word_rendered": "rWnm4",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Q2DV7_5e5b3c19.png",
-    "word_input": "Q2dv7",
-    "word_rendered": "Q2DV7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/2tNwn_3a48d9de.png",
-    "word_input": "2tNwn",
-    "word_rendered": "2tNwn",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/WaNnR_e1342211.png",
-    "word_input": "waNNr",
-    "word_rendered": "WaNnR",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/6m42M_95a91052.png",
-    "word_input": "6m42m",
-    "word_rendered": "6m42M",
-    "word_length": 5,
-    "width": 168,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/xChkq_5b43448d.png",
-    "word_input": "xcHkq",
-    "word_rendered": "xChkq",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/MFUA7_784e2751.png",
+    "image_path": "dataset_val/dataset/mfuA7_572894d4.png",
     "word_input": "mfuA7",
-    "word_rendered": "MFUA7",
+    "word_rendered": "mfuA7",
+    "word_length": 5,
+    "width": 169,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/pgAgu_0f79581b.png",
+    "word_input": "pgAgu",
+    "word_rendered": "pgAgu",
     "word_length": 5,
     "width": 160,
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/HmoU8_634c8ba2.png",
-    "word_input": "hmOU8",
-    "word_rendered": "HmoU8",
+    "image_path": "dataset_val/dataset/zPx3w_ad3a12ff.png",
+    "word_input": "zPx3w",
+    "word_rendered": "zPx3w",
     "word_length": 5,
     "width": 160,
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/R8qjF_081f88bd.png",
-    "word_input": "R8qJf",
-    "word_rendered": "R8qjF",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Ygz3y_d202523e.png",
-    "word_input": "Ygz3Y",
-    "word_rendered": "Ygz3y",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ZClpx_66773b22.png",
-    "word_input": "zclPx",
-    "word_rendered": "ZClpx",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/uaRIB_fb9bd510.png",
-    "word_input": "uArIb",
-    "word_rendered": "uaRIB",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/RwnM4_c5b53e3f.png",
-    "word_input": "RWnm4",
-    "word_rendered": "RwnM4",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/VCrSS_da58437f.png",
-    "word_input": "vcRss",
-    "word_rendered": "VCrSS",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/on0GY_c817a2dc.png",
-    "word_input": "oN0gy",
-    "word_rendered": "on0GY",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/h7IfW_012c173e.png",
-    "word_input": "H7IfW",
-    "word_rendered": "h7IfW",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/9SZ9K_14880735.png",
-    "word_input": "9sZ9k",
-    "word_rendered": "9SZ9K",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/MfUa7_d6c480d8.png",
-    "word_input": "mfuA7",
-    "word_rendered": "MfUa7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/jiosI_5584f02a.png",
-    "word_input": "JIoSi",
-    "word_rendered": "jiosI",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/q2DV7_0737586c.png",
-    "word_input": "Q2dv7",
-    "word_rendered": "q2DV7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/4GE8a_04466370.png",
-    "word_input": "4Ge8a",
-    "word_rendered": "4GE8a",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ON0Gy_ad500c64.png",
-    "word_input": "oN0gy",
-    "word_rendered": "ON0Gy",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/crlmx_8a730d97.png",
+    "image_path": "dataset_val/dataset/crLMX_7527a281.png",
     "word_input": "crLMX",
-    "word_rendered": "crlmx",
+    "word_rendered": "crLMX",
     "word_length": 5,
     "width": 160,
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/2h5Au_1ee4744a.png",
-    "word_input": "2H5au",
-    "word_rendered": "2h5Au",
+    "image_path": "dataset_val/dataset/iBP2h_479be1a3.png",
+    "word_input": "iBP2h",
+    "word_rendered": "iBP2h",
     "word_length": 5,
     "width": 160,
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/9Sz9k_f1519c9a.png",
-    "word_input": "9sZ9k",
-    "word_rendered": "9Sz9k",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/yucie_4d0a0e33.png",
-    "word_input": "yuciE",
-    "word_rendered": "yucie",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/vcrSs_229f7981.png",
-    "word_input": "vcRss",
-    "word_rendered": "vcrSs",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Q8KIm_b4f1cdb8.png",
-    "word_input": "Q8Kim",
-    "word_rendered": "Q8KIm",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/EXFRs_1b00ef3c.png",
-    "word_input": "exfrs",
-    "word_rendered": "EXFRs",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/NdYIb_4c1d965c.png",
-    "word_input": "ndyIB",
-    "word_rendered": "NdYIb",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/sAg7O_a932082b.png",
-    "word_input": "saG7o",
-    "word_rendered": "sAg7O",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/pmwAD_defeffb3.png",
-    "word_input": "pMwad",
-    "word_rendered": "pmwAD",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/17EmL_29acb2c2.png",
-    "word_input": "17EmL",
-    "word_rendered": "17EmL",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/P882r_74538978.png",
-    "word_input": "P882r",
-    "word_rendered": "P882r",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/O0HaU_15e45c94.png",
-    "word_input": "O0hau",
-    "word_rendered": "O0HaU",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/XdAnU_075f9b29.png",
-    "word_input": "xDANu",
-    "word_rendered": "XdAnU",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ZB8Fz_2c8ff975.png",
-    "word_input": "Zb8fz",
-    "word_rendered": "ZB8Fz",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/zclpx_fd56ccd4.png",
-    "word_input": "zclPx",
-    "word_rendered": "zclpx",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/XjVeI_de8aef9f.png",
-    "word_input": "xJVeI",
-    "word_rendered": "XjVeI",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/TIwap_d15f9856.png",
-    "word_input": "TiwAP",
-    "word_rendered": "TIwap",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/tHb2V_50dd00c5.png",
-    "word_input": "THb2v",
-    "word_rendered": "tHb2V",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/fk7jO_3a45b883.png",
-    "word_input": "fK7jO",
-    "word_rendered": "fk7jO",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/c3xKe_84345c23.png",
-    "word_input": "C3xkE",
-    "word_rendered": "c3xKe",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/rUIaj_637b6f47.png",
-    "word_input": "RUiAj",
-    "word_rendered": "rUIaj",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/xUIgu_e3021ded.png",
-    "word_input": "xuigU",
-    "word_rendered": "xUIgu",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/R6TOl_36fcec0e.png",
-    "word_input": "R6TOl",
-    "word_rendered": "R6TOl",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/MFUA7_eb986e4a.png",
-    "word_input": "mfuA7",
-    "word_rendered": "MFUA7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/4gE8A_9996c319.png",
-    "word_input": "4Ge8a",
-    "word_rendered": "4gE8A",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/XdANU_705c7834.png",
-    "word_input": "xDANu",
-    "word_rendered": "XdANU",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/sag7O_22a4aaab.png",
-    "word_input": "saG7o",
-    "word_rendered": "sag7O",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/NWjbJ_f418bc2f.png",
-    "word_input": "nwjBj",
-    "word_rendered": "NWjbJ",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/au2fw_9cfb135b.png",
-    "word_input": "aU2fW",
-    "word_rendered": "au2fw",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/cRLmX_46f3fa42.png",
-    "word_input": "crLMX",
-    "word_rendered": "cRLmX",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/O0Hau_18cfd474.png",
-    "word_input": "O0hau",
-    "word_rendered": "O0Hau",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/XdANu_a658faf2.png",
-    "word_input": "xDANu",
-    "word_rendered": "XdANu",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/HgL0n_8999bc31.png",
-    "word_input": "Hgl0N",
-    "word_rendered": "HgL0n",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/K1wvY_ecbc0ff2.png",
-    "word_input": "k1wVY",
-    "word_rendered": "K1wvY",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/K4rW6_2a48a073.png",
-    "word_input": "K4rW6",
-    "word_rendered": "K4rW6",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/HMoU8_fdf8b736.png",
-    "word_input": "hmOU8",
-    "word_rendered": "HMoU8",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/aAit9_3b687ea1.png",
-    "word_input": "AaiT9",
-    "word_rendered": "aAit9",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/9t5Uo_c7f02573.png",
+    "image_path": "dataset_val/dataset/9T5uo_9ab2fb19.png",
     "word_input": "9T5uo",
-    "word_rendered": "9t5Uo",
+    "word_rendered": "9T5uo",
     "word_length": 5,
     "width": 160,
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/q8kiM_1c4ce390.png",
-    "word_input": "Q8Kim",
-    "word_rendered": "q8kiM",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/y5hRr_1e4f2222.png",
-    "word_input": "Y5hRR",
-    "word_rendered": "y5hRr",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Q2DV7_108ecd28.png",
-    "word_input": "Q2dv7",
-    "word_rendered": "Q2DV7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/c3XKe_7907ce7a.png",
-    "word_input": "C3xkE",
-    "word_rendered": "c3XKe",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/PMWad_1f4ef288.png",
-    "word_input": "pMwad",
-    "word_rendered": "PMWad",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/pO9rh_ad389760.png",
-    "word_input": "po9rH",
-    "word_rendered": "pO9rh",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/r6Tol_c37367a4.png",
-    "word_input": "R6TOl",
-    "word_rendered": "r6Tol",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Q2Dv7_b8343cbd.png",
-    "word_input": "Q2dv7",
-    "word_rendered": "Q2Dv7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ERTxf_02631b99.png",
-    "word_input": "ERTXf",
-    "word_rendered": "ERTxf",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/PO9RH_cae09d2c.png",
-    "word_input": "po9rH",
-    "word_rendered": "PO9RH",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ak6ld_555fbfc8.png",
-    "word_input": "aK6lD",
-    "word_rendered": "ak6ld",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/aK6ld_2e4f4765.png",
-    "word_input": "aK6lD",
-    "word_rendered": "aK6ld",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/bsmFB_e8236e6e.png",
-    "word_input": "bSmFb",
-    "word_rendered": "bsmFB",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/rWnM4_00931c75.png",
-    "word_input": "RWnm4",
-    "word_rendered": "rWnM4",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/RWNm4_460133c5.png",
-    "word_input": "RWnm4",
-    "word_rendered": "RWNm4",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Q2dV7_ec9fdb9a.png",
-    "word_input": "Q2dv7",
-    "word_rendered": "Q2dV7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/tiWaP_a7d5b6c5.png",
-    "word_input": "TiwAP",
-    "word_rendered": "tiWaP",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ZcLpx_5318ee29.png",
-    "word_input": "zclPx",
-    "word_rendered": "ZcLpx",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/2H5au_a4f0d2fc.png",
-    "word_input": "2H5au",
-    "word_rendered": "2H5au",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/q2dv7_d98c16a7.png",
-    "word_input": "Q2dv7",
-    "word_rendered": "q2dv7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/PmWAD_deb5af04.png",
-    "word_input": "pMwad",
-    "word_rendered": "PmWAD",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/o0haU_8a3c8be9.png",
-    "word_input": "O0hau",
-    "word_rendered": "o0haU",
-    "word_length": 5,
-    "width": 163,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/P3SZD_2f613ce1.png",
-    "word_input": "P3SZd",
-    "word_rendered": "P3SZD",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/WaNNR_99e83178.png",
-    "word_input": "waNNr",
-    "word_rendered": "WaNNR",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/0s637_5aadd3d2.png",
-    "word_input": "0s637",
-    "word_rendered": "0s637",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/A8BUH_8d2d979f.png",
-    "word_input": "a8BuH",
-    "word_rendered": "A8BUH",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/XNyVe_c8df40d5.png",
-    "word_input": "xNyve",
-    "word_rendered": "XNyVe",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/8IMxp_bc9f4e2d.png",
-    "word_input": "8IMXp",
-    "word_rendered": "8IMxp",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/iRGpH_cea80924.png",
-    "word_input": "irGPh",
-    "word_rendered": "iRGpH",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/Q2Dv7_1b648ca0.png",
-    "word_input": "Q2dv7",
-    "word_rendered": "Q2Dv7",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ak6lD_d53beaf5.png",
-    "word_input": "aK6lD",
-    "word_rendered": "ak6lD",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/wanNr_d2a581dc.png",
-    "word_input": "waNNr",
-    "word_rendered": "wanNr",
-    "word_length": 5,
-    "width": 174,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/y2Eu4_d431d086.png",
-    "word_input": "y2eU4",
-    "word_rendered": "y2Eu4",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/RUiAJ_697242b7.png",
-    "word_input": "RUiAj",
-    "word_rendered": "RUiAJ",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/MxarF_3d8a4876.png",
-    "word_input": "MXarf",
-    "word_rendered": "MxarF",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/K0WDU_5adc893f.png",
-    "word_input": "k0wDU",
-    "word_rendered": "K0WDU",
-    "word_length": 5,
-    "width": 188,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/0s637_245ebb97.png",
-    "word_input": "0s637",
-    "word_rendered": "0s637",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/oN0GY_9cd40512.png",
-    "word_input": "oN0gy",
-    "word_rendered": "oN0GY",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/ygz3Y_c8ca8587.png",
-    "word_input": "Ygz3Y",
-    "word_rendered": "ygz3Y",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/m57HC_89a26a6f.png",
-    "word_input": "M57Hc",
-    "word_rendered": "m57HC",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/9Sz9K_0b0e5b87.png",
+    "image_path": "dataset_val/dataset/9sZ9k_2fb3abb1.png",
     "word_input": "9sZ9k",
-    "word_rendered": "9Sz9K",
+    "word_rendered": "9sZ9k",
     "word_length": 5,
     "width": 160,
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/k1wVy_0ce73286.png",
+    "image_path": "dataset_val/dataset/KOLq2_17807758.png",
+    "word_input": "KOLq2",
+    "word_rendered": "KOLq2",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Xz5fv_ed28f6aa.png",
+    "word_input": "Xz5fv",
+    "word_rendered": "Xz5fv",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Cvyrq_c7efd21a.png",
+    "word_input": "Cvyrq",
+    "word_rendered": "Cvyrq",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/tNu5j_c1582429.png",
+    "word_input": "tNu5j",
+    "word_rendered": "tNu5j",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/meelU_55d38441.png",
+    "word_input": "meelU",
+    "word_rendered": "meelU",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/3H1gP_670e6ab2.png",
+    "word_input": "3H1gP",
+    "word_rendered": "3H1gP",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/M57Hc_fa336198.png",
+    "word_input": "M57Hc",
+    "word_rendered": "M57Hc",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/bSmFb_9db79bc1.png",
+    "word_input": "bSmFb",
+    "word_rendered": "bSmFb",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/8IMXp_cfcfa6fb.png",
+    "word_input": "8IMXp",
+    "word_rendered": "8IMXp",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/PYKvN_4f1dc238.png",
+    "word_input": "PYKvN",
+    "word_rendered": "PYKvN",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k1wVY_5bfd0c82.png",
     "word_input": "k1wVY",
-    "word_rendered": "k1wVy",
+    "word_rendered": "k1wVY",
     "word_length": 5,
     "width": 160,
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/Thb2v_db7fd7e6.png",
-    "word_input": "THb2v",
-    "word_rendered": "Thb2v",
+    "image_path": "dataset_val/dataset/Jj7rr_2ed67f6b.png",
+    "word_input": "Jj7rr",
+    "word_rendered": "Jj7rr",
     "word_length": 5,
     "width": 160,
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/IBP2H_a4a95063.png",
-    "word_input": "iBP2h",
-    "word_rendered": "IBP2H",
-    "word_length": 5,
-    "width": 160,
-    "height": 80
-  },
-  {
-    "image_path": "dataset_val/dataset/AaiT9_d49e5fd6.png",
+    "image_path": "dataset_val/dataset/AaiT9_07619909.png",
     "word_input": "AaiT9",
     "word_rendered": "AaiT9",
     "word_length": 5,
@@ -3184,17 +304,2897 @@
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/pO9rH_9c94c978.png",
-    "word_input": "po9rH",
-    "word_rendered": "pO9rH",
+    "image_path": "dataset_val/dataset/4rQo0_ce1476fe.png",
+    "word_input": "4rQo0",
+    "word_rendered": "4rQo0",
     "word_length": 5,
     "width": 160,
     "height": 80
   },
   {
-    "image_path": "dataset_val/dataset/JJ7rr_e1ff3390.png",
+    "image_path": "dataset_val/dataset/k459N_6112df27.png",
+    "word_input": "k459N",
+    "word_rendered": "k459N",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/O0hau_55c2a66a.png",
+    "word_input": "O0hau",
+    "word_rendered": "O0hau",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/H7IfW_8b927e49.png",
+    "word_input": "H7IfW",
+    "word_rendered": "H7IfW",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/O0hau_e399ace9.png",
+    "word_input": "O0hau",
+    "word_rendered": "O0hau",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Y5hRR_10a16338.png",
+    "word_input": "Y5hRR",
+    "word_rendered": "Y5hRR",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/zclPx_ea55452d.png",
+    "word_input": "zclPx",
+    "word_rendered": "zclPx",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Cvyrq_341783c4.png",
+    "word_input": "Cvyrq",
+    "word_rendered": "Cvyrq",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/4rQo0_469f546c.png",
+    "word_input": "4rQo0",
+    "word_rendered": "4rQo0",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/y2eU4_59aaf5cd.png",
+    "word_input": "y2eU4",
+    "word_rendered": "y2eU4",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/4rQo0_833dbb97.png",
+    "word_input": "4rQo0",
+    "word_rendered": "4rQo0",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/ndyIB_9ce1c6e1.png",
+    "word_input": "ndyIB",
+    "word_rendered": "ndyIB",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/crLMX_6c42fb87.png",
+    "word_input": "crLMX",
+    "word_rendered": "crLMX",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/hmOU8_b27fe614.png",
+    "word_input": "hmOU8",
+    "word_rendered": "hmOU8",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/qlk1J_1cdd3e47.png",
+    "word_input": "qlk1J",
+    "word_rendered": "qlk1J",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/0s637_dc51f52a.png",
+    "word_input": "0s637",
+    "word_rendered": "0s637",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/bSmFb_e84d1576.png",
+    "word_input": "bSmFb",
+    "word_rendered": "bSmFb",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xJVeI_8f680aae.png",
+    "word_input": "xJVeI",
+    "word_rendered": "xJVeI",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Q8Kim_79ee1b23.png",
+    "word_input": "Q8Kim",
+    "word_rendered": "Q8Kim",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/kBtcG_06cabc0c.png",
+    "word_input": "kBtcG",
+    "word_rendered": "kBtcG",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/THb2v_71906f08.png",
+    "word_input": "THb2v",
+    "word_rendered": "THb2v",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/2NrY4_82af6473.png",
+    "word_input": "2NrY4",
+    "word_rendered": "2NrY4",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Jj7rr_c7377170.png",
     "word_input": "Jj7rr",
-    "word_rendered": "JJ7rr",
+    "word_rendered": "Jj7rr",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/jfCWp_0d650ff4.png",
+    "word_input": "jfCWp",
+    "word_rendered": "jfCWp",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/EmDe3_aa1dac23.png",
+    "word_input": "EmDe3",
+    "word_rendered": "EmDe3",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Zb8fz_ce8498d3.png",
+    "word_input": "Zb8fz",
+    "word_rendered": "Zb8fz",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/in6Lu_452e9bb1.png",
+    "word_input": "in6Lu",
+    "word_rendered": "in6Lu",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k4EYs_2e90b182.png",
+    "word_input": "k4EYs",
+    "word_rendered": "k4EYs",
+    "word_length": 5,
+    "width": 162,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/JIoSi_d92d34d9.png",
+    "word_input": "JIoSi",
+    "word_rendered": "JIoSi",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/jzTlO_bb991935.png",
+    "word_input": "jzTlO",
+    "word_rendered": "jzTlO",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/R8qJf_f97cdbb7.png",
+    "word_input": "R8qJf",
+    "word_rendered": "R8qJf",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/qlk1J_9abad81b.png",
+    "word_input": "qlk1J",
+    "word_rendered": "qlk1J",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Q8Kim_1f8ba976.png",
+    "word_input": "Q8Kim",
+    "word_rendered": "Q8Kim",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Y5hRR_72c45906.png",
+    "word_input": "Y5hRR",
+    "word_rendered": "Y5hRR",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/meelU_6a2f6561.png",
+    "word_input": "meelU",
+    "word_rendered": "meelU",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/fJvIJ_cbd81938.png",
+    "word_input": "fJvIJ",
+    "word_rendered": "fJvIJ",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/in6Lu_c037e5ea.png",
+    "word_input": "in6Lu",
+    "word_rendered": "in6Lu",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/C3xkE_ace77515.png",
+    "word_input": "C3xkE",
+    "word_rendered": "C3xkE",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/ykKIW_741fec70.png",
+    "word_input": "ykKIW",
+    "word_rendered": "ykKIW",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/3H1gP_ec084420.png",
+    "word_input": "3H1gP",
+    "word_rendered": "3H1gP",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/RWnm4_e3ed885b.png",
+    "word_input": "RWnm4",
+    "word_rendered": "RWnm4",
+    "word_length": 5,
+    "width": 163,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/ykKIW_1f7d4c86.png",
+    "word_input": "ykKIW",
+    "word_rendered": "ykKIW",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/bSmFb_a3972c57.png",
+    "word_input": "bSmFb",
+    "word_rendered": "bSmFb",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xNyve_9b8cd47b.png",
+    "word_input": "xNyve",
+    "word_rendered": "xNyve",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/fK7jO_5efcd557.png",
+    "word_input": "fK7jO",
+    "word_rendered": "fK7jO",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/m6P1Q_13340964.png",
+    "word_input": "m6P1Q",
+    "word_rendered": "m6P1Q",
+    "word_length": 5,
+    "width": 162,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/irGPh_98121285.png",
+    "word_input": "irGPh",
+    "word_rendered": "irGPh",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/po9rH_7e242fc7.png",
+    "word_input": "po9rH",
+    "word_rendered": "po9rH",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/hmOU8_ca676096.png",
+    "word_input": "hmOU8",
+    "word_rendered": "hmOU8",
+    "word_length": 5,
+    "width": 179,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/jzTlO_811efa34.png",
+    "word_input": "jzTlO",
+    "word_rendered": "jzTlO",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/JIoSi_f1ffc3e5.png",
+    "word_input": "JIoSi",
+    "word_rendered": "JIoSi",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/bzpQV_2a804fd8.png",
+    "word_input": "bzpQV",
+    "word_rendered": "bzpQV",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k0wDU_5292223c.png",
+    "word_input": "k0wDU",
+    "word_rendered": "k0wDU",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/U4gtv_954ee381.png",
+    "word_input": "U4gtv",
+    "word_rendered": "U4gtv",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/oBPUs_c95d0bec.png",
+    "word_input": "oBPUs",
+    "word_rendered": "oBPUs",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/THb2v_76e9cf4d.png",
+    "word_input": "THb2v",
+    "word_rendered": "THb2v",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/bzpQV_5717f4ce.png",
+    "word_input": "bzpQV",
+    "word_rendered": "bzpQV",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/ndyIB_c3c34419.png",
+    "word_input": "ndyIB",
+    "word_rendered": "ndyIB",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/pgAgu_32f13a57.png",
+    "word_input": "pgAgu",
+    "word_rendered": "pgAgu",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/zclPx_62843e27.png",
+    "word_input": "zclPx",
+    "word_rendered": "zclPx",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/5q6ig_bd3207cd.png",
+    "word_input": "5q6ig",
+    "word_rendered": "5q6ig",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/R8qJf_9f761120.png",
+    "word_input": "R8qJf",
+    "word_rendered": "R8qJf",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/9T5uo_5eacbf40.png",
+    "word_input": "9T5uo",
+    "word_rendered": "9T5uo",
+    "word_length": 5,
+    "width": 165,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/oN0gy_d102768d.png",
+    "word_input": "oN0gy",
+    "word_rendered": "oN0gy",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/P3SZd_7b0a1701.png",
+    "word_input": "P3SZd",
+    "word_rendered": "P3SZd",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/oN0gy_6dfb3efb.png",
+    "word_input": "oN0gy",
+    "word_rendered": "oN0gy",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/3H1gP_fe4eb8da.png",
+    "word_input": "3H1gP",
+    "word_rendered": "3H1gP",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/fK7jO_4a0b44ae.png",
+    "word_input": "fK7jO",
+    "word_rendered": "fK7jO",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Xz5fv_1d5e1f47.png",
+    "word_input": "Xz5fv",
+    "word_rendered": "Xz5fv",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/bSmFb_593e26b4.png",
+    "word_input": "bSmFb",
+    "word_rendered": "bSmFb",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k0wDU_8eca6702.png",
+    "word_input": "k0wDU",
+    "word_rendered": "k0wDU",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/mfuA7_854ba568.png",
+    "word_input": "mfuA7",
+    "word_rendered": "mfuA7",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Jj7rr_e8fa8359.png",
+    "word_input": "Jj7rr",
+    "word_rendered": "Jj7rr",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/P882r_abe73be8.png",
+    "word_input": "P882r",
+    "word_rendered": "P882r",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/tNu5j_ae8672a0.png",
+    "word_input": "tNu5j",
+    "word_rendered": "tNu5j",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/PYKvN_0696339d.png",
+    "word_input": "PYKvN",
+    "word_rendered": "PYKvN",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/THb2v_9c6640b5.png",
+    "word_input": "THb2v",
+    "word_rendered": "THb2v",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/kBtcG_2e8d149f.png",
+    "word_input": "kBtcG",
+    "word_rendered": "kBtcG",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k4EYs_d9084331.png",
+    "word_input": "k4EYs",
+    "word_rendered": "k4EYs",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/4rQo0_b65af73f.png",
+    "word_input": "4rQo0",
+    "word_rendered": "4rQo0",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xJVeI_87a03731.png",
+    "word_input": "xJVeI",
+    "word_rendered": "xJVeI",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/meelU_944a140a.png",
+    "word_input": "meelU",
+    "word_rendered": "meelU",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/exfrs_dfc4824b.png",
+    "word_input": "exfrs",
+    "word_rendered": "exfrs",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k0wDU_1769edba.png",
+    "word_input": "k0wDU",
+    "word_rendered": "k0wDU",
+    "word_length": 5,
+    "width": 172,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/meelU_4587f568.png",
+    "word_input": "meelU",
+    "word_rendered": "meelU",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k1wVY_c47ffcaa.png",
+    "word_input": "k1wVY",
+    "word_rendered": "k1wVY",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/ukdWm_5da889b8.png",
+    "word_input": "ukdWm",
+    "word_rendered": "ukdWm",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/THb2v_21b03494.png",
+    "word_input": "THb2v",
+    "word_rendered": "THb2v",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/P882r_c828252e.png",
+    "word_input": "P882r",
+    "word_rendered": "P882r",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Hgl0N_179e8e88.png",
+    "word_input": "Hgl0N",
+    "word_rendered": "Hgl0N",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/fJvIJ_e785e140.png",
+    "word_input": "fJvIJ",
+    "word_rendered": "fJvIJ",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/oBPUs_f9cc0534.png",
+    "word_input": "oBPUs",
+    "word_rendered": "oBPUs",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/KOLq2_4d9bea6f.png",
+    "word_input": "KOLq2",
+    "word_rendered": "KOLq2",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Cvyrq_4f475c6c.png",
+    "word_input": "Cvyrq",
+    "word_rendered": "Cvyrq",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/yuciE_5218a452.png",
+    "word_input": "yuciE",
+    "word_rendered": "yuciE",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Hgl0N_8ad85fe5.png",
+    "word_input": "Hgl0N",
+    "word_rendered": "Hgl0N",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/in6Lu_af86e978.png",
+    "word_input": "in6Lu",
+    "word_rendered": "in6Lu",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/fJvIJ_0d0ac61c.png",
+    "word_input": "fJvIJ",
+    "word_rendered": "fJvIJ",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xDANu_4b33cb9a.png",
+    "word_input": "xDANu",
+    "word_rendered": "xDANu",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Y5hRR_a1cff78b.png",
+    "word_input": "Y5hRR",
+    "word_rendered": "Y5hRR",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/po9rH_1b60da29.png",
+    "word_input": "po9rH",
+    "word_rendered": "po9rH",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/R8qJf_d6e3a344.png",
+    "word_input": "R8qJf",
+    "word_rendered": "R8qJf",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/jzTlO_f7d31ca6.png",
+    "word_input": "jzTlO",
+    "word_rendered": "jzTlO",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/3H1gP_4207b9a5.png",
+    "word_input": "3H1gP",
+    "word_rendered": "3H1gP",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/vcRss_8379f7e7.png",
+    "word_input": "vcRss",
+    "word_rendered": "vcRss",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Zb8fz_5ffa540a.png",
+    "word_input": "Zb8fz",
+    "word_rendered": "Zb8fz",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Ygz3Y_b99c5778.png",
+    "word_input": "Ygz3Y",
+    "word_rendered": "Ygz3Y",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/2NrY4_bdac0b9f.png",
+    "word_input": "2NrY4",
+    "word_rendered": "2NrY4",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/RWnm4_88808173.png",
+    "word_input": "RWnm4",
+    "word_rendered": "RWnm4",
+    "word_length": 5,
+    "width": 174,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/y2eU4_e2990d58.png",
+    "word_input": "y2eU4",
+    "word_rendered": "y2eU4",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/exfrs_e77b0362.png",
+    "word_input": "exfrs",
+    "word_rendered": "exfrs",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/EmDe3_f98898d0.png",
+    "word_input": "EmDe3",
+    "word_rendered": "EmDe3",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/iBP2h_d2ebca16.png",
+    "word_input": "iBP2h",
+    "word_rendered": "iBP2h",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/eIKIX_b6a0febb.png",
+    "word_input": "eIKIX",
+    "word_rendered": "eIKIX",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Xz5fv_5215edb4.png",
+    "word_input": "Xz5fv",
+    "word_rendered": "Xz5fv",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/jzTlO_7b096448.png",
+    "word_input": "jzTlO",
+    "word_rendered": "jzTlO",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/fK7jO_cfff6351.png",
+    "word_input": "fK7jO",
+    "word_rendered": "fK7jO",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/9sZ9k_967f7217.png",
+    "word_input": "9sZ9k",
+    "word_rendered": "9sZ9k",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/4V6p9_fca4e682.png",
+    "word_input": "4V6p9",
+    "word_rendered": "4V6p9",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/9T5uo_062d0494.png",
+    "word_input": "9T5uo",
+    "word_rendered": "9T5uo",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/P882r_1b82dab0.png",
+    "word_input": "P882r",
+    "word_rendered": "P882r",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/pIWJl_969a26f0.png",
+    "word_input": "pIWJl",
+    "word_rendered": "pIWJl",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/irGPh_2ecd3f82.png",
+    "word_input": "irGPh",
+    "word_rendered": "irGPh",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/THb2v_c6a51918.png",
+    "word_input": "THb2v",
+    "word_rendered": "THb2v",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/m6P1Q_1788a1ab.png",
+    "word_input": "m6P1Q",
+    "word_rendered": "m6P1Q",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Ygz3Y_0359e365.png",
+    "word_input": "Ygz3Y",
+    "word_rendered": "Ygz3Y",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/R8qJf_5946c62f.png",
+    "word_input": "R8qJf",
+    "word_rendered": "R8qJf",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/U4gtv_6c80cd06.png",
+    "word_input": "U4gtv",
+    "word_rendered": "U4gtv",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Jj7rr_448ef862.png",
+    "word_input": "Jj7rr",
+    "word_rendered": "Jj7rr",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/nwjBj_540c3760.png",
+    "word_input": "nwjBj",
+    "word_rendered": "nwjBj",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/0s637_6142e4a8.png",
+    "word_input": "0s637",
+    "word_rendered": "0s637",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/fJvIJ_4e420dc7.png",
+    "word_input": "fJvIJ",
+    "word_rendered": "fJvIJ",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k4EYs_d748f554.png",
+    "word_input": "k4EYs",
+    "word_rendered": "k4EYs",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xDANu_b38667bb.png",
+    "word_input": "xDANu",
+    "word_rendered": "xDANu",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Jj7rr_4cf558dc.png",
+    "word_input": "Jj7rr",
+    "word_rendered": "Jj7rr",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/pgAgu_45c49f9f.png",
+    "word_input": "pgAgu",
+    "word_rendered": "pgAgu",
+    "word_length": 5,
+    "width": 161,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/EpGbd_ded12420.png",
+    "word_input": "EpGbd",
+    "word_rendered": "EpGbd",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k0wDU_f3d13102.png",
+    "word_input": "k0wDU",
+    "word_rendered": "k0wDU",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/TiwAP_a084f1de.png",
+    "word_input": "TiwAP",
+    "word_rendered": "TiwAP",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/qlk1J_f07c0e6b.png",
+    "word_input": "qlk1J",
+    "word_rendered": "qlk1J",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/U4gtv_ff506768.png",
+    "word_input": "U4gtv",
+    "word_rendered": "U4gtv",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/pMwad_6640efac.png",
+    "word_input": "pMwad",
+    "word_rendered": "pMwad",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/8IMXp_f56f387e.png",
+    "word_input": "8IMXp",
+    "word_rendered": "8IMXp",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/K4rW6_30307a07.png",
+    "word_input": "K4rW6",
+    "word_rendered": "K4rW6",
+    "word_length": 5,
+    "width": 170,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/TiwAP_7e42e2a1.png",
+    "word_input": "TiwAP",
+    "word_rendered": "TiwAP",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xJVeI_9ecf5205.png",
+    "word_input": "xJVeI",
+    "word_rendered": "xJVeI",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/3H1gP_bc0adaf6.png",
+    "word_input": "3H1gP",
+    "word_rendered": "3H1gP",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/iBP2h_4131ce43.png",
+    "word_input": "iBP2h",
+    "word_rendered": "iBP2h",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Jj7rr_4a43349a.png",
+    "word_input": "Jj7rr",
+    "word_rendered": "Jj7rr",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/m6P1Q_e25c0044.png",
+    "word_input": "m6P1Q",
+    "word_rendered": "m6P1Q",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Jj7rr_7fe8784f.png",
+    "word_input": "Jj7rr",
+    "word_rendered": "Jj7rr",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/pQJuh_3ff02573.png",
+    "word_input": "pQJuh",
+    "word_rendered": "pQJuh",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/R8qJf_7d258b70.png",
+    "word_input": "R8qJf",
+    "word_rendered": "R8qJf",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xNyve_5652a711.png",
+    "word_input": "xNyve",
+    "word_rendered": "xNyve",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/EmDe3_eafc8127.png",
+    "word_input": "EmDe3",
+    "word_rendered": "EmDe3",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k1wVY_e4bb3107.png",
+    "word_input": "k1wVY",
+    "word_rendered": "k1wVY",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xJVeI_de069751.png",
+    "word_input": "xJVeI",
+    "word_rendered": "xJVeI",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/K4rW6_fa64b99b.png",
+    "word_input": "K4rW6",
+    "word_rendered": "K4rW6",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/oBPUs_14657581.png",
+    "word_input": "oBPUs",
+    "word_rendered": "oBPUs",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/U4gtv_ac585f23.png",
+    "word_input": "U4gtv",
+    "word_rendered": "U4gtv",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/bzpQV_8bb86378.png",
+    "word_input": "bzpQV",
+    "word_rendered": "bzpQV",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/M57Hc_bba8eb43.png",
+    "word_input": "M57Hc",
+    "word_rendered": "M57Hc",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/2H5au_8abf4ff7.png",
+    "word_input": "2H5au",
+    "word_rendered": "2H5au",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/y2eU4_cc642246.png",
+    "word_input": "y2eU4",
+    "word_rendered": "y2eU4",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/iBP2h_63e05596.png",
+    "word_input": "iBP2h",
+    "word_rendered": "iBP2h",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/O0hau_c0464b9b.png",
+    "word_input": "O0hau",
+    "word_rendered": "O0hau",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Y5hRR_550815ab.png",
+    "word_input": "Y5hRR",
+    "word_rendered": "Y5hRR",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xJVeI_b79ae354.png",
+    "word_input": "xJVeI",
+    "word_rendered": "xJVeI",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/nwjBj_57c3728c.png",
+    "word_input": "nwjBj",
+    "word_rendered": "nwjBj",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/bSmFb_2a0d10d5.png",
+    "word_input": "bSmFb",
+    "word_rendered": "bSmFb",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/AaiT9_3adb2677.png",
+    "word_input": "AaiT9",
+    "word_rendered": "AaiT9",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xuigU_d42fa352.png",
+    "word_input": "xuigU",
+    "word_rendered": "xuigU",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Hgl0N_100e33b8.png",
+    "word_input": "Hgl0N",
+    "word_rendered": "Hgl0N",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Q8Kim_a60eaf38.png",
+    "word_input": "Q8Kim",
+    "word_rendered": "Q8Kim",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/waNNr_51c898e8.png",
+    "word_input": "waNNr",
+    "word_rendered": "waNNr",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Zb8fz_a940061f.png",
+    "word_input": "Zb8fz",
+    "word_rendered": "Zb8fz",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/6m42m_2db463d0.png",
+    "word_input": "6m42m",
+    "word_rendered": "6m42m",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/R6TOl_6ea8c302.png",
+    "word_input": "R6TOl",
+    "word_rendered": "R6TOl",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/17EmL_080e069a.png",
+    "word_input": "17EmL",
+    "word_rendered": "17EmL",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/RUiAj_231a5e68.png",
+    "word_input": "RUiAj",
+    "word_rendered": "RUiAj",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/PYKvN_370a1c50.png",
+    "word_input": "PYKvN",
+    "word_rendered": "PYKvN",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/THb2v_bf2cfc25.png",
+    "word_input": "THb2v",
+    "word_rendered": "THb2v",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/MXarf_c568ac45.png",
+    "word_input": "MXarf",
+    "word_rendered": "MXarf",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/KOLq2_7cd0c042.png",
+    "word_input": "KOLq2",
+    "word_rendered": "KOLq2",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/yuciE_251314f0.png",
+    "word_input": "yuciE",
+    "word_rendered": "yuciE",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/U4gtv_c819f611.png",
+    "word_input": "U4gtv",
+    "word_rendered": "U4gtv",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/bSmFb_7f7d33c5.png",
+    "word_input": "bSmFb",
+    "word_rendered": "bSmFb",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/R6TOl_0f9ebdf6.png",
+    "word_input": "R6TOl",
+    "word_rendered": "R6TOl",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/a8BuH_f1e75805.png",
+    "word_input": "a8BuH",
+    "word_rendered": "a8BuH",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k1wVY_a9fada18.png",
+    "word_input": "k1wVY",
+    "word_rendered": "k1wVY",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/jfCWp_fe7d9ef9.png",
+    "word_input": "jfCWp",
+    "word_rendered": "jfCWp",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/fK7jO_b93d2d63.png",
+    "word_input": "fK7jO",
+    "word_rendered": "fK7jO",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/ERTXf_d575b745.png",
+    "word_input": "ERTXf",
+    "word_rendered": "ERTXf",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/oN0gy_dffa9188.png",
+    "word_input": "oN0gy",
+    "word_rendered": "oN0gy",
+    "word_length": 5,
+    "width": 166,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/waNNr_25368147.png",
+    "word_input": "waNNr",
+    "word_rendered": "waNNr",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/MXarf_42592092.png",
+    "word_input": "MXarf",
+    "word_rendered": "MXarf",
+    "word_length": 5,
+    "width": 166,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/9T5uo_21d32a83.png",
+    "word_input": "9T5uo",
+    "word_rendered": "9T5uo",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/mfuA7_a534b3f1.png",
+    "word_input": "mfuA7",
+    "word_rendered": "mfuA7",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/pQJuh_da1d89fa.png",
+    "word_input": "pQJuh",
+    "word_rendered": "pQJuh",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/R8qJf_fc7b39ac.png",
+    "word_input": "R8qJf",
+    "word_rendered": "R8qJf",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/mfuA7_cd97ad90.png",
+    "word_input": "mfuA7",
+    "word_rendered": "mfuA7",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/saG7o_44afb302.png",
+    "word_input": "saG7o",
+    "word_rendered": "saG7o",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/aK6lD_c330b40a.png",
+    "word_input": "aK6lD",
+    "word_rendered": "aK6lD",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/nwjBj_bb62ca8b.png",
+    "word_input": "nwjBj",
+    "word_rendered": "nwjBj",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/U4gtv_98d94680.png",
+    "word_input": "U4gtv",
+    "word_rendered": "U4gtv",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/aK6lD_e7540424.png",
+    "word_input": "aK6lD",
+    "word_rendered": "aK6lD",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/oBPUs_1c790440.png",
+    "word_input": "oBPUs",
+    "word_rendered": "oBPUs",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/MXarf_a0f47dde.png",
+    "word_input": "MXarf",
+    "word_rendered": "MXarf",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/iBP2h_8b343159.png",
+    "word_input": "iBP2h",
+    "word_rendered": "iBP2h",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/m6P1Q_8b16e7fc.png",
+    "word_input": "m6P1Q",
+    "word_rendered": "m6P1Q",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/uArIb_d726883a.png",
+    "word_input": "uArIb",
+    "word_rendered": "uArIb",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/TiwAP_700f44c8.png",
+    "word_input": "TiwAP",
+    "word_rendered": "TiwAP",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/mfuA7_fd2e0fea.png",
+    "word_input": "mfuA7",
+    "word_rendered": "mfuA7",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/JIoSi_76b91a85.png",
+    "word_input": "JIoSi",
+    "word_rendered": "JIoSi",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/m6P1Q_0fbacc9d.png",
+    "word_input": "m6P1Q",
+    "word_rendered": "m6P1Q",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/C3xkE_32414cb8.png",
+    "word_input": "C3xkE",
+    "word_rendered": "C3xkE",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/qlk1J_7cf0469b.png",
+    "word_input": "qlk1J",
+    "word_rendered": "qlk1J",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/pMwad_93e8de25.png",
+    "word_input": "pMwad",
+    "word_rendered": "pMwad",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/RUiAj_3886b655.png",
+    "word_input": "RUiAj",
+    "word_rendered": "RUiAj",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/y2eU4_62ac1e1e.png",
+    "word_input": "y2eU4",
+    "word_rendered": "y2eU4",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/EpGbd_613622b4.png",
+    "word_input": "EpGbd",
+    "word_rendered": "EpGbd",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/fJvIJ_0616cbcd.png",
+    "word_input": "fJvIJ",
+    "word_rendered": "fJvIJ",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/qlk1J_ad21d5ac.png",
+    "word_input": "qlk1J",
+    "word_rendered": "qlk1J",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/O0hau_e0f7ab58.png",
+    "word_input": "O0hau",
+    "word_rendered": "O0hau",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/ykKIW_8782b3eb.png",
+    "word_input": "ykKIW",
+    "word_rendered": "ykKIW",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/M57Hc_43435101.png",
+    "word_input": "M57Hc",
+    "word_rendered": "M57Hc",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/pIWJl_6344aaaf.png",
+    "word_input": "pIWJl",
+    "word_rendered": "pIWJl",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/jzTlO_6f1a00cb.png",
+    "word_input": "jzTlO",
+    "word_rendered": "jzTlO",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k0wDU_11c6257a.png",
+    "word_input": "k0wDU",
+    "word_rendered": "k0wDU",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/fK7jO_4b3e4cd8.png",
+    "word_input": "fK7jO",
+    "word_rendered": "fK7jO",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k4EYs_067886d2.png",
+    "word_input": "k4EYs",
+    "word_rendered": "k4EYs",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/EpGbd_1d47e35d.png",
+    "word_input": "EpGbd",
+    "word_rendered": "EpGbd",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/saG7o_3d48f1cc.png",
+    "word_input": "saG7o",
+    "word_rendered": "saG7o",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/4V6p9_34339fb5.png",
+    "word_input": "4V6p9",
+    "word_rendered": "4V6p9",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/y2eU4_6ea295c4.png",
+    "word_input": "y2eU4",
+    "word_rendered": "y2eU4",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k0wDU_f402c7eb.png",
+    "word_input": "k0wDU",
+    "word_rendered": "k0wDU",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/eIKIX_273c4630.png",
+    "word_input": "eIKIX",
+    "word_rendered": "eIKIX",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Q2dv7_5002cc62.png",
+    "word_input": "Q2dv7",
+    "word_rendered": "Q2dv7",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/ERTXf_78b34f4f.png",
+    "word_input": "ERTXf",
+    "word_rendered": "ERTXf",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xcHkq_45eaf208.png",
+    "word_input": "xcHkq",
+    "word_rendered": "xcHkq",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/saG7o_aa19f32d.png",
+    "word_input": "saG7o",
+    "word_rendered": "saG7o",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Cvyrq_d962cd22.png",
+    "word_input": "Cvyrq",
+    "word_rendered": "Cvyrq",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Cvyrq_7530d98e.png",
+    "word_input": "Cvyrq",
+    "word_rendered": "Cvyrq",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Xz5fv_371e3ee3.png",
+    "word_input": "Xz5fv",
+    "word_rendered": "Xz5fv",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/oN0gy_399aa639.png",
+    "word_input": "oN0gy",
+    "word_rendered": "oN0gy",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/4V6p9_9e762856.png",
+    "word_input": "4V6p9",
+    "word_rendered": "4V6p9",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/m6P1Q_e0ff8121.png",
+    "word_input": "m6P1Q",
+    "word_rendered": "m6P1Q",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xuigU_67ca5b06.png",
+    "word_input": "xuigU",
+    "word_rendered": "xuigU",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/RUiAj_0247d434.png",
+    "word_input": "RUiAj",
+    "word_rendered": "RUiAj",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/ukdWm_0ec73e53.png",
+    "word_input": "ukdWm",
+    "word_rendered": "ukdWm",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k459N_592d0bb1.png",
+    "word_input": "k459N",
+    "word_rendered": "k459N",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/8IMXp_0fc94dc9.png",
+    "word_input": "8IMXp",
+    "word_rendered": "8IMXp",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/aU2fW_89cb1864.png",
+    "word_input": "aU2fW",
+    "word_rendered": "aU2fW",
+    "word_length": 5,
+    "width": 163,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/ERTXf_7bbd6362.png",
+    "word_input": "ERTXf",
+    "word_rendered": "ERTXf",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/ERTXf_3f4eaf5d.png",
+    "word_input": "ERTXf",
+    "word_rendered": "ERTXf",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/m6P1Q_e15c4c7a.png",
+    "word_input": "m6P1Q",
+    "word_rendered": "m6P1Q",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k4EYs_ca73d7f0.png",
+    "word_input": "k4EYs",
+    "word_rendered": "k4EYs",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/zPx3w_c84e38be.png",
+    "word_input": "zPx3w",
+    "word_rendered": "zPx3w",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xcHkq_c3710a45.png",
+    "word_input": "xcHkq",
+    "word_rendered": "xcHkq",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/nwjBj_9e5b7d65.png",
+    "word_input": "nwjBj",
+    "word_rendered": "nwjBj",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/saG7o_6ad36fae.png",
+    "word_input": "saG7o",
+    "word_rendered": "saG7o",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Q8Kim_70549b97.png",
+    "word_input": "Q8Kim",
+    "word_rendered": "Q8Kim",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/RUiAj_90de587e.png",
+    "word_input": "RUiAj",
+    "word_rendered": "RUiAj",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Pk1D3_9acbde3b.png",
+    "word_input": "Pk1D3",
+    "word_rendered": "Pk1D3",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/saG7o_c46d8b12.png",
+    "word_input": "saG7o",
+    "word_rendered": "saG7o",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/ndyIB_df2f1b9d.png",
+    "word_input": "ndyIB",
+    "word_rendered": "ndyIB",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xcHkq_88e51b44.png",
+    "word_input": "xcHkq",
+    "word_rendered": "xcHkq",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/crLMX_a48d0160.png",
+    "word_input": "crLMX",
+    "word_rendered": "crLMX",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/qlk1J_88ac837a.png",
+    "word_input": "qlk1J",
+    "word_rendered": "qlk1J",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/3H1gP_cc0de33b.png",
+    "word_input": "3H1gP",
+    "word_rendered": "3H1gP",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/zvFro_ae56007e.png",
+    "word_input": "zvFro",
+    "word_rendered": "zvFro",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Hgl0N_a373ec86.png",
+    "word_input": "Hgl0N",
+    "word_rendered": "Hgl0N",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/eIKIX_1caaca51.png",
+    "word_input": "eIKIX",
+    "word_rendered": "eIKIX",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/ndyIB_7bf6d24c.png",
+    "word_input": "ndyIB",
+    "word_rendered": "ndyIB",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/JIoSi_e50742d8.png",
+    "word_input": "JIoSi",
+    "word_rendered": "JIoSi",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/exfrs_bc4be13e.png",
+    "word_input": "exfrs",
+    "word_rendered": "exfrs",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/C3xkE_dbb43a32.png",
+    "word_input": "C3xkE",
+    "word_rendered": "C3xkE",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xuigU_dbc7cb6b.png",
+    "word_input": "xuigU",
+    "word_rendered": "xuigU",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/bzpQV_f69fd762.png",
+    "word_input": "bzpQV",
+    "word_rendered": "bzpQV",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/m6P1Q_3f6c7328.png",
+    "word_input": "m6P1Q",
+    "word_rendered": "m6P1Q",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/R6TOl_94c9648b.png",
+    "word_input": "R6TOl",
+    "word_rendered": "R6TOl",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/zPx3w_ceb04e4d.png",
+    "word_input": "zPx3w",
+    "word_rendered": "zPx3w",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k4EYs_a5059675.png",
+    "word_input": "k4EYs",
+    "word_rendered": "k4EYs",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/5q6ig_0d0e06af.png",
+    "word_input": "5q6ig",
+    "word_rendered": "5q6ig",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Pk1D3_7ada6cdf.png",
+    "word_input": "Pk1D3",
+    "word_rendered": "Pk1D3",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/O0hau_636583f1.png",
+    "word_input": "O0hau",
+    "word_rendered": "O0hau",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/O0hau_dcc07af3.png",
+    "word_input": "O0hau",
+    "word_rendered": "O0hau",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Q8Kim_31de86d1.png",
+    "word_input": "Q8Kim",
+    "word_rendered": "Q8Kim",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/C3xkE_8a7030d6.png",
+    "word_input": "C3xkE",
+    "word_rendered": "C3xkE",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/ukdWm_1fd45867.png",
+    "word_input": "ukdWm",
+    "word_rendered": "ukdWm",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/uArIb_56f2842b.png",
+    "word_input": "uArIb",
+    "word_rendered": "uArIb",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/uArIb_b1f46337.png",
+    "word_input": "uArIb",
+    "word_rendered": "uArIb",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/6m42m_b3a8e6ec.png",
+    "word_input": "6m42m",
+    "word_rendered": "6m42m",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/PYKvN_0d21c8ea.png",
+    "word_input": "PYKvN",
+    "word_rendered": "PYKvN",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/RWnm4_1ef3ae88.png",
+    "word_input": "RWnm4",
+    "word_rendered": "RWnm4",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/2NrY4_1d6433c1.png",
+    "word_input": "2NrY4",
+    "word_rendered": "2NrY4",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/oN0gy_90720b9e.png",
+    "word_input": "oN0gy",
+    "word_rendered": "oN0gy",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/kBtcG_ad186a8d.png",
+    "word_input": "kBtcG",
+    "word_rendered": "kBtcG",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/8IMXp_0bb4e9d5.png",
+    "word_input": "8IMXp",
+    "word_rendered": "8IMXp",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xDANu_f4094649.png",
+    "word_input": "xDANu",
+    "word_rendered": "xDANu",
+    "word_length": 5,
+    "width": 167,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/R6TOl_46ec2598.png",
+    "word_input": "R6TOl",
+    "word_rendered": "R6TOl",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/nwjBj_df206f7a.png",
+    "word_input": "nwjBj",
+    "word_rendered": "nwjBj",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Y5hRR_b3e63aa4.png",
+    "word_input": "Y5hRR",
+    "word_rendered": "Y5hRR",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/EpGbd_bd9b77e0.png",
+    "word_input": "EpGbd",
+    "word_rendered": "EpGbd",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xJVeI_ef7b66d3.png",
+    "word_input": "xJVeI",
+    "word_rendered": "xJVeI",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/aU2fW_6351405f.png",
+    "word_input": "aU2fW",
+    "word_rendered": "aU2fW",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/R8qJf_a4dd7d8e.png",
+    "word_input": "R8qJf",
+    "word_rendered": "R8qJf",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/crLMX_ed1b977e.png",
+    "word_input": "crLMX",
+    "word_rendered": "crLMX",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/5q6ig_b89aba3a.png",
+    "word_input": "5q6ig",
+    "word_rendered": "5q6ig",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xuigU_eb113c47.png",
+    "word_input": "xuigU",
+    "word_rendered": "xuigU",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/RWnm4_a8af6f76.png",
+    "word_input": "RWnm4",
+    "word_rendered": "RWnm4",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/5q6ig_fbac2feb.png",
+    "word_input": "5q6ig",
+    "word_rendered": "5q6ig",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/3H1gP_619230ae.png",
+    "word_input": "3H1gP",
+    "word_rendered": "3H1gP",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/pIWJl_a48d7a18.png",
+    "word_input": "pIWJl",
+    "word_rendered": "pIWJl",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xDANu_35dd5c5b.png",
+    "word_input": "xDANu",
+    "word_rendered": "xDANu",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/0s637_c430edec.png",
+    "word_input": "0s637",
+    "word_rendered": "0s637",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/3H1gP_be332fc8.png",
+    "word_input": "3H1gP",
+    "word_rendered": "3H1gP",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/K4rW6_9fcc8671.png",
+    "word_input": "K4rW6",
+    "word_rendered": "K4rW6",
+    "word_length": 5,
+    "width": 161,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/jzTlO_8d2bf05c.png",
+    "word_input": "jzTlO",
+    "word_rendered": "jzTlO",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Xz5fv_c57418fc.png",
+    "word_input": "Xz5fv",
+    "word_rendered": "Xz5fv",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/PYKvN_c14d4476.png",
+    "word_input": "PYKvN",
+    "word_rendered": "PYKvN",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/2tNwn_b29209ca.png",
+    "word_input": "2tNwn",
+    "word_rendered": "2tNwn",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/6m42m_314d140e.png",
+    "word_input": "6m42m",
+    "word_rendered": "6m42m",
+    "word_length": 5,
+    "width": 176,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xuigU_4691e7fd.png",
+    "word_input": "xuigU",
+    "word_rendered": "xuigU",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/ykKIW_8155e80a.png",
+    "word_input": "ykKIW",
+    "word_rendered": "ykKIW",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/6m42m_3704db4c.png",
+    "word_input": "6m42m",
+    "word_rendered": "6m42m",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xcHkq_98cefbab.png",
+    "word_input": "xcHkq",
+    "word_rendered": "xcHkq",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/zvFro_04b0fe90.png",
+    "word_input": "zvFro",
+    "word_rendered": "zvFro",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/2tNwn_623c9bc2.png",
+    "word_input": "2tNwn",
+    "word_rendered": "2tNwn",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/EmDe3_86966555.png",
+    "word_input": "EmDe3",
+    "word_rendered": "EmDe3",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/crLMX_572f8e46.png",
+    "word_input": "crLMX",
+    "word_rendered": "crLMX",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/AaiT9_51c6036e.png",
+    "word_input": "AaiT9",
+    "word_rendered": "AaiT9",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/vcRss_1c00058b.png",
+    "word_input": "vcRss",
+    "word_rendered": "vcRss",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/P3SZd_dc4bd4a6.png",
+    "word_input": "P3SZd",
+    "word_rendered": "P3SZd",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/bzpQV_01cf0446.png",
+    "word_input": "bzpQV",
+    "word_rendered": "bzpQV",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/M57Hc_f44c682b.png",
+    "word_input": "M57Hc",
+    "word_rendered": "M57Hc",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/4Ge8a_8bd9113e.png",
+    "word_input": "4Ge8a",
+    "word_rendered": "4Ge8a",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/crLMX_2a9693ff.png",
+    "word_input": "crLMX",
+    "word_rendered": "crLMX",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/9T5uo_5bba1d88.png",
+    "word_input": "9T5uo",
+    "word_rendered": "9T5uo",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/zclPx_42625073.png",
+    "word_input": "zclPx",
+    "word_rendered": "zclPx",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/AaiT9_f7ce79cc.png",
+    "word_input": "AaiT9",
+    "word_rendered": "AaiT9",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/9T5uo_a5fe8e80.png",
+    "word_input": "9T5uo",
+    "word_rendered": "9T5uo",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/0s637_76bff1af.png",
+    "word_input": "0s637",
+    "word_rendered": "0s637",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/P882r_ec32ff10.png",
+    "word_input": "P882r",
+    "word_rendered": "P882r",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xDANu_224848a2.png",
+    "word_input": "xDANu",
+    "word_rendered": "xDANu",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/pgAgu_0fa45dd6.png",
+    "word_input": "pgAgu",
+    "word_rendered": "pgAgu",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/k1wVY_2cda3c82.png",
+    "word_input": "k1wVY",
+    "word_rendered": "k1wVY",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Pk1D3_d5e50482.png",
+    "word_input": "Pk1D3",
+    "word_rendered": "Pk1D3",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Pk1D3_a35d5e70.png",
+    "word_input": "Pk1D3",
+    "word_rendered": "Pk1D3",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/nwjBj_985f08c7.png",
+    "word_input": "nwjBj",
+    "word_rendered": "nwjBj",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/EmDe3_8df69558.png",
+    "word_input": "EmDe3",
+    "word_rendered": "EmDe3",
+    "word_length": 5,
+    "width": 172,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/aK6lD_3349b08f.png",
+    "word_input": "aK6lD",
+    "word_rendered": "aK6lD",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/MXarf_e4ad97e2.png",
+    "word_input": "MXarf",
+    "word_rendered": "MXarf",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/xuigU_45a2507d.png",
+    "word_input": "xuigU",
+    "word_rendered": "xuigU",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/Q2dv7_47a3ec84.png",
+    "word_input": "Q2dv7",
+    "word_rendered": "Q2dv7",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/ukdWm_06f7de48.png",
+    "word_input": "ukdWm",
+    "word_rendered": "ukdWm",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/jfCWp_fdc4382e.png",
+    "word_input": "jfCWp",
+    "word_rendered": "jfCWp",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/JIoSi_0ff73762.png",
+    "word_input": "JIoSi",
+    "word_rendered": "JIoSi",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/8IMXp_73410ea3.png",
+    "word_input": "8IMXp",
+    "word_rendered": "8IMXp",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/ndyIB_e753410c.png",
+    "word_input": "ndyIB",
+    "word_rendered": "ndyIB",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/eIKIX_948de1f9.png",
+    "word_input": "eIKIX",
+    "word_rendered": "eIKIX",
+    "word_length": 5,
+    "width": 160,
+    "height": 80
+  },
+  {
+    "image_path": "dataset_val/dataset/oN0gy_b48838dd.png",
+    "word_input": "oN0gy",
+    "word_rendered": "oN0gy",
     "word_length": 5,
     "width": 160,
     "height": 80

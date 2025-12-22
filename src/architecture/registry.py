@@ -5,7 +5,7 @@ Provides discovery, validation, and factory methods.
 from typing import Type, Dict, List, Optional, Callable, Any
 from dataclasses import dataclass, field
 
-from .components.base import BaseEncoder, BaseProjector, BaseSequenceModel, BaseHead
+from .components.base import BaseImageEncoder, BaseAdapter, BaseProjector, BaseSequenceModel, BaseHead
 
 
 @dataclass
@@ -35,6 +35,7 @@ class ComponentRegistry:
     
     def __init__(self):
         self._encoders: Dict[str, ComponentMetadata] = {}
+        self._adapters: Dict[str, ComponentMetadata] = {}
         self._projectors: Dict[str, ComponentMetadata] = {}
         self._sequence_models: Dict[str, ComponentMetadata] = {}
         self._heads: Dict[str, ComponentMetadata] = {}
@@ -44,7 +45,7 @@ class ComponentRegistry:
     def register_encoder(
         self, 
         name: str, 
-        cls: Type[BaseEncoder],
+        cls: Type[BaseImageEncoder],
         description: str = "",
         compatible_heights: List[int] = None,
         width_divisor: int = 1,
@@ -56,14 +57,14 @@ class ComponentRegistry:
         
         Args:
             name: Unique identifier for this encoder
-            cls: Encoder class (must inherit from BaseEncoder)
+            cls: Encoder class (must inherit from BaseImageEncoder)
             description: Human-readable description
             compatible_heights: List of supported input heights (empty = any)
             width_divisor: Input width must be divisible by this value
             **extra: Additional metadata
         """
-        if not issubclass(cls, BaseEncoder):
-            raise ValueError(f"{cls} must inherit from BaseEncoder")
+        if not issubclass(cls, BaseImageEncoder):
+            raise ValueError(f"{cls} must inherit from BaseImageEncoder")
             
         self._encoders[name] = ComponentMetadata(
             name=name,
@@ -75,7 +76,7 @@ class ComponentRegistry:
             extra=extra
         )
         
-    def get_encoder(self, name: str) -> Type[BaseEncoder]:
+    def get_encoder(self, name: str) -> Type[BaseImageEncoder]:
         """Get encoder class by name."""
         if name not in self._encoders:
             available = ', '.join(self._encoders.keys())
@@ -93,6 +94,45 @@ class ComponentRegistry:
                 **meta.extra
             }
             for name, meta in self._encoders.items()
+        }
+
+    # ========== ADAPTERS ==========
+    
+    def register_adapter(
+        self,
+        name: str,
+        cls: Type[BaseAdapter],
+        description: str = "",
+        type: str = "generation", # 'generation' or 'classification'
+        **extra
+    ):
+        """Register an adapter component."""
+        if not issubclass(cls, BaseAdapter):
+            raise ValueError(f"{cls} must inherit from BaseAdapter")
+            
+        self._adapters[name] = ComponentMetadata(
+            name=name,
+            cls=cls,
+            description=description,
+            extra={'type': type, **extra}
+        )
+        
+    def get_adapter(self, name: str) -> Type[BaseAdapter]:
+        """Get adapter class by name."""
+        if name not in self._adapters:
+            available = ', '.join(self._adapters.keys())
+            raise ValueError(f"Unknown adapter '{name}'. Available: {available}")
+        return self._adapters[name].cls
+
+    def list_adapters(self) -> Dict[str, Dict[str, Any]]:
+        """List all registered adapters."""
+        return {
+            name: {
+                'description': meta.description,
+                'type': meta.extra.get('type', 'unknown'),
+                **meta.extra
+            }
+            for name, meta in self._adapters.items()
         }
     
     # ========== PROJECTORS ==========

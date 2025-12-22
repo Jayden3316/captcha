@@ -33,7 +33,7 @@ model_config:
   encoder_config:
     # ResNet dimensions per stage
     dims: [8, 16, 32, 64] 
-    stage_block_counts: [1, 1, 3, 1]
+    stage_block_counts: [2, 2, 6, 2]
     
   # --- 2. Adapter (Spatial -> Vector) ---
   adapter_type: "flatten" # "flatten", "global_pool", or "vertical_feature"
@@ -54,7 +54,7 @@ model_config:
   head_config:
     num_classes: 100 # Example: 10 digit classes
     d_model: 768 # Must match Adapter output dimension
-    head_hidden_dim: 256 # Intermediate dense layer size
+    head_hidden_dim: 128 # Intermediate dense layer size
     pooling_type: "mean" # Ignored if input is already flat/2D, but good to keep
   
   # Global Params
@@ -64,7 +64,7 @@ model_config:
 
 training_config:
   batch_size: 32
-  epochs: 20
+  epochs: 50
   learning_rate: 0.0001
   optimizer_type: "adamw" # adam, adamw, sgd
   weight_decay: 0.01

@@ -139,17 +139,21 @@ class ClassificationHead(BaseHead):
         }
 
     def forward(self, x: Float[Tensor, "batch seq d_model"]) -> Float[Tensor, "batch num_classes"]:
-        # x: [Batch, Seq, Dim]
+        # x: [Batch, Seq, Dim] or [Batch, Dim]
         
-        if self.pooling_type == 'mean':
-            # Masking could be applied here if padding mask is available
-            pooled = x.mean(dim=1)
-        elif self.pooling_type == 'max':
-            pooled = x.max(dim=1)[0]
-        elif self.pooling_type == 'first':
-            pooled = x[:, 0, :]
+        # If input is already 2D (batch, dim), skip pooling
+        if x.ndim == 2:
+            pooled = x
         else:
-            raise ValueError(f"Unknown pooling type: {self.pooling_type}")
+            if self.pooling_type == 'mean':
+                # Masking could be applied here if padding mask is available
+                pooled = x.mean(dim=1)
+            elif self.pooling_type == 'max':
+                pooled = x.max(dim=1)[0]
+            elif self.pooling_type == 'first':
+                pooled = x[:, 0, :]
+            else:
+                raise ValueError(f"Unknown pooling type: {self.pooling_type}")
             
         return self.mlp(pooled)
 

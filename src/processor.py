@@ -16,14 +16,21 @@ class BaseProcessor(ABC):
     def __init__(self, config: ExperimentConfig):
         self.config = config
         self.target_height = config.dataset_config.height
+        self.target_width = config.dataset_config.width
         self.width_divisor = config.dataset_config.width_divisor
         self.width_bias = config.dataset_config.width_bias
+        self.resize_mode = config.dataset_config.resize_mode
         
         self.to_tensor = transforms.ToTensor()
         
     # --- Resizing Logic ---
     def _resize_image(self, image: Image.Image) -> Image.Image:
         """Unified resizing logic based on config."""
+        if self.resize_mode == "fixed":
+            # Direct resize to target dims (stretch)
+            return image.resize((self.target_width, self.target_height), resample=Image.Resampling.LANCZOS)
+        
+        # Variable width logic (aspect ratio preserving)
         w, h = image.size
         scale = self.target_height / h
         new_w = int(w * scale)

@@ -6,7 +6,8 @@ from typing import Optional
 
 from src.config.config import (
     ExperimentConfig, DatasetConfig, TrainingConfig, ModelConfig,
-    AsymmetricConvNextEncoderConfig, LegacyCNNEncoderConfig,
+    AsymmetricConvNextEncoderConfig, ResNetEncoderConfig, 
+    VerticalFeatureAdapterConfig, GlobalPoolingAdapterConfig, FlattenAdapterConfig,
     LinearProjectorConfig, MLPProjectorConfig, IdentityProjectorConfig, BottleneckProjectorConfig, ResidualProjectorConfig,
     TransformerEncoderConfig, TransformerDecoderConfig, RNNConfig, BiLSTMConfig,
     LinearHeadConfig, MLPHeadConfig, ClassificationHeadConfig
