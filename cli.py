@@ -137,6 +137,8 @@ def main():
     # Training overrides are still useful for quick experiments without changing yaml
     train_parser.add_argument("--config-file", type=str, required=True, help="Path to experiment config file (YAML)")
     train_parser.add_argument("--metadata-path", type=str, default=None, help="Override metadata path")
+    train_parser.add_argument("--train-metadata-path", type=str, default=None, help="Explicit training metadata path")
+    train_parser.add_argument("--val-metadata-path", type=str, default=None, help="Explicit validation metadata path")
     train_parser.add_argument("--image-base-dir", type=str, default=None, help="Override image base dir")
     train_parser.add_argument("--epochs", type=int, default=None, help="Override epochs")
     train_parser.add_argument("--batch-size", type=int, default=None, help="Override batch size")
@@ -241,6 +243,10 @@ def main():
         # Overrides
         if args.metadata_path:
             config.metadata_path = args.metadata_path
+        if args.train_metadata_path:
+            config.train_metadata_path = args.train_metadata_path
+        if args.val_metadata_path:
+            config.val_metadata_path = args.val_metadata_path
         if args.image_base_dir:
             config.image_base_dir = args.image_base_dir
         if args.epochs:

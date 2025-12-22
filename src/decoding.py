@@ -8,7 +8,7 @@ def decode_simple(token_ids: List[int], vocab: List[str]) -> str:
     """
     return "".join([vocab[t] for t in token_ids if t < len(vocab)])
 
-def decode_ctc(token_ids: List[int], vocab: List[str], blank_idx: int = 0) -> str:
+def decode_ctc(token_ids: List[int], vocab: Union[List[str], dict], blank_idx: int = 0) -> str:
     """
     Decode sequence using Connectionist Temporal Classification (CTC) rules.
     1. Collapse repeated characters.
@@ -27,9 +27,11 @@ def decode_ctc(token_ids: List[int], vocab: List[str], blank_idx: int = 0) -> st
             
         last_token = token
         
-    return "".join([vocab[t - 1] for t in decoded if t - 1 < len(vocab)]) 
-    # Note: t-1 assumes blank is index 0 and vocab starts at index 1.
-    # Adjust if your mapping differs. usually vocab list doesn't include blank.
+    if isinstance(vocab, dict):
+        return "".join([vocab.get(t, "") for t in decoded])
+    else:
+        # Legacy list behavior (assuming 1-based indexing for chars)
+        return "".join([vocab[t - 1] for t in decoded if t - 1 < len(vocab) and t > 0])
 
 def efficient_decode_batch_ctc(batch_preds: torch.Tensor, vocab: List[str], blank_idx: int = 0) -> List[str]:
     """

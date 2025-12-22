@@ -66,6 +66,11 @@ class OptimizerType(str, Enum):
     SGD = "sgd"
 
 
+class TaskType(str, Enum):
+    GENERATION = "generation"
+    CLASSIFICATION = "classification"
+
+
 # ============================================================================
 # DATASET CONFIG
 # ============================================================================
@@ -291,9 +296,11 @@ class TransformerConfig(HookedTransformerConfig):
     
     def __post_init__(self):
         # Ensure d_head is computed if not set
-        # HookedTransformerConfig's __post_init__ handles d_head computation if it's None.
-        # We only need to ensure n_heads is not -1 for it to compute.
-        # If d_head is None and n_heads is valid, the parent's post_init will set it.
+        # HookedTransformerConfig's __post_init__ MIGHT handle d_head computation, 
+        # but evidently it crashes if n_params calculation happens before that.
+        # So we force it here.
+        if self.d_head is None and self.d_model is not None and self.n_heads is not None:
+             self.d_head = self.d_model // self.n_heads
         
         # Run parent post init
         super().__post_init__()
@@ -408,6 +415,7 @@ class ModelConfig:
     projector_type: str = 'linear'
     sequence_model_type: str = 'transformer_encoder'
     head_type: str = 'ctc'
+    task_type: TaskType = TaskType.GENERATION
     
     # Component-specific configs
     encoder_config: Optional[EncoderConfig] = None
@@ -553,6 +561,7 @@ class ModelConfig:
             'd_vocab': self.d_vocab,
             'd_model': self.d_model,
             'loss_type': self.loss_type.value if isinstance(self.loss_type, LossType) else self.loss_type,
+            'task_type': self.task_type.value if isinstance(self.task_type, TaskType) else self.task_type,
         }
 
 
@@ -644,6 +653,8 @@ class ExperimentConfig:
     
     # Paths
     metadata_path: str = "validation_set/metadata.json"
+    train_metadata_path: Optional[str] = None
+    val_metadata_path: Optional[str] = None
     image_base_dir: str = "."
     
     def __post_init__(self):

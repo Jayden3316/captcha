@@ -117,21 +117,36 @@ def train(
     image_base_dir = config.image_base_dir
     
     if train_dataset is None or val_dataset is None:
-        # Processor initialized with full ExperimentConfig
-        processor = CaptchaProcessor(config=config, metadata_path=metadata_path)
-        
-        # Ensure vocab size matches config if we used defaults
-        # config.model_config.d_vocab = processor.vocab_size - 1
-        
-        full_dataset = CaptchaDataset(metadata_path, processor, image_base_dir)
-        train_size = int((1.0 - config.training_config.val_split) * len(full_dataset))
-        val_size = len(full_dataset) - train_size
-        train_ds, val_ds = torch.utils.data.random_split(full_dataset, [train_size, val_size])
-        
-        if train_dataset is None:
-            train_dataset = train_ds
-        if val_dataset is None:
-            val_dataset = val_ds
+        # Check for explicit train/val split
+        if config.train_metadata_path and config.val_metadata_path:
+            print(f"Using explicit train/val split: {config.train_metadata_path} / {config.val_metadata_path}")
+            
+            # Initialize processor with training metadata to build vocab
+            processor = CaptchaProcessor(config=config, metadata_path=config.train_metadata_path)
+            
+            # Create datasets
+            if train_dataset is None:
+                train_dataset = CaptchaDataset(config.train_metadata_path, processor, image_base_dir)
+            
+            if val_dataset is None:
+                val_dataset = CaptchaDataset(config.val_metadata_path, processor, image_base_dir)
+                
+        else:
+            # Fallback to single metadata file with random split
+            print(f"Using single metadata file with random split: {metadata_path}")
+            
+            # Processor initialized with full ExperimentConfig
+            processor = CaptchaProcessor(config=config, metadata_path=metadata_path)
+            
+            full_dataset = CaptchaDataset(metadata_path, processor, image_base_dir)
+            train_size = int((1.0 - config.training_config.val_split) * len(full_dataset))
+            val_size = len(full_dataset) - train_size
+            train_ds, val_ds = torch.utils.data.random_split(full_dataset, [train_size, val_size])
+            
+            if train_dataset is None:
+                train_dataset = train_ds
+            if val_dataset is None:
+                val_dataset = val_ds
     else:
         # Extract processor from dataset if possible
         if hasattr(train_dataset, 'dataset'): # Handle Subset

@@ -131,6 +131,8 @@ class AsymmetricConvNextEncoder(BaseEncoder):
         
         self.down4 = AsymmetricDownsample(dims[2], dims[3])
         self.stage4 = nn.Sequential(*[ConvNextBlock(dims[3]) for _ in range(2)])
+
+        self.proj = nn.Linear(2, 1) # [B, W/4, 512, 2] -> [B, W/4, 512]
         
         self._output_dim = dims[3]
 
@@ -153,17 +155,17 @@ class AsymmetricConvNextEncoder(BaseEncoder):
         x = self.stage4(x)
         
         # Collapse vertical dimension
-        x = x.mean(dim=2)       # [B, 512, W/4]
-        
-        # Transpose to sequence format
-        x = x.permute(0, 2, 1)  # [B, W/4, 512]
+        # nn.linear applies on the last dimension
+        # permute to [B, W/4, 512, 2]
+        x = x.permute(0, 3, 1, 2)
+        x = self.proj(x)       
+        x = x.squeeze(-1)       # [B, W/4, 512]
         
         return x
     
     def get_sequence_length(self, image_width: int) -> int:
         """Sequence length after stem stride of 4."""
         return image_width // 4
-
 
 class LegacyCNNEncoder(BaseEncoder):
     """
