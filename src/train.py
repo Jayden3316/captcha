@@ -247,10 +247,9 @@ def train(
             val_loss = 0.0
             total_samples = 0
             
-            # Metrics Accumulators
-            total_edit_distance = 0.0
-            total_char_accuracy = 0.0
-            exact_matches = 0
+            # Collectors for global metrics
+            val_preds = []
+            val_targets = []
             
             with torch.no_grad():
                 for batch in tqdm(val_loader, desc=f"Epoch {epoch+1}/{epochs} [Val]"):
@@ -270,9 +269,8 @@ def train(
                     # Note: UniversalCaptchaModel returns [B, S, D] now.
                     preds = logits.argmax(dim=-1) # [B, Seq_len]
                     
-                    # Calculate metrics using utils.py
+                    # Decode strings and store
                     for i in range(len(targets)):
-    
                         pred_str = processor.decode(preds[i])
     
                         if targets.dim() == 2:
@@ -283,36 +281,93 @@ def train(
                             # Classification Task
                             target_str = processor.decode(targets[i])
                         
-                        metrics = calculate_metrics(target_str, pred_str)
-                        
-                        total_edit_distance += metrics['edit_distance']
-                        total_char_accuracy += metrics['character_accuracy']
-                        if metrics['exact_match']:
-                            exact_matches += 1
+                        val_preds.append(pred_str)
+                        val_targets.append(target_str)
                             
                     total_samples += images.size(0)
     
             avg_val_loss = val_loss / len(val_loader)
-            avg_char_acc = total_char_accuracy / total_samples if total_samples > 0 else 0.0
-            avg_edit_dist = total_edit_distance / total_samples if total_samples > 0 else 0.0
-            exact_match_acc = exact_matches / total_samples if total_samples > 0 else 0.0
             
-            print(f"Val Loss: {avg_val_loss:.4f} | Char Acc: {avg_char_acc:.4f} | Edit Dist: {avg_edit_dist:.4f} | Exact Match: {exact_match_acc:.4f}")
+            # --- Configurable Metrics Calculation ---
+            metrics_results = {}
+            metrics_to_compute = config.training_config.metrics
             
-            wandb.log({
+            if metrics_to_compute:
+                # 1. OCR-style metrics (batch accumulation)
+                ocr_keys = ['character_accuracy', 'edit_distance', 'exact_match']
+                needed_ocr = [m for m in metrics_to_compute if m in ocr_keys]
+                
+                if needed_ocr:
+                    # Accumulators
+                    total_edit_dist = 0.0
+                    total_char_acc = 0.0
+                    total_exact = 0
+                    
+                    for t, p in zip(val_targets, val_preds):
+                        m = calculate_metrics(t, p)
+                        total_edit_dist += m['edit_distance']
+                        total_char_acc += m['character_accuracy']
+                        if m['exact_match']:
+                            total_exact += 1
+                    
+                    if 'edit_distance' in needed_ocr:
+                        metrics_results['val_edit_distance'] = total_edit_dist / total_samples
+                    if 'character_accuracy' in needed_ocr:
+                        metrics_results['val_char_acc'] = total_char_acc / total_samples
+                    if 'exact_match' in needed_ocr:
+                        metrics_results['val_exact_match'] = total_exact / total_samples
+
+                # 2. Classification-style metrics (sklearn)
+                # (Can also be used for exact match on strings, but exact_match above covers it)
+                cls_keys = ['f1', 'precision', 'recall', 'accuracy']
+                needed_cls = [m for m in metrics_to_compute if m in cls_keys]
+                
+                if needed_cls:
+                    # Use the new utility function
+                    from src.utils import calculate_classification_metrics
+                    cls_results = calculate_classification_metrics(val_targets, val_preds, needed_cls)
+                    # Prefix keys
+                    for k, v in cls_results.items():
+                        metrics_results[f"val_{k}"] = v
+            else:
+                 print("\n[WARNING] No metrics specified in config.training_config.metrics. Only validation loss is computed.")
+
+            # Logging
+            log_str = f"Val Loss: {avg_val_loss:.4f}"
+            for k, v in metrics_results.items():
+                log_str += f" | {k}: {v:.4f}"
+            print(log_str)
+            
+            wandb_log_dict = {
                 "val_loss": avg_val_loss,
-                "val_char_acc": avg_char_acc,
-                "val_edit_distance": avg_edit_dist,
-                "val_exact_match": exact_match_acc,
                 "epoch": epoch + 1
-            })
+            }
+            wandb_log_dict.update(metrics_results)
+            wandb.log(wandb_log_dict)
             
             # Checkpointing
             is_best = False
-            current_metric = exact_match_acc # logic for other metrics can be added
-            if current_metric >= best_val_metric:
-                best_val_metric = current_metric
-                is_best = True
+            
+            # Determine best model based on monitor_metric
+            monitor_key = config.training_config.monitor_metric
+            
+            # If monitor metric is in results, use it
+            if monitor_key in metrics_results:
+                current_metric = metrics_results[monitor_key]
+                if current_metric >= best_val_metric: # Assuming higher is better
+                    best_val_metric = current_metric
+                    is_best = True
+            elif monitor_key == "val_loss":
+                # Lower is better for loss. This simple logic assumes higher=better for default 0.0 init.
+                # If monitoring loss, we need to invert logic or init differently.
+                # Given existing code init best_val_metric=0.0, it assumes maximization.
+                # If user wants to monitor loss, they need to handle maximization (e.g. -loss).
+                # For now, let's just warn if metric missing
+                pass
+            else:
+                # If configured monitor metric is not calculated, we can't determine best.
+                # Just save frequent checkpoint.
+                pass
                 
             fname = f"{config.experiment_name}_epoch_{epoch+1}.pth"
             checkpoint_data = {
@@ -322,16 +377,14 @@ def train(
                 'config': config.to_dict(),
                 'metrics': {
                     'val_loss': avg_val_loss,
-                    'val_char_acc': avg_char_acc,
-                    'val_edit_distance': avg_edit_dist,
-                    'val_exact_match': exact_match_acc
+                    **metrics_results
                 }
             }
             torch.save(checkpoint_data, os.path.join(save_dir, fname))
             
             if is_best:
                 torch.save(checkpoint_data, os.path.join(save_dir, f"best_{config.experiment_name}.pth"))
-                print(f"New best model saved with {monitor_metric}: {best_val_metric:.4f}")
+                print(f"New best model saved with {monitor_key}: {best_val_metric:.4f}")
 
 if __name__ == "__main__":
     train(

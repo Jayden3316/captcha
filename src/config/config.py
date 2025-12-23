@@ -716,6 +716,9 @@ class TrainingConfig:
     shuffle_train: bool = True
     pin_memory: bool = True
     
+    # Metrics
+    metrics: Optional[List[str]] = None
+    
     def to_dict(self) -> Dict[str, Any]:
         """Convert to dictionary for logging."""
         return {

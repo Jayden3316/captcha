@@ -84,3 +84,4 @@ training_config:
   mixed_precision: false
   #val_split: 0.1 # necessary only if train_metadata_path and val_metadata_path are not provided
   shuffle_train: true
+  metrics: ['accuracy', 'f1', 'precision', 'recall']

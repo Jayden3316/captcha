@@ -9,6 +9,10 @@ import torch
 import torchvision.transforms as transforms
 import numpy as np
 
+# Lazy import sklearn to avoid overhead if not used? 
+# No, standard import is fine.
+from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
+
 def calculate_edit_distance(s1: str, s2: str) -> int:
     """Calculate Levenshtein edit distance between two strings."""
     if len(s1) < len(s2):
@@ -33,7 +37,7 @@ def calculate_edit_distance(s1: str, s2: str) -> int:
 
 def calculate_metrics(ground_truth: str, prediction: str) -> Dict:
     """
-    Calculate various accuracy metrics.
+    Calculate various accuracy metrics (Legacy/OCR focus).
     
     Returns:
         Dictionary with exact_match, case_insensitive_match, edit_distance, 
@@ -57,6 +61,35 @@ def calculate_metrics(ground_truth: str, prediction: str) -> Dict:
         'character_accuracy': char_accuracy,
         'word_correct': exact_match
     }
+
+def calculate_classification_metrics(targets: List[Union[str, int]], preds: List[Union[str, int]], metrics_list: List[str]) -> Dict[str, float]:
+    """
+    Calculate classification metrics using sklearn.
+    
+    Args:
+        targets: List of ground truth values (strings or ints)
+        preds: List of predicted values (strings or ints)
+        metrics_list: List of metrics to compute
+        
+    Returns:
+        Dictionary of computed metrics
+    """
+    results = {}
+    
+    # Common classification metrics
+    if 'accuracy' in metrics_list:
+        results['accuracy'] = accuracy_score(targets, preds)
+        
+    if 'f1' in metrics_list:
+        results['f1'] = f1_score(targets, preds, average='macro', zero_division=0)
+        
+    if 'precision' in metrics_list:
+        results['precision'] = precision_score(targets, preds, average='macro', zero_division=0)
+        
+    if 'recall' in metrics_list:
+        results['recall'] = recall_score(targets, preds, average='macro', zero_division=0)
+        
+    return results
 
 def upsample_image(
     img: Image.Image,
