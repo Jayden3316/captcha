@@ -120,8 +120,8 @@ class ClassificationHead(BaseHead):
         
         # Simple MLP for classification
         self.mlp = nn.Sequential(
+            nn.LayerNorm(cfg.d_model),
             nn.Linear(cfg.d_model, hidden_dim),
-            nn.LayerNorm(hidden_dim),
             nn.GELU(),
             nn.Linear(hidden_dim, self.num_classes)
         )

@@ -132,6 +132,11 @@ class DatasetConfig:
     width_bias: int = 0      # Bias for width formula (width = divisor * k + bias)
     resize_mode: str = "variable" # "variable" (aspect-ratio preserving) or "fixed" (stretch to width)
     
+    # On-the-fly Generation Config
+    vocab: str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    min_word_len: int = 4
+    max_word_len: int = 8
+    
     def to_dict(self) -> Dict[str, Any]:
         return {
             'width': self.width,
@@ -145,6 +150,9 @@ class DatasetConfig:
             'width_divisor': self.width_divisor,
             'width_bias': self.width_bias,
             'resize_mode': self.resize_mode,
+            'vocab': self.vocab,
+            'min_word_len': self.min_word_len,
+            'max_word_len': self.max_word_len,
         }
 
 
@@ -174,6 +182,8 @@ class ConvNextEncoderConfig:
     # List of kernels for the 3 downsample blocks
     # If not specified, defaults to matching the stride (handled in Encoder class)
     downsample_kernels: Optional[List[tuple[int, int]]] = None
+
+    downsample_padding: Optional[List[tuple[int, int]]] = None
     
     # ConvNextBlock configuration
     convnext_kernel_size: int = 7
@@ -192,7 +202,8 @@ class ConvNextEncoderConfig:
              raise ValueError(f"downsample_strides length ({len(self.downsample_strides)}) must be 3")
         if self.downsample_kernels is not None and len(self.downsample_kernels) != 3:
              raise ValueError(f"downsample_kernels length ({len(self.downsample_kernels)}) must be 3")
-
+        if self.downsample_padding is not None and len(self.downsample_padding) != 3:
+             raise ValueError(f"downsample_padding length ({len(self.downsample_padding)}) must be 3")
 
 @dataclass
 class ResNetEncoderConfig:
@@ -205,11 +216,17 @@ class ResNetEncoderConfig:
     dims: List[int] = field(default_factory=lambda: [64, 128, 256, 512])
     stage_block_counts: List[int] = field(default_factory=lambda: [2, 2, 6, 2])
     
+    stem_kernel_size: int = 4
+    stem_stride: int = 4
+    stem_in_channels: int = 3
+    
     # List of strides for the 3 downsample blocks
     downsample_strides: List[tuple[int, int]] = field(default_factory=lambda: [(2, 2), (2, 2), (2, 2)])
     
     # List of kernels
     downsample_kernels: Optional[List[tuple[int, int]]] = None
+
+    downsample_padding: Optional[List[tuple[int, int]]] = None
 
     def __post_init__(self):
         if len(self.stage_block_counts) != len(self.dims):
@@ -218,6 +235,8 @@ class ResNetEncoderConfig:
              raise ValueError(f"downsample_strides length ({len(self.downsample_strides)}) must be 3")
         if self.downsample_kernels is not None and len(self.downsample_kernels) != 3:
              raise ValueError(f"downsample_kernels length ({len(self.downsample_kernels)}) must be 3")
+        if self.downsample_padding is not None and len(self.downsample_padding) != 3:
+             raise ValueError(f"downsample_padding length ({len(self.downsample_padding)}) must be 3")
 
 # Union type for encoder configs
 EncoderConfig = Union[ConvNextEncoderConfig, ResNetEncoderConfig]
@@ -695,6 +714,13 @@ class TrainingConfig:
     epochs: int = 50
     learning_rate: float = 1e-4
     
+    # Step-based training
+    training_steps: Optional[int] = None # If set, overrides epochs logic for loop duration
+    use_onthefly_generation: bool = False
+    save_every_steps: int = 2048
+    val_check_interval_steps: int = 2048
+    val_steps: int = 50 # Number of batches to validate per check
+    
     # Optimizer configuration
     optimizer_type: OptimizerType = OptimizerType.ADAMW
     weight_decay: float = 0.01
@@ -747,6 +773,10 @@ class TrainingConfig:
             'weight_decay': self.weight_decay,
             'grad_clip_norm': self.grad_clip_norm,
             'device': self.device,
+            'training_steps': self.training_steps,
+            'use_onthefly_generation': self.use_onthefly_generation,
+            'save_every_steps': self.save_every_steps,
+            'val_check_interval_steps': self.val_check_interval_steps,
         }
 
 

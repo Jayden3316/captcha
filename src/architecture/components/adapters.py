@@ -108,6 +108,31 @@ class GlobalPoolingAdapter(BaseClassificationAdapter):
         else:
              raise ValueError(f"Unknown pool type: {self.pool_type}")
 
+class SequencePoolingAdapter(BaseClassificationAdapter):
+    """
+    Pools a sequence to a single vector.
+    [B, Seq, Dim] -> [B, Dim]
+    """
+    def __init__(self, input_channels: int, pool_type: str = "mean"):
+        # Note: input_channels here refers to d_model (Dim)
+        super().__init__(input_channels)
+        self.pool_type = pool_type
+        
+    @property
+    def output_dim(self) -> int:
+        return self.input_channels
+        
+    def forward(self, x: Float[Tensor, "batch seq dim"]) -> Float[Tensor, "batch dim"]:
+        if self.pool_type == "mean":
+            return x.mean(dim=1)
+        elif self.pool_type == "max":
+            return x.amax(dim=1)
+        elif self.pool_type == "last":
+            return x[:, -1, :]
+        elif self.pool_type == "first":
+            return x[:, 0, :]
+        else:
+             raise ValueError(f"Unknown pool type: {self.pool_type}")
 
 # ========== REGISTRATION ==========
 # We'll do registration in registry.py or here if we import REGISTRY.
@@ -137,32 +162,6 @@ REGISTRY.register_adapter(
     description="Global pooling (avg or max)",
     type="classification"
 )
-
-class SequencePoolingAdapter(BaseClassificationAdapter):
-    """
-    Pools a sequence to a single vector.
-    [B, Seq, Dim] -> [B, Dim]
-    """
-    def __init__(self, input_channels: int, pool_type: str = "mean"):
-        # Note: input_channels here refers to d_model (Dim)
-        super().__init__(input_channels)
-        self.pool_type = pool_type
-        
-    @property
-    def output_dim(self) -> int:
-        return self.input_channels
-        
-    def forward(self, x: Float[Tensor, "batch seq dim"]) -> Float[Tensor, "batch dim"]:
-        if self.pool_type == "mean":
-            return x.mean(dim=1)
-        elif self.pool_type == "max":
-            return x.amax(dim=1)
-        elif self.pool_type == "last":
-            return x[:, -1, :]
-        elif self.pool_type == "first":
-            return x[:, 0, :]
-        else:
-             raise ValueError(f"Unknown pool type: {self.pool_type}")
 
 REGISTRY.register_adapter(
     name="sequence_pool",

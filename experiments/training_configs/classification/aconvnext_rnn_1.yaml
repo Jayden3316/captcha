@@ -6,7 +6,7 @@ val_metadata_path: "dataset_val/dataset/metadata.json"
 dataset_config:
   width: 200
   height: 80
-  width_divisor: 8
+  width_divisor: 32 # this must be set to stride factor associated with each visual token
   width_bias: 0
   resize_mode: "variable"
   image_ext: "png"

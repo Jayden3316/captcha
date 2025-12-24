@@ -23,7 +23,7 @@ dataset_config:
   # Dimensions to generate/resize images to
   width: 192
   height: 64
-  width_divisor: 4 # Requirement when using variable width
+  width_divisor: 4 # Not useful since this is fixed width
   width_bias: 0
   resize_mode: "fixed"
   image_ext: "png"
