@@ -140,7 +140,8 @@ class StandardClassificationPipeline(nn.Module):
     Structure:
     1. Encoder (Image -> Spatial Features [B, C, H, W])
     2. Adapter (Spatial Features -> Fixed Vector [B, Dim])
-    3. Head (Dim -> Logits [B, NumClasses])
+    3. Projector ([B, Dim] -> [B, d_model])
+    4. Head ([B, d_model] -> Logits [B, NumClasses])
     """
     def __init__(self, config: ModelConfig):
         super().__init__()
@@ -168,9 +169,20 @@ class StandardClassificationPipeline(nn.Module):
         
         self.adapter = adapter_cls(input_channels=input_channels, **adapter_kwargs)
 
-        input_to_head_dim = self.adapter.output_dim
+        input_to_projector_dim = self.adapter.output_dim
 
-        # --- 3. Head ---
+        # --- 3. Projector ---
+        projector_type = config.projector_type
+        projector_cls = REGISTRY.get_projector(projector_type)
+        projector_kwargs = dict(config.projector_config.__dict__) if config.projector_config else {}
+        
+        # Explicitly pass output_dim (d_model)
+        projector_output_dim = config.get_projector_output_dim()
+        self.projector = projector_cls(input_to_projector_dim, projector_output_dim, **projector_kwargs)
+
+        input_to_head_dim = self.projector.output_dim
+
+        # --- 4. Head ---
         if config.head_type:
             head_cls = REGISTRY.get_head(config.head_type)
             head_cfg = config.head_config
@@ -186,20 +198,21 @@ class StandardClassificationPipeline(nn.Module):
     def forward(self, image: torch.Tensor, text: Optional[torch.Tensor] = None):
         x = self.encoder(image)
         x = self.adapter(x)
+        x = self.projector(x)
         
         # Runtime Validation for FlattenAdapter correctness
         # The Head expects [B, input_to_head_dim]. Adapter produces [B, actual_dim]
         # If there is a mismatch, the linear layer in Head will throw a shape error.
         # We catch it early to provide a helpful message.
-        expected_dim = self.adapter.output_dim
+        expected_dim = self.projector.output_dim
         actual_dim = x.shape[1]
         
         if expected_dim != actual_dim:
             raise ValueError(
                 f"Dimension Mismatch in Classification Model!\n"
-                f"- Configured Adapter Output Dim: {expected_dim}\n"
-                f"- Actual Runtime Adapter Output: {actual_dim}\n"
-                f"This usually means the 'output_dim' in FlattenAdapterConfig does not match "
+                f"- Configured Projector Output Dim: {expected_dim}\n"
+                f"- Actual Runtime Projector Output: {actual_dim}\n"
+                f"This usually means the 'output_dim' in ProjectorConfig does not match "
                 f"the actual Encoder output size (C*H*W).\n"
                 f"Encoder Output Shape (before flatten): {self.encoder.output_channels} x H x W (Check spatial dims)"
             )

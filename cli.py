@@ -14,7 +14,8 @@ from src.config.config import (
 )
 from src.train import train
 
-from generate_captchas import get_ttf_files, get_words, CaptchaGenerator, random_capitalize
+from src.utils import get_words, get_ttf_files
+from generate_captchas import CaptchaGenerator, random_capitalize
 
 from src.config.loader import hydrate_config
 
@@ -56,6 +57,7 @@ def main():
     train_parser.add_argument("--epochs", type=int, default=None, help="Override epochs")
     train_parser.add_argument("--batch-size", type=int, default=None, help="Override batch size")
     train_parser.add_argument("--wandb-project", type=str, default=None, help="WandB Project Name")
+    train_parser.add_argument("--word-file", type=str, default=None, help="Path to words file for on-the-fly generation")
 
     # --- EVALUATE COMMAND ---
     eval_parser = subparsers.add_parser("evaluate", help="Evaluate model")
@@ -113,7 +115,16 @@ def main():
         else:
             # --- Font Selection Logic ---
             # Resolve font_root: CLI > Config > Default
-            font_root = args.font_root or ds_data.get('fonts_root') or "fonts"
+            # Update config with CLI override if present
+            if args.font_root:
+                dataset_config.font_root = args.font_root
+                
+            # If still nothing, try legacy 'fonts_root' from ds_data if it existed? 
+            # Or just assume cleaned up.
+            font_root = dataset_config.font_root or ds_data.get('fonts_root') or "fonts"
+            
+            # Update config to reflect used root
+            dataset_config.font_root = font_root
             
             all_fonts = get_ttf_files(font_root)
             if not all_fonts:
@@ -202,6 +213,9 @@ def main():
             config.training_config.epochs = args.epochs
         if args.batch_size:
             config.training_config.batch_size = args.batch_size
+        if args.word_file:
+            config.dataset_config.word_path = args.word_file
+            print(f"Overriding word_path with: {args.word_file}")
             
         train(config)
         

@@ -8,6 +8,8 @@ from PIL import Image
 import torch
 import torchvision.transforms as transforms
 import numpy as np
+import pandas as pd
+import re
 
 # Lazy import sklearn to avoid overhead if not used? 
 # No, standard import is fine.
@@ -141,3 +143,69 @@ def upsample_image(
         return img.resize((new_width, new_height), resample=resample)
     else:
         return img
+
+
+def sanitize_alnum(text: str) -> str:
+    """
+    Keep only alphanumeric characters (A–Z, a–z, 0–9) in the string.
+    """
+    return re.sub(r"[^0-9A-Za-z]", "", text)
+
+
+def get_words(
+    file_path: str,
+    min_word_len: int = 4,
+    max_word_len: Optional[int] = None,
+) -> List[str]:
+    """
+    Load words from a file (TSV, CSV, or plain text) and filter by length and alnum content.
+    """
+    try:
+        # Try reading as TSV with expected columns
+        df = pd.read_csv(file_path, sep="\t", names=["word_id", "word", "frequency"], on_bad_lines='skip')
+        
+        # Check if 'word' column is usable (not all NaN)
+        if df['word'].isna().all():
+             # Maybe it was not TSV or names mismatch?
+             raise ValueError("TSV read yielded empty 'word' column")
+             
+        word_list = df["word"].tolist()
+        
+    except Exception:
+        # Fallback: Read as simple lines
+        try:
+             with open(file_path, 'r', encoding='utf-8') as f:
+                 word_list = [l.strip() for l in f.readlines()]
+        except Exception as e:
+             print(f"Error reading word file {file_path}: {e}")
+             return []
+
+    words: set[str] = set()
+    for word in word_list:
+        if not isinstance(word, str): continue
+        # Split by spaces just in case lines have multiple words
+        for split_word in word.split():
+            clean = sanitize_alnum(split_word)
+            n = len(clean)
+            if n >= min_word_len and (max_word_len is None or n <= max_word_len):
+                words.add(clean)
+    return sorted(list(words))
+
+
+def get_ttf_files(root_path: str | Path) -> List[str]:
+    """
+    Recursively find all .ttf files in the given directory tree.
+
+    Args:
+        root_path: Path to the root directory to search (e.g., 'font_library')
+
+    Returns:
+        A list of string paths for all .ttf files found
+    """
+    root = Path(root_path)
+    ttf_files: List[str] = []
+
+    for file_path in root.rglob("*.ttf"):
+        ttf_files.append(str(file_path))
+
+    return sorted(ttf_files)

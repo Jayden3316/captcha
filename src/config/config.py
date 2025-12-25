@@ -91,11 +91,15 @@ class DatasetConfig:
     
     # Font configuration
     fonts: Optional[List[str]] = None
+    font_root: Optional[str] = None
+    train_font_root: Optional[str] = None
+    val_font_root: Optional[str] = None
     font_sizes: Optional[List[int]] = None
     max_fonts_per_family: int = 2
     
     # Content configuration
     word_path: Optional[str] = None
+    fixed_words: Optional[List[str]] = None
     
     # Noise configuration
     noise_bg_density: int = 5000
@@ -812,13 +816,7 @@ class ExperimentConfig:
         # Sync dataset height with model input height expectation
         # This ensures consistency between data generation and model input
         
-        # If encoder expects specific height, update dataset config
-        if isinstance(self.model_config.encoder_config, ConvNextEncoderConfig):
-            # ConvNext expects height 80
-            if self.dataset_config.height != 80:
-                self.dataset_config.height = 80
-                self.dataset_config.target_height = 80
-                self.dataset_config.width_divisor = 4
+        pass
         
         # Sync RNN/LSTM hidden sizes with d_model if needed
         if isinstance(self.model_config.sequence_model_config, RNNConfig):

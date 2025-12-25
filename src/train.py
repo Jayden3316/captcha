@@ -13,7 +13,7 @@ from tqdm import tqdm
 
 from src.config.config import ExperimentConfig
 from src.architecture.model import CaptchaModel
-from src.utils import calculate_metrics
+from src.utils import calculate_metrics, get_words
 from src.processor import CaptchaProcessor
 from src.losses import get_loss_function
 from src.decoding import decode_simple
@@ -75,10 +75,31 @@ class OnTheFlyDataset(Dataset):
         
         # Generator
         self.dataset_config = config.dataset_config
+        
+        # Font Loading Logic
+        fonts = self.dataset_config.fonts
+        if not fonts:
+            # Determine suitable root
+            root = self.dataset_config.font_root
+            if is_validation:
+                root = self.dataset_config.val_font_root or root
+            else:
+                root = self.dataset_config.train_font_root or root
+                
+            if root:
+                from src.utils import get_ttf_files
+                print(f"OnTheFlyDataset ({'Val' if is_validation else 'Train'}): Scanning fonts from {root}")
+                fonts = get_ttf_files(root)
+            else:
+                 # Warning only if we expected fonts. ConfigurableImageCaptcha default is None anyway (using system fonts maybe? or internal default)
+                 pass
+        else:
+             print(f"OnTheFlyDataset ({'Val' if is_validation else 'Train'}): Using {len(fonts)} explicit fonts from config.")
+
         self.captcha_gen = ConfigurableImageCaptcha(
             width=self.dataset_config.width,
             height=self.dataset_config.target_height,
-            fonts=self.dataset_config.fonts,
+            fonts=fonts,
             font_sizes=self.dataset_config.font_sizes,
             noise_bg_density=self.dataset_config.noise_bg_density,
             extra_spacing=self.dataset_config.extra_spacing,
@@ -97,6 +118,25 @@ class OnTheFlyDataset(Dataset):
         self.vocab = list(self.dataset_config.vocab)
         self.min_len = self.dataset_config.min_word_len
         self.max_len = self.dataset_config.max_word_len
+        
+        # Fixed word set support
+        self.word_pool: Optional[List[str]] = None
+        
+        if self.dataset_config.fixed_words:
+            self.word_pool = self.dataset_config.fixed_words
+            print(f"OnTheFlyDataset using {len(self.word_pool)} fixed words from config.")
+        elif self.dataset_config.word_path:
+             try:
+                 self.word_pool = get_words(
+                     self.dataset_config.word_path, 
+                     min_word_len=self.min_len,
+                     max_word_len=self.max_len
+                 )
+                 print(f"OnTheFlyDataset loaded {len(self.word_pool)} words from {self.dataset_config.word_path}")
+             except Exception as e:
+                 print(f"Warning: Failed to load word_path {self.dataset_config.word_path}: {e}")
+                 # Fallback to random generation if valid vocab exists?
+                 pass
 
     def __len__(self):
         # Return logical length
@@ -115,8 +155,22 @@ class OnTheFlyDataset(Dataset):
         start_time = time.time()
         
         # Generate random word
-        length = random.randint(self.min_len, self.max_len)
-        word = "".join(random.choices(self.vocab, k=length))
+        if self.word_pool:
+            word = random.choice(self.word_pool)
+            # If word_transform is needed, apply it? 
+            # Usually fixed words are taken as-is or we might apply capitalization if configured?
+            # Config 'random_capitalize' check:
+            if self.dataset_config.random_capitalize:
+                # We need simple capitalization util here if not in generator class
+                # We can import it or reproduce it. 
+                # Let's import random_capitalize from generator if possible, or just reimplement
+                # It's a method on dataset? No.
+                # It was a utility in generator.py
+                from src.generator import random_capitalize
+                word = random_capitalize(word)
+        else:
+            length = random.randint(self.min_len, self.max_len)
+            word = "".join(random.choices(self.vocab, k=length))
         
         # Generate image
         bg = tuple(self.dataset_config.bg_color) if self.dataset_config.bg_color else None
@@ -158,7 +212,7 @@ class OnTheFlyDataset(Dataset):
         return {
             "pixel_values": pixel_values,
             "input_ids": input_ids,
-            "target_length": len(input_ids),
+            "target_length": input_ids.numel(),
             "gen_time": gen_time
         }
 
@@ -227,15 +281,33 @@ def train(
              raise ValueError("DatasetConfig.vocab must be set for on-the-fly generation")
         
         # Define vocab for processor
-        # We can construct a dummy metadata or just set chars directly?
-        # Processor usually loads from metadata. 
-        # Let's create a specialized processor init or just manually set it.
-        # For now, let's instantiate processor with empty metadata and set chars
-        processor = CaptchaProcessor(config=config, metadata_path=None) # Should handle None if modified or empty file
-        # Manually set chars/classes
-        processor.chars = sorted(list(set(config.dataset_config.vocab)))
-        processor.idx_to_char = {i: c for i, c in enumerate(processor.chars)}
-        processor.char_to_idx = {c: i for i, c in enumerate(processor.chars)}
+        vocab = None
+        if config.model_config.task_type == "classification":
+             # For classification, vocab should be the list of words (classes)
+             if config.dataset_config.word_path:
+                 try:
+                     # Load words to use as classes (ignore filters here, we want full set)
+                     # Actually, we should respect the word loader logic
+                     vocab = get_words(config.dataset_config.word_path)
+                     print(f"Loaded {len(vocab)} words for classification vocabulary.")
+                 except Exception as e:
+                     raise ValueError(f"Failed to load word_path for classification vocab: {e}")
+             else:
+                  # If using fixed_words
+                  if config.dataset_config.fixed_words:
+                      vocab = config.dataset_config.fixed_words
+                  else:
+                      raise ValueError("Classification task requires word_path or fixed_words to be set.")
+        else:
+             # For generation, vocab is the character set
+             vocab = list(config.dataset_config.vocab)
+
+        processor = CaptchaProcessor(config=config, metadata_path=None, vocab=vocab)
+        
+        # If we passed vocab to factory, we don't need manual patching usually.
+        # But let's verify if the factory handles it correctly.
+        # CaptchaProcessor -> ClassificationProcessor/GenerationProcessor takes vocab argument.
+        # So we can remove the manual patching below.
         # For classification, we might need classes? 
         # On-the-fly is mostly for generation (OCR).
         

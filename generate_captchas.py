@@ -17,11 +17,12 @@ from PIL.ImageFont import FreeTypeFont, truetype
 
 
 from src.generator import (
-    sanitize_alnum, 
     random_color, 
     ConfigurableImageCaptcha, 
     random_capitalize
 )
+
+from src.utils import get_words, get_ttf_files, sanitize_alnum
 
 from src.config.config import DatasetConfig
 
@@ -104,39 +105,5 @@ class CaptchaGenerator:
 
 
 
-def get_words(
-    file_path: str,
-    min_word_len: int = 4,
-    max_word_len: Optional[int] = None,
-) -> list[str]:
-    """
-    Load words from a TSV file and filter by length and alnum content.
-    """
-    df = pd.read_csv(file_path, sep="\t", names=["word_id", "word", "frequency"])
-    words: set[str] = set()
-    for word in df["word"].tolist():
-        for split_word in word.split():
-            clean = sanitize_alnum(split_word)
-            n = len(clean)
-            if n >= min_word_len and (max_word_len is None or n <= max_word_len):
-                words.add(clean)
-    return sorted(words)
 
 
-def get_ttf_files(root_path: str | Path) -> List[str]:
-    """
-    Recursively find all .ttf files in the given directory tree.
-
-    Args:
-        root_path: Path to the root directory to search (e.g., 'font_library')
-
-    Returns:
-        A list of string paths for all .ttf files found
-    """
-    root = Path(root_path)
-    ttf_files: List[str] = []
-
-    for file_path in root.rglob("*.ttf"):
-        ttf_files.append(str(file_path))
-
-    return sorted(ttf_files)

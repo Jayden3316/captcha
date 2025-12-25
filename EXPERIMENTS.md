@@ -121,20 +121,14 @@ dataset_config:
 
 These are some exemplar configurations to easily refer to when needed during discussion of experiments below.
 
-| Dataset name | Dataset Config | Number of Captchas | words list | font_root | random_capitalize | remarks |
-| --- | --- | --- | --- | --- | --- | --- |
-| **fixed_clean_dataset_train** | experiments/dataset_configs/clean_dataset_train.yaml | 50k | experiments/diverse_words.tsv | train_font_library | False |clean dataset, 5 letter alphanumeric words, no noise, no distortions, black text on white background |
-| **fixed_clean_dataset_val** | experiments/dataset_configs/clean_dataset_val.yaml | 10k | experiments/diverse_words.tsv | val_font_library | False | clean dataset, 5 letter alphanumeric words, no noise, no distortions, black text on white background |
-| **fixed_noisy_dataset_train** | experiments/dataset_configs/noisy_dataset_train.yaml | 50k | experiments/diverse_words.tsv | train_font_library | False | noisy dataset, 5 letter alphanumeric words, noise, distortions, randomly colored text on a light background |
-| **fixed_noisy_dataset_train_large** | experiments/dataset_configs/noisy_dataset_train.yaml | 400k | experiments/diverse_words.tsv | train_font_library | False | noisy dataset, 5 letter alphanumeric words, noise, distortions, randomly colored text on a light background |
-| **fixed_noisy_dataset_val** | experiments/dataset_configs/noisy_dataset_val.yaml | 10k | experiments/diverse_words.tsv | val_font_library | False | noisy dataset, 5 letter alphanumeric words, noise, distortions, randomly colored text on a light background |
-| **variable_clean_dataset_train** | experiments/dataset_configs/clean_dataset_train.yaml | 200k | experiments/wiki_words_20k.txt | train_font_library | False | clean dataset, words of length between 4 and 12, mean around 7, no noise, no distortions, black text on white background |
-| **variable_clean_dataset_val** | experiments/dataset_configs/clean_dataset_val.yaml | 10k | experiments/wiki_words_20k.txt | val_font_library | False | clean dataset, words of length between 4 and 12, mean around 7, no noise, no distortions, black text on white background |
-| **variable_clean_dataset_val_generation** | experiments/dataset_configs/clean_dataset_val.yaml | 10k | experiments/wiki_words_2k.txt | val_font_library | True | clean dataset, words of length between 4 and 12, mean around 7, no noise, no distortions, black text on white background |
-| **variable_noisy_dataset_train** | experiments/dataset_configs/noisy_dataset_train.yaml | 200k | experiments/wiki_words_20k.txt | train_font_library | False | noisy dataset, words of length between 4 and 12, mean around 7, noise, distortions, randomly colored text on a light background |
-| **variable_noisy_dataset_train_large** | experiments/dataset_configs/noisy_dataset_train.yaml | 800k | experiments/wiki_words_20k.txt | train_font_library | True | noisy dataset, words of length between 4 and 12, mean around 7, noise, distortions, randomly colored text on a light background |
-| **variable_noisy_dataset_val** | experiments/dataset_configs/noisy_dataset_val.yaml | 10k | experiments/wiki_words_20k.txt | val_font_library | False | noisy dataset, words of length between 4 and 12, mean around 7, noise, distortions, randomly colored text on a light background |
-| **variable_noisy_dataset_val_generation** | experiments/dataset_configs/noisy_dataset_val.yaml | 10k | experiments/wiki_words_2k.txt | val_font_library | True | noisy dataset, words of length between 4 and 12, mean around 7, noise, distortions, randomly colored text on a light background |
+| Dataset name | Dataset Config | words list | font_root | random_capitalize | remarks |
+| --- | --- | --- | --- | --- | --- |
+| **fixed_clean_dataset_train_classification** | experiments/dataset_configs/clean_dataset_train.yaml | experiments/diverse_words.tsv | train_font_library | False |clean dataset, 5 letter alphanumeric words, no noise, no distortions, black text on white background |
+| **fixed_clean_dataset_val_classification** | experiments/dataset_configs/clean_dataset_val.yaml | experiments/diverse_words.tsv | val_font_library | False | clean dataset, 5 letter alphanumeric words, no noise, no distortions, black text on white background |
+| **fixed_noisy_dataset_train_classification** | experiments/dataset_configs/noisy_dataset_train.yaml | experiments/diverse_words.tsv | train_font_library | False | noisy dataset, 5 letter alphanumeric words, noise, distortions, randomly colored text on a light background |
+| **fixed_noisy_dataset_val_classification** | experiments/dataset_configs/noisy_dataset_val.yaml | experiments/diverse_words.tsv | val_font_library | False | noisy dataset, 5 letter alphanumeric words, noise, distortions, randomly colored text on a light background |
+
+TODO: list other relevant datasets here
 
 These datasets enable comparison of the following:
 - Effect of dataset size on training (for fixed and variable datasets) and (noisy and clean datasets)
@@ -142,19 +136,6 @@ These datasets enable comparison of the following:
 - Effect of noisy or clean datasets
 
 ## Classification
-
-### Determining the size of dataset
-
-All of the following experiments are performed on resnet-base (as defined in the training config below). In the interest of not having too many experiments, we experiment only on fixed length datasets: `fixed_clean` and `fixed_noisy`. For variable length datasets, the idea is to use heuristics from here and the number of characters to get a ball-park figure for the number of images required. This would depend on the sequence model used downstream, and hence is deferred to the generation experiments.
-
-Since each of these are done in a kaggle notebook with a different version, the training config remains the same. In a persistent set up, we would be able to define different configs for different experiments that point to the appropriate dataset as required.
-
-| Experiment Name | Config Path | Wandb Link| Kaggle Notebook Link | Kaggle Notebook Version | Results |
-| --- | --- | --- | --- | --- | --- |
-| fixed_clean_small | experiments/training_configs/classification/resnet_base.yaml | | | | |
-| fixed_clean_large | experiments/training_configs/classification/resnet_base.yaml | | | | |
-| fixed_noisy_small | experiments/training_configs/classification/resnet_base.yaml | | | | |
-| fixed_noisy_large | experiments/training_configs/classification/resnet_base.yaml | | | | |
 
 ### Determining the size of model
 
@@ -215,9 +196,9 @@ model_config:
         stem_stride: 4
         stem_in_channels: 3
         stage_block_counts: [2, 2, 6, 2]
-        downsample_strides: [(2, 1), (2, 2), (2, 2), (2, 2)]
-        downsample_kernels: [(2, 1), (2, 2), (2, 2), (2, 2)]
-        downsample_padding: [(0, 0), (0, 0), (0, 0), (0, 0)]
+        downsample_strides: [(2, 1), (2, 2), (2, 2)]
+        downsample_kernels: [(2, 1), (2, 2), (2, 2)]
+        downsample_padding: [(0, 0), (0, 0), (0, 0)]
 
     adapter_type: "flatten"
     adapter_config:
@@ -281,11 +262,49 @@ model_config:
     d_vocab: 100
     loss_type: "cross_entropy"
 ```
+finally, another alternative is to have (2,1) kernels instead of (2,3) kernels, with stride as (2, 1) and no padding. The tradeoff is that there would be no context from the adjecent patches during downsampling, but the performance difference is not entirely obvious to me.
 
+resnet-base-rnn-narrow-asymm:
+
+The config is provided here for reference:
+```yaml
+model_config:
+    pipeline_type: "standard_classification"
+    task_type: "classification"
+    encoder_type: "resnet"
+    encoder_config:
+        dims: [16, 32, 64, 128]
+        stem_kernel_size: 4
+        stem_stride: 4
+        stem_in_channels: 3
+        stage_block_counts: [2, 2, 6, 2]
+        downsample_strides: [(2, 2), (2, 1), (2, 1)]
+        downsample_kernels: [(2, 2), (2, 1), (2, 1)]
+        downsample_padding: [(0, 0), (0, 0), (0, 0)]
+
+        # the following are defaults, but reproduced here for clarity:
+        convnext_kernel_size: 7
+        convnext_drop_path__rate: 0.0
+        convnext_expansion_ratio: 4
+
+    adapter_type: "flatten"
+    adapter_config:
+        output_dim: 576 # 128 * 2 * 6
+    head_type: "classification"
+    head_config:
+        num_classes: 100
+        d_model: 576
+        head_hidden_dim: 256
+        pooling_type: "mean" # default arg, not used here.
+    
+    # global config
+
+```
 | Experiment Name | Config Path | Wandb Link| Kaggle Notebook Link | Kaggle Notebook Version | Results |
 | --- | --- | --- | --- | --- | --- |
 | resnet_base | experiments/training_configs/classification/resnet_base.yaml | | | | |
 | resnet_base_rnn | experiments/training_configs/classification/resnet_base_rnn.yaml | | | | |
+| resnet_base_rnn_narrow_asymm | experiments/training_configs/classification/resnet_base_rnn_narrow_asymm.yaml | | | | |
 
 #### ConvNext vs ResNet
 
@@ -298,14 +317,14 @@ model_config:
     task_type: "classification"
     encoder_type: "convnext"
     encoder_config:
-        dims: [8, 16, 24, 48]
+        dims: [16, 32, 64, 128]
         stem_kernel_size: 4
         stem_stride: 4
         stem_in_channels: 3
         stage_block_counts: [2, 2, 6, 2]
-        downsample_strides: [(2, 2), (2, 2), (2, 2), (2, 2)]
-        downsample_kernels: [(2, 2), (2, 2), (2, 2), (2, 2)]
-        downsample_padding: [(0, 0), (0, 0), (0, 0), (0, 0)]
+        downsample_strides: [(2, 2), (2, 2), (2, 2)]
+        downsample_kernels: [(2, 2), (2, 2), (2, 2)]
+        downsample_padding: [(0, 0), (0, 0), (0, 0)]
 
         # the following are defaults, but reproduced here for clarity:
         convnext_kernel_size: 7
@@ -314,7 +333,7 @@ model_config:
 
     adapter_type: "flatten"
     adapter_config:
-        output_dim: 576 # 48 * 2 * 6
+        output_dim: 576 # 128 * 2 * 6
     head_type: "classification"
     head_config:
         num_classes: 100
@@ -328,11 +347,13 @@ model_config:
     loss_type: "cross_entropy"
 ```
 
+The motivation is to see the advantage of the larger kernel size, as well as the inverted bottleneck layer. A more detailed discussion is provided later on.
+
 | Experiment Name | Config Path | Wandb Link| Kaggle Notebook Link | Kaggle Notebook Version | Results |
 | --- | --- | --- | --- | --- | --- |
 | convnext_base | experiments/training_configs/classification/convnext_base.yaml | | | | |
 | convnext_large | experiments/training_configs/classification/convnext_large.yaml | | | | |
-| --- | --- | --- | --- | --- | --- |
+
 
 ## Generation
 
@@ -342,9 +363,68 @@ For this task we use on the fly dataset generation with noise. Refer the dataset
 
 `CTCLoss` is used for this task.
 
-#### Comparison between sequence models:
+The code base currently supports three types of sequence models: `rnn`, `bilstm` and `transformer_encoder` for the `standard_generation` pipeline. The goal is to pose this as a non-autoregressive generation task, where a convolution based image encoder provides feature maps which is then reshaped and passed to the sequence model. While this is traditional, operations like attention could provide advantages when utilized in the primary image encoding as well, and recent work like SATRN and SVTR use attention in the primary image encoding.
 
-The code base currently supports three types of sequence models: `rnn`, `bilstm` and `transformer_encoder`
+#### Baseline: RNN vs BiLSTM vs Transformer
+
+The configs for each are provided here for reference:
+
+rnn:
+```yaml
+sequence_model_type: 'rnn'
+sequence_model_config:
+    hidden_size: 256
+    num_layers: 2
+    dropout: 0.1
+    bidirectional: False
+```
+
+bilstm:
+```yaml
+sequence_model_type: 'bilstm'
+sequence_model_config:
+    hidden_size: 256
+    num_layers: 2
+    dropout: 0.1
+```
+
+transformer_encoder:
+```yaml
+sequence_model_type: 'transformer_encoder'
+sequence_model_config:
+    n_layers: 4
+    d_model: 256
+    n_heads: 8
+    d_mlp: 1024
+    n_ctx: 128
+    d_vocab: 62
+    act_fn: 'gelu'
+    # attention is bi-directional
+    # RoPE is used for position encoding
+```
+| Experiment Name | Config Path | Wandb Link| Kaggle Notebook Link | Kaggle Notebook Version | Results |
+| --- | --- | --- | --- | --- | --- |
+| rnn | experiments/training_configs/generation/rnn.yaml | | | | |
+| bilstm | experiments/training_configs/generation/bilstm.yaml | | | | |
+| transformer_encoder | experiments/training_configs/generation/transformer_encoder.yaml | | | | |
+
+
+#### Alternate architectures:
+
+At this point, it is important to take a deeper look at the task at hand, and see if there are modifications that could be done to the baseline models to improve performance.
+
+The clean dataset is similar in spirit to an OCR task, the main deviations are:
+- Different fonts and capitalizations occur within the same image
+- The words do not themselves have any meaning/ distribution associated with it (e.g., they are not English words)
+
+The best performing OCR models tend to be large VLMs, and largely this seems to be attributed to the language capabilities of the decoder. (\cite: relevant papers). Most of these are ViT based, and seem to be challenging to train at a sufficient scale for this task. 
+
+The noisy dataset has further deviations:
+- Noisy backgrounds 
+- Character warping and rotations
+- Character offsets and spacing
+- Noisy strokes and dots (making relying on only local features potentially misleading)
 
 
 ### The 'difficult' generation task:
+Will be added later.
