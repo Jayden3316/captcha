@@ -212,7 +212,7 @@ class OnTheFlyDataset(Dataset):
         return {
             "pixel_values": pixel_values,
             "input_ids": input_ids,
-            "target_length": input_ids.numel(),
+            "target_length": len(word) if self.config.model_config.task_type == "generation" else 1,
             "gen_time": gen_time
         }
 

@@ -119,7 +119,7 @@ class GenerationProcessor(BaseProcessor):
         super().__init__(config)
         
         # Use simple fallback if d_vocab/n_ctx not deeply configured
-        self.max_seq_len = getattr(config.model_config.sequence_model_config, 'n_ctx', 128)
+        self.max_seq_len = getattr(getattr(config.model_config, 'sequence_model_config', None), 'n_ctx', 128)
 
         # Determine decoding strategy
         self.decoding_type = 'ctc' if config.model_config.head_type == 'ctc' else 'simple'

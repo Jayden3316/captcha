@@ -1,4 +1,4 @@
-experiment_name: "convnext_base_classification_variable"
+experiment_name: "resnet_base_generation"
 
 seed: 42
 
@@ -17,7 +17,7 @@ dataset_config:
     max_fonts_per_family: 1 
     font_sizes: [42]
 
-    word_path: "experiments/diverse_words_variable.tsv"
+    #word_path: "experiments/diverse_words.tsv"
 
     random_capitalize: False
     add_noise_dots: False
@@ -40,64 +40,54 @@ dataset_config:
     # bg_color: [255, 255, 255, 1]
     # fg_color: [0, 0, 0]
 
-    #vocab: '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    #min_word_len: 4
-    #max_word_len: 10
+    vocab: '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    min_word_len: 4
+    max_word_len: 10
 
 
 model_config:
-    pipeline_type: "standard_classification"
-    task_type: "classification"
-    encoder_type: "convnext"
+    pipeline_type: "standard_generation"
+    task_type: "generation"
+    encoder_type: "resnet"
     encoder_config:
-        dims: [16, 32, 64, 128]
+        dims: [8, 16, 24, 48]
         stem_kernel_size: 4
         stem_stride: 4
         stem_in_channels: 3
-        stage_block_counts: [3, 3, 9, 3]
-        downsample_strides: [[2, 2], [2, 2], [2, 2]]
-        downsample_kernels: [[2, 2], [2, 2], [2, 2]]
-        downsample_padding: [[0, 0], [0, 0], [0, 0]]
+        stage_block_counts: [2, 2, 6, 2]
+        downsample_strides: [[2, 2], [2, 1], [2, 1]]
+        downsample_kernels: [[2, 2], [2, 3], [2, 3]]
+        downsample_padding: [[0, 0], [0, 1], [0, 1]]
 
-        # the following are defaults, but reproduced here for clarity:
-        convnext_kernel_size: 7
-        convnext_drop_path__rate: 0.0
-        convnext_expansion_ratio: 4
-
-    adapter_type: "flatten"
+    adapter_type: "vertical_feature"
     adapter_config:
-        output_dim: 1536 # 128 * 2 * 6
+        output_dim: 96 # 48 * 2 
 
-    projector_type: 'linear'
-    projector_config:
-        output_dim: 576
+    projector_type: 'identity'
     sequence_model_type: null
 
-    head_type: "classification"
+    head_type: "ctc"
     head_config:
-        num_classes: 100
-        d_model: 576
-        head_hidden_dim: 256
-        pooling_type: "mean" # default arg, not used here.
+        d_model: 96
     
     # global config
-    d_model: 576
-    d_vocab: 100
-    loss_type: "cross_entropy"
+    d_model: 96
+    d_vocab: 62
+    loss_type: "ctc"
 
 training_config:
   batch_size: 32
   
-  training_steps: 50000 # num_samples = training_steps * batch_size = 1.6 * 10^6 
+  training_steps: 25000 # num_samples = training_steps * batch_size = 1.6 * 10^6 
   # training_steps is set to be of the order of the number of parameters in the model
   # should be adjusted for every model
   # for generation tasks, the number of possible words are huge
   # so the assumption is that the problem is model constrained.
 
   use_onthefly_generation: True
-  save_every_steps: 2048
-  val_check_interval_steps: 2048
-  val_steps: 64
+  save_every_steps: 512
+  val_check_interval_steps: 512
+  val_steps: 128
 
   learning_rate: 0.0001
   optimizer_type: "adamw"
@@ -105,11 +95,11 @@ training_config:
   grad_clip_norm: 1.0
   accumulate_grad_batches: 1
   
-  checkpoint_dir: "experiments/classification/convnext_base_variable/checkpoints" # updated as needed
+  checkpoint_dir: "experiments/generation/resnet_base_clean_fixed/checkpoints" # updated as needed
 
 
   save_every_n_epochs: 1
-  monitor_metric: "val_acc"
+  monitor_metric: "word_correct"
 
   wandb_project: "captcha-ocr"
   # wandb_name: "<experiment_name>" Takes experiment from config file if not specified
@@ -120,4 +110,4 @@ training_config:
   mixed_precision: false
   shuffle_train: true
 
-  metrics: ['accuracy', 'f1', 'precision', 'recall']
+  metrics: ['character_accuracy', 'word_correct', 'edit_distance']
