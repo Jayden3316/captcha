@@ -1,4 +1,4 @@
-experiment_name: "convnext_medium_asymm_bilstm_generation_variable"
+experiment_name: "resnet_large_deep_asymm_ctr_generation_variable"
 
 seed: 42
 
@@ -25,10 +25,10 @@ dataset_config:
 
     noise_bg_density: 0
 
-    extra_spacing: -5
-    spacing_jitter: 5
-    word_space_probability: 0.5
-    word_offset_dx: 0.25
+    extra_spacing: 0
+    spacing_jitter: 0
+    word_space_probability: 0
+    word_offset_dx: 0.0
 
     character_offset_dx: [0, 4]
     character_offset_dy: [0, 6]
@@ -48,7 +48,7 @@ dataset_config:
 model_config:
     pipeline_type: "standard_generation"
     task_type: "generation"
-    encoder_type: "convnext"
+    encoder_type: "resnet"
     encoder_config:
         dims: [64, 128, 256, 512]
         stem_kernel_size: 4
@@ -61,23 +61,15 @@ model_config:
 
     adapter_type: "vertical_feature"
     adapter_config:
-        output_dim: 1024 # 512 * 2
+        output_dim: 1024 # 512 * 2 
 
     projector_type: 'mlp'
     projector_config:
         output_dim: 256
         hidden_dim: 512
         num_layers: 2
+    sequence_model_type: null
 
-    sequence_model_type: 'bilstm'
-    sequence_model_config:
-        num_layers: 2
-        hidden_size: 256
-
-    sequence_adapter: "linear"
-    sequence_adapter_config:
-        output_dim: 256
-    
     head_type: "ctc"
     head_config:
         d_model: 256
@@ -88,7 +80,7 @@ model_config:
     loss_type: "ctc"
 
 training_config:
-  batch_size: 96
+  batch_size: 32
   
   training_steps: 50000 # num_samples = training_steps * batch_size = 1.6 * 10^6 
   # training_steps is set to be of the order of the number of parameters in the model
@@ -107,7 +99,7 @@ training_config:
   grad_clip_norm: 1.0
   accumulate_grad_batches: 1
   
-  checkpoint_dir: "experiments/generation/resnet_base_clean_fixed/checkpoints" # updated as needed
+  checkpoint_dir: "experiments/generation/resnet_medium_variable/checkpoints" # updated as needed
 
 
   save_every_n_epochs: 1
