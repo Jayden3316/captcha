@@ -1,4 +1,4 @@
-experiment_name: "resnet_base_classification_clean_fixed"
+experiment_name: "convnext_base_noisy_classification"
 
 seed: 42
 
@@ -20,21 +20,21 @@ dataset_config:
     word_path: "experiments/diverse_words.tsv"
 
     random_capitalize: False
-    add_noise_dots: False
-    add_noise_curve: False
+    add_noise_dots: True
+    add_noise_curve: True
 
     noise_bg_density: 0
 
-    extra_spacing: 0
-    spacing_jitter: 0
-    word_space_probability: 0
-    word_offset_dx: 0.0
+    extra_spacing: -5
+    spacing_jitter: 5
+    word_space_probability: 0.5
+    word_offset_dx: 0.25
 
-    character_offset_dx: [0, 0]
-    character_offset_dy: [0, 0]
-    character_rotate: [0, 0]
-    character_warp_dx: [0, 0.0]
-    character_warp_dy: [0.0, 0.0]
+    character_offset_dx: [0, 4]
+    character_offset_dy: [0, 6]
+    character_rotate: [-30, 30]
+    character_warp_dx: [0.1, 0.3]
+    character_warp_dy: [0.2, 0.3]
 
     # random colors are used by default
     # bg_color: [255, 255, 255, 1]
@@ -48,22 +48,29 @@ dataset_config:
 model_config:
     pipeline_type: "standard_classification"
     task_type: "classification"
-    encoder_type: "resnet"
+    encoder_type: "convnext"
     encoder_config:
-        dims: [8, 16, 24, 48]
+        dims: [16, 32, 64, 128]
         stem_kernel_size: 4
         stem_stride: 4
         stem_in_channels: 3
-        stage_block_counts: [2, 2, 6, 2]
+        stage_block_counts: [3, 3, 9, 3]
         downsample_strides: [[2, 2], [2, 2], [2, 2]]
         downsample_kernels: [[2, 2], [2, 2], [2, 2]]
         downsample_padding: [[0, 0], [0, 0], [0, 0]]
 
+        # the following are defaults, but reproduced here for clarity:
+        convnext_kernel_size: 7
+        convnext_drop_path__rate: 0.0
+        convnext_expansion_ratio: 4
+
     adapter_type: "flatten"
     adapter_config:
-        output_dim: 576 # 48 * 2 * 6
+        output_dim: 1536 # 128 * 2 * 6
 
-    projector_type: null
+    projector_type: 'linear'
+    projector_config:
+        output_dim: 576
     sequence_model_type: null
 
     head_type: "classification"
@@ -98,7 +105,7 @@ training_config:
   grad_clip_norm: 1.0
   accumulate_grad_batches: 1
   
-  checkpoint_dir: "experiments/classification/resnet_base_clean_fixed/checkpoints" # updated as needed
+  checkpoint_dir: "experiments/classification/convnext_base_noisy/checkpoints" # updated as needed
 
 
   save_every_n_epochs: 1
