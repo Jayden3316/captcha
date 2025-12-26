@@ -1,4 +1,4 @@
-experiment_name: "resnet_medium_ctr_generation_variable"
+experiment_name: "resnet_medium_asymm_ctr_generation_variable"
 
 seed: 42
 
