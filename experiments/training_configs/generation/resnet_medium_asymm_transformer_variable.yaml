@@ -75,6 +75,7 @@ model_config:
         d_mlp: 384
         n_ctx: 384
 
+
     sequence_adapter: "identity"
     sequence_adapter_config:
         output_dim: 192
@@ -110,7 +111,10 @@ training_config:
   
   checkpoint_dir: "experiments/generation/resnet_base_clean_fixed/checkpoints" # updated as needed
 
-
+  lr_scheduler_type: "cosine"
+  lr_scheduler_params:
+      eta_min: 0.000001
+  lr_scheduler_step_unit: "step"
   save_every_n_epochs: 1
   monitor_metric: "exact_match"
 

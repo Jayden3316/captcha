@@ -108,6 +108,11 @@ training_config:
   grad_clip_norm: 1.0
   accumulate_grad_batches: 1
   
+  lr_scheduler_type: "cosine"
+  lr_scheduler_params:
+      eta_min: 0.000001
+  lr_scheduler_step_unit: "step"
+  
   checkpoint_dir: "experiments/generation/resnet_base_clean_fixed/checkpoints" # updated as needed
 
 

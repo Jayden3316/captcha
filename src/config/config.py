@@ -737,6 +737,7 @@ class TrainingConfig:
     # Learning rate schedule
     lr_scheduler_type: Optional[str] = None  # e.g., "cosine", "step", "plateau"
     lr_scheduler_params: Dict[str, Any] = field(default_factory=dict)
+    lr_scheduler_step_unit: str = "step" # "epoch" or "step" (batch)
     
     # Gradient configuration
     grad_clip_norm: float = 1.0
@@ -783,6 +784,9 @@ class TrainingConfig:
             'use_onthefly_generation': self.use_onthefly_generation,
             'save_every_steps': self.save_every_steps,
             'val_check_interval_steps': self.val_check_interval_steps,
+            'lr_scheduler_type': self.lr_scheduler_type,
+            'lr_scheduler_params': self.lr_scheduler_params,
+            'lr_scheduler_step_unit': self.lr_scheduler_step_unit,
         }
 
 

@@ -378,6 +378,34 @@ def train(
     else:
          optimizer = optimizer_cls(model.parameters(), lr=config.training_config.learning_rate)
 
+    # Initialize Scheduler
+    scheduler = None
+    if config.training_config.lr_scheduler_type:
+        stype = config.training_config.lr_scheduler_type.lower()
+        sparams = config.training_config.lr_scheduler_params.copy()
+        s_unit = config.training_config.lr_scheduler_step_unit
+        
+        # Infer T_max for Cosine if likely needed and missing
+        if stype == "cosine" and "T_max" not in sparams:
+             if s_unit == "step":
+                 # Use training_steps if available, else estimate
+                 total_steps_est = config.training_config.training_steps if (config.training_config.training_steps and config.training_config.training_steps > 0) else (config.training_config.epochs * len(train_loader))
+                 sparams["T_max"] = total_steps_est
+             else:
+                 sparams["T_max"] = config.training_config.epochs
+        
+        scheduler_cls = None
+        if stype == "plateau": scheduler_cls = optim.lr_scheduler.ReduceLROnPlateau
+        elif stype == "step": scheduler_cls = optim.lr_scheduler.StepLR
+        elif stype == "cosine": scheduler_cls = optim.lr_scheduler.CosineAnnealingLR
+        elif stype == "exponential": scheduler_cls = optim.lr_scheduler.ExponentialLR
+        
+        if scheduler_cls:
+             scheduler = scheduler_cls(optimizer, **sparams)
+             print(f"Initialized {stype} scheduler with params: {sparams} (Unit: {s_unit})")
+        else:
+             print(f"Warning: Unknown scheduler type {stype}, skipping.")
+
     loss_fn = get_loss_function(config.model_config)
     
     best_val_metric = 0.0
@@ -459,8 +487,14 @@ def train(
 
             optimizer.step()
             
+            # Step Scheduler (Per Step)
+            if scheduler and config.training_config.lr_scheduler_step_unit == "step":
+                if not isinstance(scheduler, optim.lr_scheduler.ReduceLROnPlateau):
+                    scheduler.step()
+            
+            current_lr = optimizer.param_groups[0]['lr']
             train_loss += loss.item()
-            progress_bar.set_postfix({"loss": loss.item()})
+            progress_bar.set_postfix({"loss": loss.item(), "lr": current_lr})
             
             current_loss = loss.item()
             global_step += 1
@@ -469,14 +503,18 @@ def train(
                 wandb.log({
                     "train_loss": current_loss, 
                     "epoch": epoch + (step / len(train_loader)) if not use_steps else (global_step / total_steps), # Approx
-                    "step": global_step
+                    "step": global_step,
+                    "lr": current_lr
                 })
             
             # --- Validation & Saving (Step-based) ---
             if use_steps:
                 if global_step % val_check_interval == 0:
-                    RunValidation(model, val_loader, loss_fn, processor, config, device, global_step, best_val_metric, save_dir, optimizer)
+                    val_metrics = RunValidation(model, val_loader, loss_fn, processor, config, device, global_step, best_val_metric, save_dir, optimizer)
                     model.train() # Switch back
+                    
+                    if scheduler and isinstance(scheduler, optim.lr_scheduler.ReduceLROnPlateau):
+                        scheduler.step(val_metrics.get("val_loss", 0.0))
                 
                 if global_step % save_every_steps == 0:
                      SaveCheckpoint(model, optimizer, config, processor, save_dir, f"step_{global_step}", global_step, best_val_metric)
@@ -486,11 +524,19 @@ def train(
                     break
         
         if not use_steps:
+             # Step Scheduler (Per Epoch)
+             if scheduler and config.training_config.lr_scheduler_step_unit == "epoch":
+                 if not isinstance(scheduler, optim.lr_scheduler.ReduceLROnPlateau):
+                     scheduler.step()
+
              avg_train_loss = train_loss / len(train_loader)
              print(f"Epoch {epoch+1} Train Loss: {avg_train_loss:.4f}")
              
              if (epoch + 1) % config.training_config.val_check_interval == 0:
-                  RunValidation(model, val_loader, loss_fn, processor, config, device, epoch + 1, best_val_metric, save_dir, optimizer)
+                  val_metrics = RunValidation(model, val_loader, loss_fn, processor, config, device, epoch + 1, best_val_metric, save_dir, optimizer)
+                  
+                  if scheduler and isinstance(scheduler, optim.lr_scheduler.ReduceLROnPlateau):
+                       scheduler.step(val_metrics.get("val_loss", 0.0))
 
 # Extracted Validation Logic to support calling from both loops
 def RunValidation(model, val_loader, loss_fn, processor, config, device, step_or_epoch, best_metric, save_dir, optimizer):
