@@ -63,7 +63,7 @@ model_config:
     adapter_config:
         output_dim: 576 # 48 * 2 * 6
 
-    projector_type: null
+    projector_type: 'identity'
     sequence_model_type: null
 
     head_type: "classification"
