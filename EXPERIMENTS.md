@@ -293,7 +293,7 @@ The motivation is to see the advantage of the larger kernel size, as well as the
 
 - (*) These runs were terminated early. Plots show that they would have likely converged to a better accuracy.
 
-![classification scores](image.png)
+![classification scores](images/classification.png)
 ## Generation
 
 The effective stride along the width is determined by the embedding dimension since `VerticalFeatureAdapter` does the following transform: `[B, C, H, W] -> [B, W//f, C * H * f], where f = (output_dim // C * H)`. 

@@ -17,6 +17,9 @@ __pycache__
 !diverse_words.tsv
 !diverse_words_variable.tsv
 
+!classification.png
+!generation.png
+
 wandb/
 checkpoints/
 
