@@ -1,4 +1,4 @@
-experiment_name: "convnext_base_generation_variable"
+experiment_name: "convnext_medium_generation_variable"
 
 seed: 42
 
@@ -50,7 +50,7 @@ model_config:
     task_type: "generation"
     encoder_type: "convnext"
     encoder_config:
-        dims: [16, 32, 64, 128]
+        dims: [64, 128, 256, 512]
         stem_kernel_size: 4
         stem_stride: 4
         stem_in_channels: 3
@@ -61,17 +61,17 @@ model_config:
 
     adapter_type: "vertical_feature"
     adapter_config:
-        output_dim: 256 # 128 * 2
+        output_dim: 512 # 128 * 2
 
     projector_type: 'identity'
     sequence_model_type: null
 
     head_type: "ctc"
     head_config:
-        d_model: 256
+        d_model: 512
     
     # global config
-    d_model: 256
+    d_model: 512
     d_vocab: 62
     loss_type: "ctc"
 

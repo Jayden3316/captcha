@@ -1,4 +1,4 @@
-experiment_name: "convnext_base_generation_variable"
+experiment_name: "resnet_base_transformer_generation_variable"
 
 seed: 42
 
@@ -48,30 +48,36 @@ dataset_config:
 model_config:
     pipeline_type: "standard_generation"
     task_type: "generation"
-    encoder_type: "convnext"
+    encoder_type: "resnet"
     encoder_config:
-        dims: [16, 32, 64, 128]
+        dims: [8, 16, 24, 48]
         stem_kernel_size: 4
         stem_stride: 4
         stem_in_channels: 3
-        stage_block_counts: [3, 3, 9, 3]
+        stage_block_counts: [2, 2, 6, 2]
         downsample_strides: [[2, 2], [2, 1], [2, 1]]
         downsample_kernels: [[2, 2], [2, 3], [2, 3]]
         downsample_padding: [[0, 0], [0, 1], [0, 1]]
 
     adapter_type: "vertical_feature"
     adapter_config:
-        output_dim: 256 # 128 * 2
+        output_dim: 96 # 48 * 2 
 
     projector_type: 'identity'
-    sequence_model_type: null
+    sequence_model_type: 'transformer_encoder'
+    sequence_model_config:
+        n_layers: 4
+        d_model: 96
+        n_head: 4
+        d_mlp: 384
+        n_ctx: 48
 
     head_type: "ctc"
     head_config:
-        d_model: 256
+        d_model: 96
     
     # global config
-    d_model: 256
+    d_model: 96
     d_vocab: 62
     loss_type: "ctc"
 
@@ -95,7 +101,7 @@ training_config:
   grad_clip_norm: 1.0
   accumulate_grad_batches: 1
   
-  checkpoint_dir: "experiments/generation/convnext_base/checkpoints" # updated as needed
+  checkpoint_dir: "experiments/generation/resnet_base_clean_fixed/checkpoints" # updated as needed
 
 
   save_every_n_epochs: 1
