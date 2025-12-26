@@ -70,7 +70,7 @@ model_config:
         d_model: 96
         n_head: 4
         d_mlp: 384
-        n_ctx: 64
+        n_ctx: 96
 
     sequence_adapter: "identity"
     sequence_adapter_config:
