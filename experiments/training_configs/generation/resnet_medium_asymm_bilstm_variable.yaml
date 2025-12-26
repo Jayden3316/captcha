@@ -1,4 +1,4 @@
-experiment_name: "convnext_medium_asymm_bilstm_generation_variable"
+experiment_name: "resnet_medium_asymm_bilstm_generation_variable"
 
 seed: 42
 
@@ -48,20 +48,20 @@ dataset_config:
 model_config:
     pipeline_type: "standard_generation"
     task_type: "generation"
-    encoder_type: "convnext"
+    encoder_type: "resnet"
     encoder_config:
-        dims: [16, 32, 64, 128]
+        dims: [16, 32, 48, 96]
         stem_kernel_size: 4
         stem_stride: 4
         stem_in_channels: 3
-        stage_block_counts: [3, 3, 9, 3]
-        downsample_strides: [[2, 1], [2, 1], [2, 1]]
-        downsample_kernels: [[2, 3], [2, 3], [2, 3]]
-        downsample_padding: [[0, 1], [0, 1], [0, 1]]
+        stage_block_counts: [2, 2, 6, 2]
+        downsample_strides: [[2, 2], [2, 1], [2, 1]]
+        downsample_kernels: [[2, 2], [2, 3], [2, 3]]
+        downsample_padding: [[0, 0], [0, 1], [0, 1]]
 
     adapter_type: "vertical_feature"
     adapter_config:
-        output_dim: 256 # 128 * 2
+        output_dim: 192 # 96 * 2
 
     projector_type: 'linear'
     projector_config:
