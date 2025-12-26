@@ -23,18 +23,21 @@ dataset_config:
     add_noise_dots: False
     add_noise_curve: False
 
+    add_noise_dots: True
+    add_noise_curve: True
+
     noise_bg_density: 0
 
-    extra_spacing: 0
-    spacing_jitter: 0
-    word_space_probability: 0
-    word_offset_dx: 0.0
+    extra_spacing: -5
+    spacing_jitter: 5
+    word_space_probability: 0.5
+    word_offset_dx: 0.25
 
-    character_offset_dx: [0, 0]
-    character_offset_dy: [0, 0]
-    character_rotate: [0, 0]
-    character_warp_dx: [0, 0.0]
-    character_warp_dy: [0.0, 0.0]
+    character_offset_dx: [0, 4]
+    character_offset_dy: [0, 6]
+    character_rotate: [-30, 30]
+    character_warp_dx: [0.1, 0.3]
+    character_warp_dy: [0.2, 0.3]
 
     # random colors are used by default
     # bg_color: [255, 255, 255, 1]

@@ -23,7 +23,7 @@ dataset_config:
     add_noise_dots: True
     add_noise_curve: True
 
-    noise_bg_density: 0
+    noise_bg_density: 5000
 
     extra_spacing: -5
     spacing_jitter: 5
