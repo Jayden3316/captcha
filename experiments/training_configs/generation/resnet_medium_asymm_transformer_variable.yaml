@@ -1,4 +1,4 @@
-experiment_name: "resnet_medium_asymm_transformer_generation_variable"
+experiment_name: "resnet_medium_asymm_transformer_generation_fixed"
 
 seed: 42
 
@@ -7,7 +7,7 @@ dataset_config:
     height: 64
     width_divisor: 32
     width_bias: 0
-    resize_mode: "variable"
+    resize_mode: "fixed"
     image_ext: "png"
 
     train_font_root: "./train_font_library" 

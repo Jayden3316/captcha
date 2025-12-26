@@ -1,4 +1,4 @@
-experiment_name: "convnext_medium_asymm_transformer_generation_variable"
+experiment_name: "convnext_medium_asymm_transformer_generation_fixed"
 
 seed: 42
 
