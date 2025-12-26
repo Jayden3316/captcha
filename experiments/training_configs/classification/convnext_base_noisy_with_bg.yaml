@@ -1,4 +1,4 @@
-experiment_name: "convnext_base_noisy_classification"
+experiment_name: "convnext_base_noisy_with_bg_classification"
 
 seed: 42
 
@@ -23,7 +23,7 @@ dataset_config:
     add_noise_dots: True
     add_noise_curve: True
 
-    noise_bg_density: 0
+    noise_bg_density: 5000
 
     extra_spacing: -5
     spacing_jitter: 5
@@ -105,7 +105,7 @@ training_config:
   grad_clip_norm: 1.0
   accumulate_grad_batches: 1
   
-  checkpoint_dir: "experiments/classification/convnext_base_noisy/checkpoints" # updated as needed
+  checkpoint_dir: "experiments/classification/convnext_base_noisy_with_bg/checkpoints" # updated as needed
 
 
   save_every_n_epochs: 1
