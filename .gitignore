@@ -15,6 +15,7 @@ __pycache__
 *.csv
 *.tsv
 !diverse_words.tsv
+!diverse_words_variable.tsv
 
 wandb/
 checkpoints/
