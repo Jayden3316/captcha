@@ -50,7 +50,7 @@ model_config:
     task_type: "generation"
     encoder_type: "resnet"
     encoder_config:
-        dims: [8, 16, 24, 48]
+        dims: [16, 32, 48, 96]
         stem_kernel_size: 4
         stem_stride: 4
         stem_in_channels: 3
@@ -61,16 +61,19 @@ model_config:
 
     adapter_type: "vertical_feature"
     adapter_config:
-        output_dim: 96 # 48 * 2 
+        output_dim: 192 # 96 * 2 
 
-    projector_type: 'identity'
+    projector_type: 'linear'
+    projector_config:
+        output_dim: 96
+    
     sequence_model_type: 'transformer_encoder'
     sequence_model_config:
         n_layers: 2
         d_model: 96
         n_head: 4
         d_mlp: 384
-        n_ctx: 384
+        n_ctx: 512
 
     sequence_adapter: "identity"
     sequence_adapter_config:
