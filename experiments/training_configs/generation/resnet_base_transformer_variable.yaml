@@ -72,6 +72,10 @@ model_config:
         d_mlp: 384
         n_ctx: 48
 
+    sequence_adapter: "identity"
+    sequence_adapter_config:
+        output_dim: 96
+    
     head_type: "ctc"
     head_config:
         d_model: 96
