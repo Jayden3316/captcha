@@ -1,0 +1,113 @@
+experiment_name: "resnet_base_dots_generation_variable"
+
+seed: 42
+
+dataset_config:
+    width: 192
+    height: 64
+    width_divisor: 32
+    width_bias: 0
+    resize_mode: "variable"
+    image_ext: "png"
+
+    train_font_root: "./train_font_library" 
+    val_font_root: "./val_font_library"
+    
+    fonts: []
+    max_fonts_per_family: 1 
+    font_sizes: [42]
+
+    #word_path: "experiments/diverse_words.tsv"
+
+    random_capitalize: False
+    add_noise_dots: True
+    add_noise_curve: True
+
+    noise_bg_density: 0
+
+    extra_spacing: 0
+    spacing_jitter: 0
+    word_space_probability: 0
+    word_offset_dx: 0.0
+
+    character_offset_dx: [0, 0]
+    character_offset_dy: [0, 0]
+    character_rotate: [0, 0]
+    character_warp_dx: [0, 0.0]
+    character_warp_dy: [0.0, 0.0]
+
+    # random colors are used by default
+    # bg_color: [255, 255, 255, 1]
+    # fg_color: [0, 0, 0]
+
+    vocab: '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    min_word_len: 4
+    max_word_len: 10
+
+
+model_config:
+    pipeline_type: "standard_generation"
+    task_type: "generation"
+    encoder_type: "resnet"
+    encoder_config:
+        dims: [8, 16, 24, 48]
+        stem_kernel_size: 4
+        stem_stride: 4
+        stem_in_channels: 3
+        stage_block_counts: [2, 2, 6, 2]
+        downsample_strides: [[2, 2], [2, 1], [2, 1]]
+        downsample_kernels: [[2, 2], [2, 3], [2, 3]]
+        downsample_padding: [[0, 0], [0, 1], [0, 1]]
+
+    adapter_type: "vertical_feature"
+    adapter_config:
+        output_dim: 96 # 48 * 2 
+
+    projector_type: 'identity'
+    sequence_model_type: null
+
+    head_type: "ctc"
+    head_config:
+        d_model: 96
+    
+    # global config
+    d_model: 96
+    d_vocab: 62
+    loss_type: "ctc"
+
+training_config:
+  batch_size: 32
+  
+  training_steps: 50000 # num_samples = training_steps * batch_size = 1.6 * 10^6 
+  # training_steps is set to be of the order of the number of parameters in the model
+  # should be adjusted for every model
+  # for generation tasks, the number of possible words are huge
+  # so the assumption is that the problem is model constrained.
+
+  use_onthefly_generation: True
+  save_every_steps: 512
+  val_check_interval_steps: 512
+  val_steps: 128
+
+  learning_rate: 0.0001
+  optimizer_type: "adamw"
+  weight_decay: 0.01
+  grad_clip_norm: 1.0
+  accumulate_grad_batches: 1
+  
+  checkpoint_dir: "experiments/generation/resnet_base_clean_fixed/checkpoints" # updated as needed
+
+
+  save_every_n_epochs: 1
+  monitor_metric: "exact_match"
+
+  wandb_project: "captcha-ocr"
+  # wandb_name: "<experiment_name>" Takes experiment from config file if not specified
+  log_every_n_steps: 10
+  
+  device: "cuda"
+  num_workers: 4
+  mixed_precision: false
+  shuffle_train: true
+
+  metrics: ['character_accuracy', 'edit_distance', 'exact_match']
