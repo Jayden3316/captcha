@@ -1,4 +1,4 @@
-experiment_name: "convnext_separated_medium_asymm_ctr_generation_variable"
+experiment_name: "convnext_m2_ctr_generation_variable"
 
 seed: 42
 
@@ -48,7 +48,7 @@ dataset_config:
 model_config:
     pipeline_type: "standard_generation"
     task_type: "generation"
-    encoder_type: "convnext_separated"
+    encoder_type: "convnext"
     encoder_config:
         dims: [32, 48, 96, 192]
         stem_kernel_size: [4, 4]
@@ -63,7 +63,7 @@ model_config:
 
     adapter_type: "vertical_feature"
     adapter_config:
-        output_dim: 1024 # 512 * 2
+        output_dim: 384 # 192 * 2
 
     projector_type: 'mlp'
     projector_config:

@@ -1,7 +1,7 @@
 from typing import Dict, Any
 from src.config.config import (
     ExperimentConfig, DatasetConfig, TrainingConfig, ModelConfig,
-    ConvNextEncoderConfig, ResNetEncoderConfig,
+    ConvNextEncoderConfig, ResNetEncoderConfig, ConvNextSeparatedEncoderConfig,
     LinearProjectorConfig, MLPProjectorConfig, IdentityProjectorConfig, BottleneckProjectorConfig, ResidualProjectorConfig,
     TransformerEncoderConfig, TransformerDecoderConfig, RNNConfig, BiLSTMConfig,
     LinearHeadConfig, MLPHeadConfig, ClassificationHeadConfig,
@@ -54,7 +54,8 @@ def hydrate_config(data: Dict[str, Any]) -> ExperimentConfig:
     encoder_type = mc_data.get('encoder_type')
     encoder_cls_map = {
         'convnext': ConvNextEncoderConfig,
-        'resnet': ResNetEncoderConfig
+        'resnet': ResNetEncoderConfig,
+        'convnext_separated': ConvNextSeparatedEncoderConfig
     }
     encoder_config = get_config_obj(encoder_type, mc_data.get('encoder_config'), encoder_cls_map)
 

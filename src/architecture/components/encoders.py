@@ -82,7 +82,6 @@ class ConvNextSeparated(nn.Module):
     def __init__(self, dim, drop_path=0, layer__scale_init_value=1e-6):
         super().__init__()
         self.dwconv = nn.Conv2d(dim, dim, kernel_size=7, padding=3, groups=dim)
-        self.norm1 = LayerNorm2d(dim, eps=1e-6)
         self.norm2 = nn.LayerNorm(dim, eps=1e-6)
         self.pwconv1 = nn.Linear(dim, dim)
         self.act = nn.GELU()
@@ -97,7 +96,6 @@ class ConvNextSeparated(nn.Module):
 
     def forward(self, x):
         input = x
-        x = self.norm1(x)
         x = self.dwconv(x)
         x = x + input
         x = x.permute(0, 2, 3, 1)
