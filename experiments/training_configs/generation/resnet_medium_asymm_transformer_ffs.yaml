@@ -1,4 +1,4 @@
-experiment_name: "resnet_medium_asymm_transformer_generation_fixed_flipped"
+experiment_name: "resnet_medium_asymm_transformer_generation_ffs"
 
 seed: 42
 
@@ -70,7 +70,7 @@ model_config:
     
     sequence_model_type: 'transformer_encoder'
     sequence_model_config:
-        n_layers: 4
+        n_layers: 2
         d_model: 96
         n_head: 4
         d_mlp: 384
